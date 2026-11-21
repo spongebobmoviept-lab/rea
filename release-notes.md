@@ -8,6 +8,7 @@
 ### Features
 
 * **ida:** support the official Hex-Rays IDA MCP headlessly ([#4813](https://github.com/spongebobmoviept-lab/rea/issues/4813)) ([6822ebe](https://github.com/spongebobmoviept-lab/rea/commit/6822ebe1f3a4caec007fcd046754d66317d3349f))
+* **website:** recognize contributors in a shared commit-ranked directory ([ba31a11](https://github.com/spongebobmoviept-lab/rea/commit/ba31a111809e727891c238d1ca5ff9d62f751f0b))
 
 
 ### Bug Fixes
@@ -16,9 +17,11 @@
 * **asar:** preserve typed inventory configuration errors ([aa5d1a8](https://github.com/spongebobmoviept-lab/rea/commit/aa5d1a82815d4e446a975c9d43c1d653a5971474))
 * **ci:** select coverage guards for modified test registrations ([#12860](https://github.com/spongebobmoviept-lab/rea/issues/12860)) ([75fe508](https://github.com/spongebobmoviept-lab/rea/commit/75fe508eb45982447521be4d5849ccadf3ab8401))
 * **ci:** verify packaged Agent Environment bridges ([#12874](https://github.com/spongebobmoviept-lab/rea/issues/12874)) ([41fc470](https://github.com/spongebobmoviept-lab/rea/commit/41fc470072d441eefc3536a3de4a3ebb7902b5e4))
+* **docs:** align translated READMEs and verify catalog links ([d2a8b8d](https://github.com/spongebobmoviept-lab/rea/commit/d2a8b8d3d639827a9800fc4dea16fd772573b054))
 * **electron:** preserve waits and cancellation through renderer shutdown ([#12972](https://github.com/spongebobmoviept-lab/rea/issues/12972)) ([2533a8b](https://github.com/spongebobmoviept-lab/rea/commit/2533a8b32bf2d8e4c052f6ea5c7e616a93660a9f))
 * **electron:** resolve exact local IPC channel values ([#13005](https://github.com/spongebobmoviept-lab/rea/issues/13005)) ([e66a27c](https://github.com/spongebobmoviept-lab/rea/commit/e66a27c2f2bb294a0506e6d2d6cf9d2f0125b9e2))
 * **ghidra:** expose NativeAOT opt-out recovery ([#12923](https://github.com/spongebobmoviept-lab/rea/issues/12923)) ([753b7e9](https://github.com/spongebobmoviept-lab/rea/commit/753b7e908c5ab91508cbda7b954aaa8138822712))
+* **gpu:** decode UTF-8 CUBIN kernel symbol names ([#13101](https://github.com/spongebobmoviept-lab/rea/issues/13101)) ([23cf85e](https://github.com/spongebobmoviept-lab/rea/commit/23cf85ef24fbc598125d0d3a2cddb42eeb2337b5))
 * **javascript:** preserve Electron identity beside unrelated alias exhaustion ([#12988](https://github.com/spongebobmoviept-lab/rea/issues/12988)) ([c2870f9](https://github.com/spongebobmoviept-lab/rea/commit/c2870f91320721222a6157b5728eaff92a6c5a2a))
 * **javascript:** preserve Webpack slots outside finite writes ([#13006](https://github.com/spongebobmoviept-lab/rea/issues/13006)) ([91a68a8](https://github.com/spongebobmoviept-lab/rea/commit/91a68a8b7cd374b0b5a09cf5b57b05b8bb304162))
 * **javascript:** share widened reference-store propagation ([#12990](https://github.com/spongebobmoviept-lab/rea/issues/12990)) ([fba5e44](https://github.com/spongebobmoviept-lab/rea/commit/fba5e44bf5f393dcd6bd3269d88d7101f1586ff0))
@@ -43,7 +46,11 @@
 ### Documentation
 
 * **mcp:** clarify DeepSeek catalog refresh compatibility ([#13041](https://github.com/spongebobmoviept-lab/rea/issues/13041)) ([baad68f](https://github.com/spongebobmoviept-lab/rea/commit/baad68f437edc5c41116092cbc5bf272b40fd5f7))
+* **readme:** link contributor avatars to the contributor directory ([08880c3](https://github.com/spongebobmoviept-lab/rea/commit/08880c3542894c7c0b721a6fe79cd61b9936ff90))
+* **readme:** refresh project badges ([c7bc743](https://github.com/spongebobmoviept-lab/rea/commit/c7bc7436b4c354aabd34723b22dae7e544ee9a5e))
+* **readme:** simplify setup and move target details to the reference ([a914bba](https://github.com/spongebobmoviept-lab/rea/commit/a914bba78df46985618598a8e4ef79145acd3784))
 * remove tracked planning and architecture records ([#12856](https://github.com/spongebobmoviept-lab/rea/issues/12856)) ([a1dec2d](https://github.com/spongebobmoviept-lab/rea/commit/a1dec2d2d502ebb56da8902ccde9bf3dd9dfaf23))
+* streamline the README and expand the RL environment guide ([f3ce9a1](https://github.com/spongebobmoviept-lab/rea/commit/f3ce9a14c7b7ea482352bc6c8c66bdcd22ba7705))
 
 
 ### Tests
@@ -128,6 +135,7 @@
 * **debugger:** consolidate runtime setting recovery coverage ([#13042](https://github.com/spongebobmoviept-lab/rea/issues/13042)) ([67f8094](https://github.com/spongebobmoviept-lab/rea/commit/67f8094efaa220b354f032d607b56f3126950bf2))
 * **debugger:** consolidate startup descriptor ownership checks ([#13028](https://github.com/spongebobmoviept-lab/rea/issues/13028)) ([fb873fe](https://github.com/spongebobmoviept-lab/rea/commit/fb873feaeb928c692ee074784846a9f41c1d3b79))
 * **desktop:** verify cancellation before releasing the guest ([#12812](https://github.com/spongebobmoviept-lab/rea/issues/12812)) ([c94f275](https://github.com/spongebobmoviept-lab/rea/commit/c94f275667e8d9402d34bcddb61abe0393302685))
+* **docs:** isolate README drift cases and remove duplicate checks ([ce52580](https://github.com/spongebobmoviept-lab/rea/commit/ce5258043c47483d2c8db9a3c0b8f369542bed73))
 * **dotnet:** consolidate managed ExtraData coverage ([#12788](https://github.com/spongebobmoviept-lab/rea/issues/12788)) ([e8105d6](https://github.com/spongebobmoviept-lab/rea/commit/e8105d6be9c5b96a0635f09e0eeef9672f112e8f))
 * **dotnet:** use smaller fixtures for managed byte budgets ([#12793](https://github.com/spongebobmoviept-lab/rea/issues/12793)) ([337fd43](https://github.com/spongebobmoviept-lab/rea/commit/337fd43a0f91aa63c9697fd5dc912f7807454ba3))
 * **electron:** consolidate action and projection coverage ([#12959](https://github.com/spongebobmoviept-lab/rea/issues/12959)) ([32e5f5b](https://github.com/spongebobmoviept-lab/rea/commit/32e5f5bc1c26281656d6d2a17e14308c8eba05ce))
@@ -346,27 +354,38 @@
 * **wasm:** consolidate WABT output and glue scanner checks ([#12822](https://github.com/spongebobmoviept-lab/rea/issues/12822)) ([c11e73b](https://github.com/spongebobmoviept-lab/rea/commit/c11e73bd642cee0e12f0dfd7826d412dd9332506))
 * **web:** consolidate accessibility and storage comparison proofs ([#13085](https://github.com/spongebobmoviept-lab/rea/issues/13085)) ([3f494e1](https://github.com/spongebobmoviept-lab/rea/commit/3f494e18fa6aac74199bda740a11c6c94e242d5c))
 * **web:** consolidate artifact cleanup ownership proofs ([#13077](https://github.com/spongebobmoviept-lab/rea/issues/13077)) ([82224d9](https://github.com/spongebobmoviept-lab/rea/commit/82224d9f6ccd845a87ff9ff45643c560e4c625f5))
+* **web:** consolidate Browser worker inventory proofs ([#13098](https://github.com/spongebobmoviept-lab/rea/issues/13098)) ([e6df39b](https://github.com/spongebobmoviept-lab/rea/commit/e6df39bbba9c434942e742540b41c9e39a368bb3))
 * **web:** consolidate capture completeness proofs ([#13089](https://github.com/spongebobmoviept-lab/rea/issues/13089)) ([2d9c208](https://github.com/spongebobmoviept-lab/rea/commit/2d9c2088173067c8004eb379b47e03f1a374b502))
+* **web:** consolidate CDP binary body proofs ([#13097](https://github.com/spongebobmoviept-lab/rea/issues/13097)) ([1585513](https://github.com/spongebobmoviept-lab/rea/commit/15855137b79de905bb63e4a6afdf08c8410ed865))
+* **web:** consolidate CDP command settlement checks ([#13110](https://github.com/spongebobmoviept-lab/rea/issues/13110)) ([80b980e](https://github.com/spongebobmoviept-lab/rea/commit/80b980e5f43102aa1985727a2535a510cd85d2e5))
 * **web:** consolidate CDP context retention proofs ([#13090](https://github.com/spongebobmoviept-lab/rea/issues/13090)) ([cc24a0b](https://github.com/spongebobmoviept-lab/rea/commit/cc24a0b4c0416f4643967398f8c7dfb6a298de8f))
+* **web:** consolidate CDP policy and metadata proofs ([#13102](https://github.com/spongebobmoviept-lab/rea/issues/13102)) ([de6e5ff](https://github.com/spongebobmoviept-lab/rea/commit/de6e5ff9e0bb5cbc9255dfdf025924ad0d2ea50a))
 * **web:** consolidate CDP request identity and redirect proofs ([#13096](https://github.com/spongebobmoviept-lab/rea/issues/13096)) ([9a16142](https://github.com/spongebobmoviept-lab/rea/commit/9a16142fad208c1c8c1abef5bb401172b09f086f))
+* **web:** consolidate CDP resource metadata proofs ([#13103](https://github.com/spongebobmoviept-lab/rea/issues/13103)) ([3ef94f1](https://github.com/spongebobmoviept-lab/rea/commit/3ef94f1f338349ad1aecb2ec3ea8f7d9217f9fc5))
 * **web:** consolidate CDP response body lifecycle proofs ([#13094](https://github.com/spongebobmoviept-lab/rea/issues/13094)) ([e76b521](https://github.com/spongebobmoviept-lab/rea/commit/e76b521461b64907795435eba9db5b79e0af2e3e))
 * **web:** consolidate CDP response status proofs ([#13095](https://github.com/spongebobmoviept-lab/rea/issues/13095)) ([68f13d0](https://github.com/spongebobmoviept-lab/rea/commit/68f13d06d22ba9b5a57788c3aba29c7bd6a3dd70))
+* **web:** consolidate DOM base URL and origin checks ([#13108](https://github.com/spongebobmoviept-lab/rea/issues/13108)) ([15d5119](https://github.com/spongebobmoviept-lab/rea/commit/15d511951f9e759c5c8601267f71e7a54c0f0a5e))
+* **web:** consolidate DOM snapshot position and SVG proofs ([#13104](https://github.com/spongebobmoviept-lab/rea/issues/13104)) ([4ad0e3e](https://github.com/spongebobmoviept-lab/rea/commit/4ad0e3ea786dfc2fe1784ca8d2d3e8328637ad9c))
 * **web:** consolidate interrupted module resolution evidence ([#13072](https://github.com/spongebobmoviept-lab/rea/issues/13072)) ([f63915d](https://github.com/spongebobmoviept-lab/rea/commit/f63915d6f2bc55328bd3e38a337079b127d8113d))
 * **web:** consolidate module context and resolver evidence checks ([#13071](https://github.com/spongebobmoviept-lab/rea/issues/13071)) ([56a0617](https://github.com/spongebobmoviept-lab/rea/commit/56a0617f518432f14ba981c8c55f1b920f857f5e))
 * **web:** consolidate module syntax and capture identity fixtures ([#13073](https://github.com/spongebobmoviept-lab/rea/issues/13073)) ([8322b55](https://github.com/spongebobmoviept-lab/rea/commit/8322b555523ed83aa895af5e4ff666023ca511fc))
 * **web:** consolidate passive capture uncertainty checks ([#13083](https://github.com/spongebobmoviept-lab/rea/issues/13083)) ([9a66726](https://github.com/spongebobmoviept-lab/rea/commit/9a66726389aa74d4a7e49874d641ba085ae6c087))
 * **web:** consolidate passive CDP admission proofs ([#13092](https://github.com/spongebobmoviept-lab/rea/issues/13092)) ([750120a](https://github.com/spongebobmoviept-lab/rea/commit/750120a4ce5405ca3b803287be8d522d21e341d9))
 * **web:** consolidate passive CDP event fact proofs ([#13093](https://github.com/spongebobmoviept-lab/rea/issues/13093)) ([47a108e](https://github.com/spongebobmoviept-lab/rea/commit/47a108e64e3cf981901673e2bb795bace99235b8))
+* **web:** consolidate passive CDP response header proofs ([#13099](https://github.com/spongebobmoviept-lab/rea/issues/13099)) ([97f10e8](https://github.com/spongebobmoviept-lab/rea/commit/97f10e8957811bcabd8393d2dd2f2427d7ee9388))
 * **web:** consolidate passive HTTP metadata proofs ([#13087](https://github.com/spongebobmoviept-lab/rea/issues/13087)) ([e144285](https://github.com/spongebobmoviept-lab/rea/commit/e1442859dc492a666de9777547d9ac235528d89f))
 * **web:** consolidate passive script map matching proofs ([#13088](https://github.com/spongebobmoviept-lab/rea/issues/13088)) ([e94475b](https://github.com/spongebobmoviept-lab/rea/commit/e94475bdccc5f122f53dbde5a162348c10de0567))
 * **web:** consolidate redirect ancestry comparison proofs ([#13082](https://github.com/spongebobmoviept-lab/rea/issues/13082)) ([5b04c74](https://github.com/spongebobmoviept-lab/rea/commit/5b04c74ae05d3c5acf739f2941cd8d9145761f3d))
 * **web:** consolidate scenario alignment and ordering proofs ([#13078](https://github.com/spongebobmoviept-lab/rea/issues/13078)) ([b723393](https://github.com/spongebobmoviept-lab/rea/commit/b7233936118915a1f9c230873c95be08f7ae06e7))
 * **web:** consolidate scenario event coverage proofs ([#13079](https://github.com/spongebobmoviept-lab/rea/issues/13079)) ([2dc27d1](https://github.com/spongebobmoviept-lab/rea/commit/2dc27d164ab2c989d3fe06e8f1dcb2892366f686))
 * **web:** consolidate scenario transaction and context proofs ([#13081](https://github.com/spongebobmoviept-lab/rea/issues/13081)) ([3a60c55](https://github.com/spongebobmoviept-lab/rea/commit/3a60c55a91c3211fe087c572570c8e907d881e7e))
+* **web:** consolidate screenshot document and reply checks ([#13107](https://github.com/spongebobmoviept-lab/rea/issues/13107)) ([383709c](https://github.com/spongebobmoviept-lab/rea/commit/383709ca7e2af26249d19143e3b6b1b736c6fb88))
 * **web:** consolidate script metadata admission and projection proofs ([#13091](https://github.com/spongebobmoviept-lab/rea/issues/13091)) ([6878e24](https://github.com/spongebobmoviept-lab/rea/commit/6878e24cc75aba57f04e1d60aec9d39d19c3659d))
 * **web:** consolidate storage fingerprint comparison proofs ([#13084](https://github.com/spongebobmoviept-lab/rea/issues/13084)) ([251f863](https://github.com/spongebobmoviept-lab/rea/commit/251f863f30388f02017d0e34c790e529e8a7c183))
 * **web:** consolidate WebSocket payload comparison proofs ([#13086](https://github.com/spongebobmoviept-lab/rea/issues/13086)) ([ccfdd61](https://github.com/spongebobmoviept-lab/rea/commit/ccfdd6157282d3eaaeb7e6cfe9779bbe445b6ac9))
+* **web:** consolidate XHTML SVG namespace proofs ([#13105](https://github.com/spongebobmoviept-lab/rea/issues/13105)) ([c451857](https://github.com/spongebobmoviept-lab/rea/commit/c451857d380a809ba276b9c16f01865bd29494b0))
 * **web:** isolate captured module artifact checks ([#13075](https://github.com/spongebobmoviept-lab/rea/issues/13075)) ([4304a66](https://github.com/spongebobmoviept-lab/rea/commit/4304a6697446f2342a7052b580306c521d944a73))
+* **web:** make CDP discovery deadline checks deterministic ([#13109](https://github.com/spongebobmoviept-lab/rea/issues/13109)) ([5521bff](https://github.com/spongebobmoviept-lab/rea/commit/5521bff467d110a774cfc7390f418f1d0f41ed7e))
 * **website:** consolidate generated site verification checks ([#12783](https://github.com/spongebobmoviept-lab/rea/issues/12783)) ([e174349](https://github.com/spongebobmoviept-lab/rea/commit/e17434945f0d1108018363db379eb1c65c7eeb81))
 * **website:** consolidate verifier and fallback coverage ([e174349](https://github.com/spongebobmoviept-lab/rea/commit/e17434945f0d1108018363db379eb1c65c7eeb81))
 * **web:** verify importer integrity through Chromium ([#13076](https://github.com/spongebobmoviept-lab/rea/issues/13076)) ([ca1c328](https://github.com/spongebobmoviept-lab/rea/commit/ca1c3284ba825f4e757cd5d8011b7127cc8e5749))
