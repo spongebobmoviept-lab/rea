@@ -48,6 +48,7 @@
 
 ### Bug Fixes
 
+* **adb:** report macOS ownership preparation failures as typed host prerequisites ([#14140](https://github.com/spongebobmoviept-lab/rea/issues/14140)) ([604e087](https://github.com/spongebobmoviept-lab/rea/commit/604e087c3173e0a98c12409ac824017e20559094)), closes [#13943](https://github.com/spongebobmoviept-lab/rea/issues/13943)
 * **analysis-view:** match inventory path globs without backtracking ([17877d9](https://github.com/spongebobmoviept-lab/rea/commit/17877d9df51ac258b447a97656f6b4e91b4c3b75))
 * **analysis-view:** read older UEFI extraction Evidence and drop filter-count ceilings ([ca26f2a](https://github.com/spongebobmoviept-lab/rea/commit/ca26f2ac8499fa06af59f2590ec071af8a020094))
 * **android:** advertise the external-reference inputs the bridge accepts ([85154de](https://github.com/spongebobmoviept-lab/rea/commit/85154de8ab9107c0f403079a9bec81ab63077ea1))
@@ -704,6 +705,7 @@
 * **firmware:** describe UEFI summaries and views ([89fc51b](https://github.com/spongebobmoviept-lab/rea/commit/89fc51ba975e630743f2718d7cac3d4d817cc22c))
 * **ghidra:** link the native build steps for Linux arm64 ([dc10161](https://github.com/spongebobmoviept-lab/rea/commit/dc10161a9e0663c005fffb038e697306ca224482)), closes [#7018](https://github.com/spongebobmoviept-lab/rea/issues/7018)
 * **github:** require reported verification and factual docs in PR template ([#14130](https://github.com/spongebobmoviept-lab/rea/issues/14130)) ([a92d502](https://github.com/spongebobmoviept-lab/rea/commit/a92d5024724333f7169450a321101bb3e9dbd848))
+* **i18n:** standardize Vietnamese translations for guides and common terms ([#14141](https://github.com/spongebobmoviept-lab/rea/issues/14141)) ([bf913bc](https://github.com/spongebobmoviept-lab/rea/commit/bf913bc3dc3b710c9f46594fe4b8dfca6f59d5fb))
 * **ida:** name the database supervisor's deadlines for long analyses ([6b7b09f](https://github.com/spongebobmoviept-lab/rea/commit/6b7b09f00808431ac948e2c4eae8222e3b107afd)), closes [#13286](https://github.com/spongebobmoviept-lab/rea/issues/13286)
 * **install:** describe setup's direct-launch MCP registrations ([c0af3e2](https://github.com/spongebobmoviept-lab/rea/commit/c0af3e293cd85bfdece21a4e2ce2f7d25ab8e684)), closes [#10252](https://github.com/spongebobmoviept-lab/rea/issues/10252)
 * **install:** link Windows native build steps from a source checkout ([4a6fa19](https://github.com/spongebobmoviept-lab/rea/commit/4a6fa1937940f35c0873aff7b63bb6ffd98a583f)), closes [#10317](https://github.com/spongebobmoviept-lab/rea/issues/10317)
@@ -970,6 +972,7 @@
 * **ida:** consolidate verifier admission and oracle checks ([#13003](https://github.com/spongebobmoviept-lab/rea/issues/13003)) ([6cf4328](https://github.com/spongebobmoviept-lab/rea/commit/6cf432865676df308bc7ba6cd29b6688a4c66753))
 * **ida:** consolidate worker release and retry checks ([#12993](https://github.com/spongebobmoviept-lab/rea/issues/12993)) ([4df6b37](https://github.com/spongebobmoviept-lab/rea/commit/4df6b371b08bdc219a0d90d13605a99319c65d73))
 * **ida:** consolidate workspace copy and release checks ([#12991](https://github.com/spongebobmoviept-lab/rea/issues/12991)) ([8fefe18](https://github.com/spongebobmoviept-lab/rea/commit/8fefe18381bf69b3785c9ae4195067c0ef7ba076))
+* **ida:** decode the Hex-Rays query line without importing site ([#14144](https://github.com/spongebobmoviept-lab/rea/issues/14144)) ([3a63f78](https://github.com/spongebobmoviept-lab/rea/commit/3a63f7803f98dc57dfc5a6205bb8a0a22c89a40d))
 * **ida:** remove unused target setup from configuration checks ([#12821](https://github.com/spongebobmoviept-lab/rea/issues/12821)) ([e023c9f](https://github.com/spongebobmoviept-lab/rea/commit/e023c9fe5451b41d6f88843fd1b250b375fc5376))
 * **ida:** use owned configuration fixtures ([e023c9f](https://github.com/spongebobmoviept-lab/rea/commit/e023c9fe5451b41d6f88843fd1b250b375fc5376))
 * **il2cpp:** consolidate retained metadata projection coverage ([#12870](https://github.com/spongebobmoviept-lab/rea/issues/12870)) ([cfc1644](https://github.com/spongebobmoviept-lab/rea/commit/cfc1644238016a78bb31c122561849698df4f29b))
