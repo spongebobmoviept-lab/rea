@@ -16,9 +16,11 @@
 * **adb:** add optional limit and offset paging to list_adb_packages, list_adb_processes, and list_adb_directory ([#13843](https://github.com/spongebobmoviept-lab/rea/issues/13843)) ([dbd6057](https://github.com/spongebobmoviept-lab/rea/commit/dbd60574541fd57bdc4a9f6952dc740d77a65de5))
 * **analysis-view:** count distinct retained JavaScript fact values ([e19dbcf](https://github.com/spongebobmoviept-lab/rea/commit/e19dbcf857e98f402b61b1ef793dd62d9929426a))
 * **analysis-view:** filter native exports and ELF dependencies by name prefix ([a148da5](https://github.com/spongebobmoviept-lab/rea/commit/a148da56ccfb370e7a638832c2a1290fb208ca63))
+* **analysis-view:** order inventory occurrences by size before paging ([386d294](https://github.com/spongebobmoviept-lab/rea/commit/386d294f90d1ebfc0d6d01374ead49fc5bc637e0))
 * **analysis-view:** page retained UEFI extraction manifests ([5e8388a](https://github.com/spongebobmoviept-lab/rea/commit/5e8388a655e2eae83c31e6e21a611c2fc9910156))
 * **analysis-view:** page retained UEFI firmware maps ([fc4c453](https://github.com/spongebobmoviept-lab/rea/commit/fc4c453683213991d2338b25c6752f24236a3052))
 * **analysis-view:** select inventory occurrences by artifact kind ([e128a69](https://github.com/spongebobmoviept-lab/rea/commit/e128a69c2fd2bd51125eb36d479d7e573d07267b))
+* **analysis-view:** select inventory occurrences by path glob ([dba72f1](https://github.com/spongebobmoviept-lab/rea/commit/dba72f1277534791a30cc26607c430b1a655b9ef))
 * **analysis-view:** select retained JavaScript facts by property value ([25e93a8](https://github.com/spongebobmoviept-lab/rea/commit/25e93a8139abf3ad398d0366d84c53c75fcd0d82))
 * **android:** add optional limit and offset paging to search_android_classes ([#13846](https://github.com/spongebobmoviept-lab/rea/issues/13846)) ([f47dbd9](https://github.com/spongebobmoviept-lab/rea/commit/f47dbd9351ac8624c409d4e37ea630c1cc35edd9))
 * **android:** pin jadx-headless-mcp 0.8.0 ([3ca89d8](https://github.com/spongebobmoviept-lab/rea/commit/3ca89d8272b3d8e49580ed261753ad6780df2839))
@@ -46,6 +48,7 @@
 
 ### Bug Fixes
 
+* **analysis-view:** match inventory path globs without backtracking ([17877d9](https://github.com/spongebobmoviept-lab/rea/commit/17877d9df51ac258b447a97656f6b4e91b4c3b75))
 * **analysis-view:** read older UEFI extraction Evidence and drop filter-count ceilings ([ca26f2a](https://github.com/spongebobmoviept-lab/rea/commit/ca26f2ac8499fa06af59f2590ec071af8a020094))
 * **android:** advertise the external-reference inputs the bridge accepts ([85154de](https://github.com/spongebobmoviept-lab/rea/commit/85154de8ab9107c0f403079a9bec81ab63077ea1))
 * **android:** let the bridge advertise its own tool schemas ([2b6ede2](https://github.com/spongebobmoviept-lab/rea/commit/2b6ede2d0c0c82ea466c61a6694df3353c998637))
@@ -470,6 +473,7 @@
 * **mcp:** filter prompt completions before sorting ([#13251](https://github.com/spongebobmoviept-lab/rea/issues/13251)) ([0299413](https://github.com/spongebobmoviept-lab/rea/commit/0299413e86660456f5abd4f0c46921a16cbb1102))
 * **mcp:** index tool contracts, skip unadvertised projection, parallelize status probes, and stream tool result sizing ([#13263](https://github.com/spongebobmoviept-lab/rea/issues/13263)) ([7a2e8da](https://github.com/spongebobmoviept-lab/rea/commit/7a2e8da4959d73f88365aec6de48859dd6a6346e))
 * **mcp:** reduce deferred catalog startup data ([#13039](https://github.com/spongebobmoviept-lab/rea/issues/13039)) ([8f2b865](https://github.com/spongebobmoviept-lab/rea/commit/8f2b865c0645aab11a1d5d4c027d34089a925bf2))
+* **mcp:** serve compact output schemas from the build-recorded catalog ([#14121](https://github.com/spongebobmoviept-lab/rea/issues/14121)) ([54d62c7](https://github.com/spongebobmoviept-lab/rea/commit/54d62c75da2f2bd9267415899b4a0548c7900d35))
 * **model/uefi/rizin:** cache GGUF/UEFI BinaryReaders and share O(1) FifoQueue ([#13745](https://github.com/spongebobmoviept-lab/rea/issues/13745)) ([91b45c0](https://github.com/spongebobmoviept-lab/rea/commit/91b45c0aee520ff83355d8d11ff7fb2f49decda4))
 * **model:** reduce GGUF header parsing overhead ([#13634](https://github.com/spongebobmoviept-lab/rea/issues/13634)) ([33ca1be](https://github.com/spongebobmoviept-lab/rea/commit/33ca1be61cdb79e9bee579c9de1e050a8025e923))
 * **native-aot:** reuse PeImage BinaryReader and hoist hot-path math ([#13685](https://github.com/spongebobmoviept-lab/rea/issues/13685)) ([36b8675](https://github.com/spongebobmoviept-lab/rea/commit/36b8675833b40a38955b910a6836499d357a7747))
@@ -731,6 +735,7 @@
 * **agentenv:** stabilize timeout and stderr signal fixtures ([#12864](https://github.com/spongebobmoviept-lab/rea/issues/12864)) ([c18a8f9](https://github.com/spongebobmoviept-lab/rea/commit/c18a8f9e7f66e30903e75b219a24194a98d0e372))
 * **agentenv:** witness leader exit before stderr cancellation ([166166e](https://github.com/spongebobmoviept-lab/rea/commit/166166e197743a6bb6510a63b63b8b4e9a684b23))
 * **agentenv:** witness supervised exit before drain cancellation ([#12858](https://github.com/spongebobmoviept-lab/rea/issues/12858)) ([166166e](https://github.com/spongebobmoviept-lab/rea/commit/166166e197743a6bb6510a63b63b8b4e9a684b23))
+* **analysis-view:** cover compressed-size inventory ordering ([3cfbe81](https://github.com/spongebobmoviept-lab/rea/commit/3cfbe81509e4f33780a7d3ef843510e94e042495))
 * **android:** assert bridge property types and surface Java stderr ([ab3ae65](https://github.com/spongebobmoviept-lab/rea/commit/ab3ae658da22c9362b7836ab1a403ad37f7163d4))
 * **android:** check component names through manifest inventory ([29925b3](https://github.com/spongebobmoviept-lab/rea/commit/29925b3c2f7bf9ba11623e0d099a4a5558abec37))
 * **android:** consolidate ADB and Apktool boundary checks ([#12837](https://github.com/spongebobmoviept-lab/rea/issues/12837)) ([79525a7](https://github.com/spongebobmoviept-lab/rea/commit/79525a7c3eb0fe333463a2c76265a5f9fcdd7e2c))
