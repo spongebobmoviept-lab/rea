@@ -7,6 +7,7 @@
 
 ### ⚠ BREAKING CHANGES
 
+* **deps:** MCP callers that need every volume, file and section inline must pass detail: "complete" to inspect_uefi_firmware.
 * **limits:** an inspect_il2cpp_metadata refusal at the ELF pointer index reports reported_limits.boundary "virtual-pointer-index-bytes" and details.limit for max_native_index_bytes, and no longer carries a details.refusal fixed_ceiling.
 * **pe:** import and delay-import walks continue to the null descriptor past a short directory Size instead of stopping with a malformed_entry issue, and inspect-pe-resources reports an unsupported optional-header magic as unsupported_target.
 * **desktop:** the desktop application result adds the native family, the ui-framework and runtime-library component categories, new probe operations, a required probe priority and deferred_probes.
@@ -21,6 +22,11 @@
 * **pwntools:** for a request-sourced pwntools input ceiling, details.limit is now a control_kind "parameter" limit instead of a setting limit carrying setting, source, update_mode and scope fields.
 * **uefi:** MCP callers that need every published file inline must pass detail: "complete" to extract_uefi_firmware.
 * **uefi:** MCP callers that need every volume, file and section inline must pass detail: "complete" to inspect_uefi_firmware.
+
+### build
+
+* **deps:** bump write-file-atomic from 7.0.0 to 8.0.0 ([#8134](https://github.com/spongebobmoviept-lab/rea/issues/8134)) ([05b683b](https://github.com/spongebobmoviept-lab/rea/commit/05b683b72e8579ab4cf1cbb7181179d27b110965))
+
 
 ### Features
 
@@ -407,6 +413,9 @@
 * **browser:** single-pass CaptureJson parser and zero-allocation Playwright trace skipping ([#13427](https://github.com/spongebobmoviept-lab/rea/issues/13427)) ([275b574](https://github.com/spongebobmoviept-lab/rea/commit/275b5740f6c7b52db6556bd555d6e5acc2302982))
 * **browser:** wake the bundle worker on observed events ([#13225](https://github.com/spongebobmoviept-lab/rea/issues/13225)) ([60e0998](https://github.com/spongebobmoviept-lab/rea/commit/60e099848d3a78860cf8982b28ce88e3a469d52f))
 * **captures/io:** stream artifact hashes and preserve bounded export reads ([#13755](https://github.com/spongebobmoviept-lab/rea/issues/13755)) ([16c827a](https://github.com/spongebobmoviept-lab/rea/commit/16c827a25f0e29098d9625292580a6ee19656faa))
+* **ci:** omit development tools from failure reporting ([#14332](https://github.com/spongebobmoviept-lab/rea/issues/14332)) ([30fe9d9](https://github.com/spongebobmoviept-lab/rea/commit/30fe9d9f424447926ca0b8fb3006ddd6f95f279b))
+* **ci:** resolve test snapshot blobs in one tree walk ([#14334](https://github.com/spongebobmoviept-lab/rea/issues/14334)) ([73c1689](https://github.com/spongebobmoviept-lab/rea/commit/73c1689aefeabd29d235f8d4341d71f1d3316544))
+* **ci:** reuse installed website rendering packages ([#14337](https://github.com/spongebobmoviept-lab/rea/issues/14337)) ([1e1db9e](https://github.com/spongebobmoviept-lab/rea/commit/1e1db9e342ad13d26c27f34af8a2d7a5648387c9))
 * **cli/mcp:** decouple analysis view contracts and defer tshark PATH probes ([#13316](https://github.com/spongebobmoviept-lab/rea/issues/13316)) ([787b5aa](https://github.com/spongebobmoviept-lab/rea/commit/787b5aafb94f69f3b529a13bf47235a1b5ec4295))
 * **cli/mcp:** eliminate eager JSON schema work, double projection, and O(N^2) error compaction ([#13466](https://github.com/spongebobmoviept-lab/rea/issues/13466)) ([8688eb0](https://github.com/spongebobmoviept-lab/rea/commit/8688eb0195896d3083271dd73c8a490122f64c80))
 * **cli/server/dotnet:** single-pass --token-count JSON, indexed CLI command lookup, single status parse, and direct loops ([#13631](https://github.com/spongebobmoviept-lab/rea/issues/13631)) ([2532add](https://github.com/spongebobmoviept-lab/rea/commit/2532adda8449989fc12bebef215fbcb3494ff243))
@@ -600,6 +609,7 @@
 * **sourcemaps/browser/uefi:** event-driven wait, pre-sorted redaction, O(1) queue ([#13707](https://github.com/spongebobmoviept-lab/rea/issues/13707)) ([c5efbff](https://github.com/spongebobmoviept-lab/rea/commit/c5efbffc95646b4f17802b0ebbbddc168e8cbb2d))
 * **sqlite:** reuse stateless TextDecoder codecs and skip redundant truncation scan on short pages ([#13274](https://github.com/spongebobmoviept-lab/rea/issues/13274)) ([264c398](https://github.com/spongebobmoviept-lab/rea/commit/264c398c0d3299bb4de5a58e23e7f92637a08cdf))
 * **swift:** streamline symbol inventory classification ([#13902](https://github.com/spongebobmoviept-lab/rea/issues/13902)) ([78756a5](https://github.com/spongebobmoviept-lab/rea/commit/78756a52b4949125fd181dc9e0d68e7550a0714b))
+* **test:** classify tracked tests once for project policy checks ([#14331](https://github.com/spongebobmoviept-lab/rea/issues/14331)) ([eb256b3](https://github.com/spongebobmoviept-lab/rea/commit/eb256b3ac6ead12c11fe9b52ae1891b57ee8f4da))
 * **tests:** supervise direct vitest scripts through run-exclusive on POSIX ([#14104](https://github.com/spongebobmoviept-lab/rea/issues/14104)) ([e60777b](https://github.com/spongebobmoviept-lab/rea/commit/e60777b76fba2a91b67e30e9a6175bd9e77d4ddf))
 * **uefi:** pool framed LZMA worker and fuse single-pass publication ([#13338](https://github.com/spongebobmoviept-lab/rea/issues/13338)) ([6a20a88](https://github.com/spongebobmoviept-lab/rea/commit/6a20a88e8149ffe2cd03cd5c1da195defbae652f))
 * **uefi:** skip verified erased padding in NVRAM scans ([#14069](https://github.com/spongebobmoviept-lab/rea/issues/14069)) ([07b6a3d](https://github.com/spongebobmoviept-lab/rea/commit/07b6a3dc5f496081c60f4d122d08bad292a21509))
@@ -681,6 +691,7 @@
 * **elf:** retire the test-only dependency buffer driver ([0f4c4a7](https://github.com/spongebobmoviept-lab/rea/commit/0f4c4a7fb4c8d0f9da0ae896f43488d470b69bff))
 * **environment:** retain the latest replay interference event ([#13408](https://github.com/spongebobmoviept-lab/rea/issues/13408)) ([b96e2e1](https://github.com/spongebobmoviept-lab/rea/commit/b96e2e10e751f1026a6a828503b3709e6795897f))
 * **environment:** scan replay observations without copying the timeline ([#13409](https://github.com/spongebobmoviept-lab/rea/issues/13409)) ([54121e2](https://github.com/spongebobmoviept-lab/rea/commit/54121e2f2a3d461fdf30ba1b5ee31fd3a35656b0))
+* **environment:** share response status checks and write plan fixtures ([#14336](https://github.com/spongebobmoviept-lab/rea/issues/14336)) ([e170334](https://github.com/spongebobmoviept-lab/rea/commit/e17033450eac90ffc8e791ae4e52beea66d84357))
 * **errors:** list distinct resources in providerCleanupErrorFromFailures ([13725d2](https://github.com/spongebobmoviept-lab/rea/commit/13725d2986dda6bb8b9a3ae449408da67da5c360)), closes [#11859](https://github.com/spongebobmoviept-lab/rea/issues/11859)
 * **filesystem/artifacts:** share createCachedPrefixReader and ELF/MZ magic helpers ([baed75f](https://github.com/spongebobmoviept-lab/rea/commit/baed75fc2b3a723144d46fdfb206b50bd03c6698))
 * **firmware:** use one cooperative OTA reconstruction path ([#13375](https://github.com/spongebobmoviept-lab/rea/issues/13375)) ([1f2805e](https://github.com/spongebobmoviept-lab/rea/commit/1f2805e6c859760205f8cab9309f7ee31944d9b3))
@@ -693,6 +704,7 @@
 * **hopper:** compose bridge image cleanup through the shared owner ([3ba20f0](https://github.com/spongebobmoviept-lab/rea/commit/3ba20f0eb8387c2eede14249a32c86ba15fef294)), closes [#11859](https://github.com/spongebobmoviept-lab/rea/issues/11859)
 * **inspector:** compose provider close failures through the shared owner ([a5f3689](https://github.com/spongebobmoviept-lab/rea/commit/a5f36891793f2a901326f7443d177ff9e277065d)), closes [#11859](https://github.com/spongebobmoviept-lab/rea/issues/11859)
 * **inspector:** own the Node discovery path rule in one module ([#10680](https://github.com/spongebobmoviept-lab/rea/issues/10680)) ([559956c](https://github.com/spongebobmoviept-lab/rea/commit/559956cf6b5db2677aa4f8b4f34ee67b8038f4d8))
+* **investigation:** build comparison unknowns in their owning function ([#14335](https://github.com/spongebobmoviept-lab/rea/issues/14335)) ([c2c4298](https://github.com/spongebobmoviept-lab/rea/commit/c2c4298f3ca4a2a02028cc1d11cfc9316491e14f))
 * **kuna:** extract KunaCacheManifest from KunaProjectCache ([#13770](https://github.com/spongebobmoviept-lab/rea/issues/13770)) ([66d819f](https://github.com/spongebobmoviept-lab/rea/commit/66d819f36958850f8e443e0b4c8465252d81732f))
 * **kuna:** extract KunaInventoryIndex from KunaSessionClient ([#13821](https://github.com/spongebobmoviept-lab/rea/issues/13821)) ([a022067](https://github.com/spongebobmoviept-lab/rea/commit/a02206755e8733f0bda5918707c60100bd0beeaa))
 * **kuna:** extract KunaSessionEvidence from KunaSessionClient ([#13879](https://github.com/spongebobmoviept-lab/rea/issues/13879)) ([12c50f1](https://github.com/spongebobmoviept-lab/rea/commit/12c50f1309b7ab75a5c70075a7c5078ac888e5af))
@@ -703,6 +715,7 @@
 * **native:** compose LLDB resolver cleanup through the shared owner ([3af56cc](https://github.com/spongebobmoviept-lab/rea/commit/3af56cc7d50a5f41ea4753d2d0570082611ee0a4)), closes [#11859](https://github.com/spongebobmoviept-lab/rea/issues/11859)
 * **native:** extract NativeAotPeImage from nativeAotPe ([#13998](https://github.com/spongebobmoviept-lab/rea/issues/13998)) ([4d5b059](https://github.com/spongebobmoviept-lab/rea/commit/4d5b059c640aa5b690116bdffefba4085a1c3ebd))
 * **native:** extract NativeMacosErrorProjection from NativeMacOSProvider ([#13741](https://github.com/spongebobmoviept-lab/rea/issues/13741)) ([3306133](https://github.com/spongebobmoviept-lab/rea/commit/33061332ef3e386a9412841925128160e31bd1a0))
+* **nuget,apk:** adopt ByteSource and drop the NuGet in-memory parse branch ([05b683b](https://github.com/spongebobmoviept-lab/rea/commit/05b683b72e8579ab4cf1cbb7181179d27b110965))
 * **nuget,apk:** adopt ByteSource and drop the NuGet in-memory parse branch ([a324181](https://github.com/spongebobmoviept-lab/rea/commit/a324181cccd428618f1bb839121789720fb1395d))
 * **nuget:** select declared manifest occurrences in one pass ([#13402](https://github.com/spongebobmoviept-lab/rea/issues/13402)) ([4bb5c87](https://github.com/spongebobmoviept-lab/rea/commit/4bb5c87d2b1a06abcdf26ccf68dfd2551aebd9bd))
 * **pe:** decode certificate BMP and UTF-32 strings through BinaryReader ([6543a3c](https://github.com/spongebobmoviept-lab/rea/commit/6543a3c1a182aeeb797c3e9e27a3ec887e71d00f)), closes [#11865](https://github.com/spongebobmoviept-lab/rea/issues/11865)
@@ -735,6 +748,7 @@
 * **server:** simplify contractToolBindings types and handler dispatch ([#13912](https://github.com/spongebobmoviept-lab/rea/issues/13912)) ([fdad60a](https://github.com/spongebobmoviept-lab/rea/commit/fdad60aea7ba8c090c367ad7315a0101b644ecc4))
 * **setup:** extract SupportedClientLocations from SupportedClients ([#13731](https://github.com/spongebobmoviept-lab/rea/issues/13731)) ([8e619be](https://github.com/spongebobmoviept-lab/rea/commit/8e619be40c3074a36fe21d319d1c9dde11ae533d))
 * **tests:** consolidate repeated CLI capture and fixture construction ([#14311](https://github.com/spongebobmoviept-lab/rea/issues/14311)) ([78149ee](https://github.com/spongebobmoviept-lab/rea/commit/78149eeec979a124ffca8f36c815405491901709))
+* **tooling:** share verifier fixture and lint helpers ([#14318](https://github.com/spongebobmoviept-lab/rea/issues/14318)) ([4f0d160](https://github.com/spongebobmoviept-lab/rea/commit/4f0d1602546adc9b9da23bb148a844ab139310ae))
 * **uefi/native:** cache UEFI BinaryReader and reuse hasDosMzMagic ([#13659](https://github.com/spongebobmoviept-lab/rea/issues/13659)) ([0fc591d](https://github.com/spongebobmoviept-lab/rea/commit/0fc591da7c2309f59a46933658de8591a4c90c41))
 * **uefi/native:** cache UEFI BinaryReader per buffer and reuse hasDosMzMagic ([0fc591d](https://github.com/spongebobmoviept-lab/rea/commit/0fc591da7c2309f59a46933658de8591a4c90c41))
 * **uefi:** exercise only the framed LZMA worker ([#14072](https://github.com/spongebobmoviept-lab/rea/issues/14072)) ([1f4c8fe](https://github.com/spongebobmoviept-lab/rea/commit/1f4c8fe5d5c810a7aa7d7702c6fc8142b5afd37c))
@@ -763,6 +777,7 @@
 * **firmware:** describe UEFI summaries and views ([89fc51b](https://github.com/spongebobmoviept-lab/rea/commit/89fc51ba975e630743f2718d7cac3d4d817cc22c))
 * **ghidra:** link the native build steps for Linux arm64 ([dc10161](https://github.com/spongebobmoviept-lab/rea/commit/dc10161a9e0663c005fffb038e697306ca224482)), closes [#7018](https://github.com/spongebobmoviept-lab/rea/issues/7018)
 * **github:** require reported verification and factual docs in PR template ([#14130](https://github.com/spongebobmoviept-lab/rea/issues/14130)) ([a92d502](https://github.com/spongebobmoviept-lab/rea/commit/a92d5024724333f7169450a321101bb3e9dbd848))
+* **guides:** correct host and runtime claims and prune change notes ([05b683b](https://github.com/spongebobmoviept-lab/rea/commit/05b683b72e8579ab4cf1cbb7181179d27b110965))
 * **guides:** correct host and runtime claims and prune change notes ([4b5fcc9](https://github.com/spongebobmoviept-lab/rea/commit/4b5fcc9eab6c70d4e873c4fba6fe10e578623e4d))
 * **guides:** correct host requirements and prune change notes in runtime, web, data guides ([#14197](https://github.com/spongebobmoviept-lab/rea/issues/14197)) ([4b5fcc9](https://github.com/spongebobmoviept-lab/rea/commit/4b5fcc9eab6c70d4e873c4fba6fe10e578623e4d))
 * **guides:** correct native and platform guide flags, host limits and stale notes ([#14198](https://github.com/spongebobmoviept-lab/rea/issues/14198)) ([77b5b76](https://github.com/spongebobmoviept-lab/rea/commit/77b5b76e99f3f843e9691bee5a0dd616b8a909d8))
@@ -1339,6 +1354,8 @@
 
 * **apple:** run the bundle executable provenance regression on macOS ([5d136df](https://github.com/spongebobmoviept-lab/rea/commit/5d136df3ce720385a7cb33137bf77962733c08aa))
 * compare frozen selections with observed test failures ([#14301](https://github.com/spongebobmoviept-lab/rea/issues/14301)) ([54f6fd4](https://github.com/spongebobmoviept-lab/rea/commit/54f6fd4f907caef76127c7e377ef181c0b5a4a82))
+* **deps:** upgrade Pages, artifact transfers and cache actions together ([#8128](https://github.com/spongebobmoviept-lab/rea/issues/8128)) ([d957d43](https://github.com/spongebobmoviept-lab/rea/commit/d957d43ec196a498dc1c9540edbbad809f471e52))
+* **deps:** upgrade setup-node to 7.1.0 and preserve explicit npm cache policy ([#8133](https://github.com/spongebobmoviept-lab/rea/issues/8133)) ([3075064](https://github.com/spongebobmoviept-lab/rea/commit/3075064d692b06668900eb4c1805d88df22dcf96))
 * **limits:** enforce numeric inventory drift on documentation changes ([#12881](https://github.com/spongebobmoviept-lab/rea/issues/12881)) ([aaf151f](https://github.com/spongebobmoviept-lab/rea/commit/aaf151f5d6cca927823ac605699e587dfca2c043))
 * measure portable runner time for recorded selection predictions ([#14304](https://github.com/spongebobmoviept-lab/rea/issues/14304)) ([24f35b4](https://github.com/spongebobmoviept-lab/rea/commit/24f35b401867904e23869698d3490a1894916fe1))
 * publish the portable build cache only for selected consumers ([#14307](https://github.com/spongebobmoviept-lab/rea/issues/14307)) ([2b818e0](https://github.com/spongebobmoviept-lab/rea/commit/2b818e0dbf6df8583cd36307b29406fc0d047f55))
