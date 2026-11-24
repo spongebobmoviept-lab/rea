@@ -7,6 +7,7 @@
 
 ### ⚠ BREAKING CHANGES
 
+* **gpu:** amd_target_metadata gains required os_abi and abi fields, GPU objects gain a nullable amd_pal_metadata field, and PAL-ABI objects report complete, partial or unsupported instead of malformed.
 * **errors:** when a managed reader stops on `unsupported-signature`, `metadata.status` is `partial` (was `malformed`) in managed artifact, member and native-boundary inspection, and the artifact `classification.status` is `managed` (was `malformed`). The field names and enum members are unchanged.
 * **errors:** inspect_managed_artifact, inspect_managed_members, inspect_managed_native_boundaries, compare_managed_members, inspect_il2cpp_metadata, inspect_go_binary, inspect_rust_binary, inspect_dwarf_units and inspect_native_initializers report corrupt or truncated target bytes as code unsupported_target with details.path, format, format_failure and reason instead of invalid_request with an invalid_format issue. IL2CPP link conflicts list both path and binary_path with reason invalid_value instead of one invalid_format binary_path issue.
 * **errors:** callers that parse `code` see unsupported_target instead of invalid_request for malformed or truncated bytes from inspect_erlang_beam and from the inspect_pe_certificates certificate table body. Truncated reads of a file that changed during inspect_kernel_module, inspect_kernel_build_config and inspect_elf_unwind_ranges now report artifact_changed. inspect_artifact malformed and truncated refusals gain details.format_failure and details.format. Existing fields are unchanged.
@@ -215,6 +216,7 @@
 * **go:** report only admitted string candidate limits ([#13451](https://github.com/spongebobmoviept-lab/rea/issues/13451)) ([22042af](https://github.com/spongebobmoviept-lab/rea/commit/22042af848c2cfe4fbb1d6764771da570c421d4d))
 * **go:** retain verified reports through descriptor finalization ([#14026](https://github.com/spongebobmoviept-lab/rea/issues/14026)) ([6d7bf58](https://github.com/spongebobmoviept-lab/rea/commit/6d7bf586377f9c58419d884d5962bf192031aa02))
 * **gpu:** decode UTF-8 CUBIN kernel symbol names ([#13101](https://github.com/spongebobmoviept-lab/rea/issues/13101)) ([23cf85e](https://github.com/spongebobmoviept-lab/rea/commit/23cf85ef24fbc598125d0d3a2cddb42eeb2337b5))
+* **gpu:** dispatch AMDGPU note metadata on the declared ELF ABI ([#14244](https://github.com/spongebobmoviept-lab/rea/issues/14244)) ([0a145c8](https://github.com/spongebobmoviept-lab/rea/commit/0a145c84231372980c5543b5550f2368657c576c))
 * **gpu:** keep kernel resources in their owning coordinate space ([#13564](https://github.com/spongebobmoviept-lab/rea/issues/13564)) ([2be4cc4](https://github.com/spongebobmoviept-lab/rea/commit/2be4cc468e2bcfc62b0818049297fa1ee59c6f5b))
 * **gpu:** mark conflicting CUDA shared sections partial and clear register provenance ([#13963](https://github.com/spongebobmoviept-lab/rea/issues/13963)) ([4c27f48](https://github.com/spongebobmoviept-lab/rea/commit/4c27f4866715bdf08e2deaf205e4654176a2ccd4))
 * **gpu:** name an unreadable shared section instead of a bare null count ([#14133](https://github.com/spongebobmoviept-lab/rea/issues/14133)) ([4d7594f](https://github.com/spongebobmoviept-lab/rea/commit/4d7594f6728d73dcf891f322cbf03920d499af7a))
@@ -314,6 +316,7 @@
 * **target:** preserve IDA signatures across short reads ([#13613](https://github.com/spongebobmoviept-lab/rea/issues/13613)) ([bb51d8e](https://github.com/spongebobmoviept-lab/rea/commit/bb51d8e7ea82324fa216c99b840aae0119b1d0de))
 * **test:** reap synthetic test-stub processes on cleanup failure and fail fast on unavailable exit polling ([#13368](https://github.com/spongebobmoviept-lab/rea/issues/13368)) ([bd9a7fa](https://github.com/spongebobmoviept-lab/rea/commit/bd9a7fad7efba6a2aad1ace7a9e4388f6cf11101))
 * **tests:** bound oxlint test threads, throttle export spin loop, align process-boundary workers, and use level-1 zlib in large synthetic fixtures ([#13471](https://github.com/spongebobmoviept-lab/rea/issues/13471)) ([9e9cfba](https://github.com/spongebobmoviept-lab/rea/commit/9e9cfba67dc4a0a050552aedd364d8436c7b4186))
+* **tests:** expect [#14225](https://github.com/spongebobmoviept-lab/rea/issues/14225)'s reader reasons in the boundary tests ([#14238](https://github.com/spongebobmoviept-lab/rea/issues/14238)) ([83877c8](https://github.com/spongebobmoviept-lab/rea/commit/83877c88b97cbd2d38f204f4589902715acd0fdd))
 * **tests:** expect the path reason for a FIFO root and a symlinked ZIP ([#14242](https://github.com/spongebobmoviept-lab/rea/issues/14242)) ([0af067d](https://github.com/spongebobmoviept-lab/rea/commit/0af067d766c43a44e4d6b696b6d8d4470f18556d))
 * **tests:** narrow markdown-it attributes to strings in doc link checks ([#14217](https://github.com/spongebobmoviept-lab/rea/issues/14217)) ([e39b56f](https://github.com/spongebobmoviept-lab/rea/commit/e39b56fc5de5a8791bdf8fa85b8366de213804a9))
 * **uefi:** attribute a refused output directory to output_directory ([c01c168](https://github.com/spongebobmoviept-lab/rea/commit/c01c16833635c30375f61fe0fba1f28ddffb685f))
@@ -346,6 +349,7 @@
 * **website:** use the blue REA wordmark for site icons ([2c4776d](https://github.com/spongebobmoviept-lab/rea/commit/2c4776d9aa9c1167da96f75a27645a23ef3a348e))
 * **website:** verify markdown fragments from parsed headings ([#13265](https://github.com/spongebobmoviept-lab/rea/issues/13265)) ([88d1d9b](https://github.com/spongebobmoviept-lab/rea/commit/88d1d9b8b5245ce25165f5da3a5eea19740f4886))
 * **windows-shortcuts:** preserve unread target uncertainty ([#13653](https://github.com/spongebobmoviept-lab/rea/issues/13653)) ([8018344](https://github.com/spongebobmoviept-lab/rea/commit/8018344145b2d6f77a2379f015c81205312cd542))
+* **zip:** account apksigner alignment padding before the APK Signing Block ([#14232](https://github.com/spongebobmoviept-lab/rea/issues/14232)) ([6d408c0](https://github.com/spongebobmoviept-lab/rea/commit/6d408c048006c54f7e4ca371e78caee3f0d6c43a))
 
 
 ### Performance Improvements
