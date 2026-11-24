@@ -2,11 +2,12 @@
 ---
 
 
-## [6.11.0](https://github.com/spongebobmoviept-lab/rea/compare/rea-agents-6.10.1...rea-agents-6.11.0) (2026-11-23)
+## [6.11.0](https://github.com/spongebobmoviept-lab/rea/compare/rea-agents-6.10.1...rea-agents-6.11.0) (2026-11-24)
 
 
 ### ⚠ BREAKING CHANGES
 
+* **pwntools:** for a request-sourced pwntools input ceiling, details.limit is now a control_kind "parameter" limit instead of a setting limit carrying setting, source, update_mode and scope fields.
 * **uefi:** MCP callers that need every published file inline must pass detail: "complete" to extract_uefi_firmware.
 * **uefi:** MCP callers that need every volume, file and section inline must pass detail: "complete" to inspect_uefi_firmware.
 
@@ -68,6 +69,7 @@
 * **artifacts:** preserve DMG verification cancellation at the deadline ([#13616](https://github.com/spongebobmoviept-lab/rea/issues/13616)) ([f18de40](https://github.com/spongebobmoviept-lab/rea/commit/f18de40af62ab25948fa8c94e4ecaa61a52353aa))
 * **artifacts:** publish Node SEA metadata only after carrier validation ([#13411](https://github.com/spongebobmoviept-lab/rea/issues/13411)) ([120980c](https://github.com/spongebobmoviept-lab/rea/commit/120980cac0bc674584b8480187768cfd70972c08))
 * **artifacts:** report supported NES container layouts accurately ([#13499](https://github.com/spongebobmoviept-lab/rea/issues/13499)) ([321387c](https://github.com/spongebobmoviept-lab/rea/commit/321387c4319f5df167e488a827e38f3bed77eb36))
+* **artifacts:** route native images to static readers and name their architecture ([#14189](https://github.com/spongebobmoviept-lab/rea/issues/14189)) ([8ed8195](https://github.com/spongebobmoviept-lab/rea/commit/8ed819573bb3a4c8ef7a373f896c52554dd8acdf))
 * **artifacts:** share the examined-entry allowance across readers ([#13479](https://github.com/spongebobmoviept-lab/rea/issues/13479)) ([9560457](https://github.com/spongebobmoviept-lab/rea/commit/95604571965e9d1aec00a78665b4be64496eb094))
 * **artifacts:** verify owned carriers before retrying package reads ([#13343](https://github.com/spongebobmoviept-lab/rea/issues/13343)) ([d35e142](https://github.com/spongebobmoviept-lab/rea/commit/d35e1427097919e94f926e67b8068dafa6c02f6b))
 * **asar:** preserve lazy listing configuration errors ([#12854](https://github.com/spongebobmoviept-lab/rea/issues/12854)) ([aa5d1a8](https://github.com/spongebobmoviept-lab/rea/commit/aa5d1a82815d4e446a975c9d43c1d653a5971474))
@@ -209,6 +211,7 @@
 * **guidance:** direct workflow errors to the scoped inventory ([#13321](https://github.com/spongebobmoviept-lab/rea/issues/13321)) ([11a75a5](https://github.com/spongebobmoviept-lab/rea/commit/11a75a5c19bee0bd030d4bbbab9bcf789a2d26a6))
 * **har:** keep Chromium DevTools captures that report an empty server address ([#13027](https://github.com/spongebobmoviept-lab/rea/issues/13027)) ([af0d69e](https://github.com/spongebobmoviept-lab/rea/commit/af0d69ee91e2ae8225b94257d8354382bd0b263b))
 * **hermes:** resolve nested HERMES_HOME selection from the override root ([#13792](https://github.com/spongebobmoviept-lab/rea/issues/13792)) ([6542e81](https://github.com/spongebobmoviept-lab/rea/commit/6542e81a120864e2ed0d62476632c506cee1e43c))
+* **hopper:** name xrefs when a selector resolves outside every procedure ([#14188](https://github.com/spongebobmoviept-lab/rea/issues/14188)) ([b1b0bdf](https://github.com/spongebobmoviept-lab/rea/commit/b1b0bdf01115df8c66589e059bee45e299e03403))
 * **ida:** extend verifier admission check deadline to 90s ([d7ba8ad](https://github.com/spongebobmoviept-lab/rea/commit/d7ba8adbc3b8dc009549d6405873e68c8934c814))
 * **ida:** report an idb_open rejection with its upstream reason ([0cf7483](https://github.com/spongebobmoviept-lab/rea/commit/0cf7483322e0499cec72cc3df06d761871a75929)), closes [#13286](https://github.com/spongebobmoviept-lab/rea/issues/13286)
 * **ida:** report the supervisor's open deadline as provider_timeout ([ddf2cd9](https://github.com/spongebobmoviept-lab/rea/commit/ddf2cd9102ddcc6da901aa37f752223de61b289d)), closes [#13286](https://github.com/spongebobmoviept-lab/rea/issues/13286)
@@ -227,6 +230,7 @@
 * **javascript:** preserve Webpack slots outside finite writes ([#13006](https://github.com/spongebobmoviept-lab/rea/issues/13006)) ([91a68a8](https://github.com/spongebobmoviept-lab/rea/commit/91a68a8b7cd374b0b5a09cf5b57b05b8bb304162))
 * **javascript:** qualify response consumers with uncertain receivers ([a8d714f](https://github.com/spongebobmoviept-lab/rea/commit/a8d714f0e31f976df4efb2ed47bf9dfa90a86d0c))
 * **javascript:** read the target of method-first request(method, url) calls ([73bc6f4](https://github.com/spongebobmoviept-lab/rea/commit/73bc6f48c72d02069ef7a3e4f73869cbeeff11bc))
+* **javascript:** record the collapsed-query resource limit on observations ([#14220](https://github.com/spongebobmoviept-lab/rea/issues/14220)) ([df6454c](https://github.com/spongebobmoviept-lab/rea/commit/df6454c3fd9092954078501f133d784a57ea49b3))
 * **javascript:** reject an http method token Node refuses at the call site ([adf186d](https://github.com/spongebobmoviept-lab/rea/commit/adf186d5ffb831fb674aa02e5323e579d8710e9c))
 * **javascript:** report no loader call in a program that names no CommonJS loader ([#14191](https://github.com/spongebobmoviept-lab/rea/issues/14191)) ([998512e](https://github.com/spongebobmoviept-lab/rea/commit/998512eeb86a682f104e6ac80217c61be292ee9f)), closes [#14190](https://github.com/spongebobmoviept-lab/rea/issues/14190)
 * **javascript:** resolve literal spreads and const aliases in kill signals ([4bcd0d8](https://github.com/spongebobmoviept-lab/rea/commit/4bcd0d864a82c89a15c1152516bf0c46fd224731))
@@ -265,6 +269,7 @@
 * **process:** retain synchronous command launch failures ([#13350](https://github.com/spongebobmoviept-lab/rea/issues/13350)) ([3a36311](https://github.com/spongebobmoviept-lab/rea/commit/3a3631100480109a7d2ef8b9ac8ff1f58df5904e))
 * **process:** verify nested worker exit after parent cleanup ([#13242](https://github.com/spongebobmoviept-lab/rea/issues/13242)) ([75a75a1](https://github.com/spongebobmoviept-lab/rea/commit/75a75a1bd14eeec233650623e8b839bdf26b793d))
 * **pwntools:** release each PLT emulator so CET binaries keep their PLT map ([#13213](https://github.com/spongebobmoviept-lab/rea/issues/13213)) ([6357f77](https://github.com/spongebobmoviept-lab/rea/commit/6357f775a01f623b96603cf6237951a5c57a0a93))
+* **pwntools:** report a per-call input ceiling as its producer_limits parameter ([#14208](https://github.com/spongebobmoviept-lab/rea/issues/14208)) ([fc795dd](https://github.com/spongebobmoviept-lab/rea/commit/fc795dd260cb28799f4a247ba61a31e9d7aab4cb))
 * **pyinstaller:** distinguish declared-size overruns from limits ([#13648](https://github.com/spongebobmoviept-lab/rea/issues/13648)) ([ae3a225](https://github.com/spongebobmoviept-lab/rea/commit/ae3a225f79c1dfd672ef728c104d2d26cd7cbddc))
 * **python:** validate marshal coverage and consolidate pyc tests ([#14036](https://github.com/spongebobmoviept-lab/rea/issues/14036)) ([4ff98b8](https://github.com/spongebobmoviept-lab/rea/commit/4ff98b84fb5a3b231910ac816575bcf798017126))
 * **reference:** preserve file cleanup when directory enumeration fails ([#14081](https://github.com/spongebobmoviept-lab/rea/issues/14081)) ([26ce3d1](https://github.com/spongebobmoviept-lab/rea/commit/26ce3d1325e8905be5754fd3c6a65685ce118186))
@@ -299,6 +304,7 @@
 * **target:** preserve IDA signatures across short reads ([#13613](https://github.com/spongebobmoviept-lab/rea/issues/13613)) ([bb51d8e](https://github.com/spongebobmoviept-lab/rea/commit/bb51d8e7ea82324fa216c99b840aae0119b1d0de))
 * **test:** reap synthetic test-stub processes on cleanup failure and fail fast on unavailable exit polling ([#13368](https://github.com/spongebobmoviept-lab/rea/issues/13368)) ([bd9a7fa](https://github.com/spongebobmoviept-lab/rea/commit/bd9a7fad7efba6a2aad1ace7a9e4388f6cf11101))
 * **tests:** bound oxlint test threads, throttle export spin loop, align process-boundary workers, and use level-1 zlib in large synthetic fixtures ([#13471](https://github.com/spongebobmoviept-lab/rea/issues/13471)) ([9e9cfba](https://github.com/spongebobmoviept-lab/rea/commit/9e9cfba67dc4a0a050552aedd364d8436c7b4186))
+* **tests:** narrow markdown-it attributes to strings in doc link checks ([#14217](https://github.com/spongebobmoviept-lab/rea/issues/14217)) ([e39b56f](https://github.com/spongebobmoviept-lab/rea/commit/e39b56fc5de5a8791bdf8fa85b8366de213804a9))
 * **uefi:** attribute a refused output directory to output_directory ([c01c168](https://github.com/spongebobmoviept-lab/rea/commit/c01c16833635c30375f61fe0fba1f28ddffb685f))
 * **uefi:** preserve verified source identity through descriptor finalization ([#14073](https://github.com/spongebobmoviept-lab/rea/issues/14073)) ([ce277e3](https://github.com/spongebobmoviept-lab/rea/commit/ce277e3974f565f8edb46c88465b293c170fd582))
 * **uefi:** verify image identity before publishing inventory ([#13624](https://github.com/spongebobmoviept-lab/rea/issues/13624)) ([ae02c73](https://github.com/spongebobmoviept-lab/rea/commit/ae02c73adc8d2ad33eecb4cd57fc235fa9788dc1))
@@ -315,6 +321,7 @@
 * **verify:** require confirmed DeepSeek process cleanup ([#13043](https://github.com/spongebobmoviept-lab/rea/issues/13043)) ([4aed56e](https://github.com/spongebobmoviept-lab/rea/commit/4aed56eccb68e49f411e472134feafd6b2a7996f))
 * **verify:** require DeepSeek Harness terminal JSON ([#13034](https://github.com/spongebobmoviept-lab/rea/issues/13034)) ([9b1631a](https://github.com/spongebobmoviept-lab/rea/commit/9b1631a1d73e44156b5347838198da358341fc34))
 * **wasm:** report observed WABT diagnostic bytes ([#13436](https://github.com/spongebobmoviept-lab/rea/issues/13436)) ([c60cf4e](https://github.com/spongebobmoviept-lab/rea/commit/c60cf4e3b8683e3209e51693e02826f85a7e7761))
+* **wasm:** state the accepted WABT release range from its owning constant ([#14205](https://github.com/spongebobmoviept-lab/rea/issues/14205)) ([af53dd9](https://github.com/spongebobmoviept-lab/rea/commit/af53dd9df125f6e7f2f2e374cbe5a28f8429bc08))
 * **web:** align scenario schema guidance with admitted inputs ([#13170](https://github.com/spongebobmoviept-lab/rea/issues/13170)) ([03b99c2](https://github.com/spongebobmoviept-lab/rea/commit/03b99c2bcf16463792ed9d096d57de8454ba5390))
 * **web:** keep unreadable cookie partitions incomplete ([#13187](https://github.com/spongebobmoviept-lab/rea/issues/13187)) ([c096373](https://github.com/spongebobmoviept-lab/rea/commit/c0963732a73415ee855fdcc0c923d6e77c0bb8de))
 * **web:** require root identity in CDP session and runtime captures ([#13186](https://github.com/spongebobmoviept-lab/rea/issues/13186)) ([4807b31](https://github.com/spongebobmoviept-lab/rea/commit/4807b31749e7882d3ca4a184174ebc1012ea23c0))
@@ -427,6 +434,7 @@
 * **ghidra:** fuse project snapshot I/O, parallelize language catalog, drop double validation, and add callTool progress heartbeats ([#13310](https://github.com/spongebobmoviept-lab/rea/issues/13310)) ([5b3ef76](https://github.com/spongebobmoviept-lab/rea/commit/5b3ef76e4db8f128f3632693cd45b9f99ecf7d25))
 * **ghidra:** gate SLEIGH getPcode/getFlows in swiftStringPairs, cache swiftProgram, and index typedJumpTableCases ([#13531](https://github.com/spongebobmoviept-lab/rea/issues/13531)) ([3ed8c85](https://github.com/spongebobmoviept-lab/rea/commit/3ed8c857e6c3a16cc51338f52778fab7037a0819))
 * **ghidra:** push longest ASCII-foldable substring into bridge for non-ASCII case-insensitive literal searches ([#13485](https://github.com/spongebobmoviept-lab/rea/issues/13485)) ([bdfd0a1](https://github.com/spongebobmoviept-lab/rea/commit/bdfd0a16f5cbce3b6ba63b116d6b5014d31208f5))
+* **ghidra:** retain literal search candidates only when filtering narrows them ([#14143](https://github.com/spongebobmoviept-lab/rea/issues/14143)) ([cebfae5](https://github.com/spongebobmoviept-lab/rea/commit/cebfae50d906bbacf17516ed467089d1d8c6f3a8))
 * **ghidra:** scan defined data for selective string search instead of materializing inventory ([#14101](https://github.com/spongebobmoviept-lab/rea/issues/14101)) ([107073c](https://github.com/spongebobmoviept-lab/rea/commit/107073cdb464a56c2ac78e249c515e9a7bc25e92))
 * **ghidra:** scan procedures for selective search without retaining inventory ([#14103](https://github.com/spongebobmoviept-lab/rea/issues/14103)) ([24b0ed5](https://github.com/spongebobmoviept-lab/rea/commit/24b0ed56dd4b6babf8dfae4bdfb47c089ef6b521))
 * **ghidra:** skip redundant leaf matching in ReaGhidraBridge literal searches ([#13439](https://github.com/spongebobmoviept-lab/rea/issues/13439)) ([beff3a2](https://github.com/spongebobmoviept-lab/rea/commit/beff3a284280692a27aeea0048793c876b475bd7))
@@ -460,6 +468,7 @@
 * **javascript:** reuse completed CommonJS module-source queries ([2e0a791](https://github.com/spongebobmoviept-lab/rea/commit/2e0a79115a9f8a7c4999c47fa724cc7a58792fdf))
 * **javascript:** reuse lexical returned-reference facts across ambient writes ([#13004](https://github.com/spongebobmoviept-lab/rea/issues/13004)) ([d43fc10](https://github.com/spongebobmoviept-lab/rea/commit/d43fc1051134823b1f52a7a3ed564051948e0aa1))
 * **javascript:** reuse preload-discovery static checkpoints in the normal pass ([5b280e1](https://github.com/spongebobmoviept-lab/rea/commit/5b280e1f9faac0df1ec5310c7037e88ca6c4c94e))
+* **javascript:** share one lexical index between static and semantic analysis ([#14148](https://github.com/spongebobmoviept-lab/rea/issues/14148)) ([24d2c4f](https://github.com/spongebobmoviept-lab/rea/commit/24d2c4f16b6422f81a56c9e5f8029b35eef49e5b))
 * **javascript:** share settled ambient call continuations ([#13010](https://github.com/spongebobmoviept-lab/rea/issues/13010)) ([2e45687](https://github.com/spongebobmoviept-lab/rea/commit/2e45687dfde28274a5451223695a14f0ae6e5afd))
 * **javascript:** skip captured-selection normalization without captures ([42a4bb5](https://github.com/spongebobmoviept-lab/rea/commit/42a4bb51703b1b2598fc7ce02c53d03c3b4102af))
 * **javascript:** skip checkpoint encoding without reuse capacity ([d78eee1](https://github.com/spongebobmoviept-lab/rea/commit/d78eee196aa045445fbb0fe31e09036b3c70ac9b))
