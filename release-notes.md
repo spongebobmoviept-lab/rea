@@ -7,6 +7,7 @@
 
 ### ⚠ BREAKING CHANGES
 
+* **cli:** camelCase option spellings such as `--maxRows` or `--dryRun` are refused; use the kebab-case flag that `--help` lists.
 * **pwntools:** for a request-sourced pwntools input ceiling, details.limit is now a control_kind "parameter" limit instead of a setting limit carrying setting, source, update_mode and scope fields.
 * **uefi:** MCP callers that need every published file inline must pass detail: "complete" to extract_uefi_firmware.
 * **uefi:** MCP callers that need every volume, file and section inline must pass detail: "complete" to inspect_uefi_firmware.
@@ -68,6 +69,7 @@
 * **artifacts:** keep directory growth probes out of delivered bytes ([#13467](https://github.com/spongebobmoviept-lab/rea/issues/13467)) ([a3e7ed6](https://github.com/spongebobmoviept-lab/rea/commit/a3e7ed6d3b1a557be5b7e3ec2b535239525c3217))
 * **artifacts:** preserve DMG verification cancellation at the deadline ([#13616](https://github.com/spongebobmoviept-lab/rea/issues/13616)) ([f18de40](https://github.com/spongebobmoviept-lab/rea/commit/f18de40af62ab25948fa8c94e4ecaa61a52353aa))
 * **artifacts:** publish Node SEA metadata only after carrier validation ([#13411](https://github.com/spongebobmoviept-lab/rea/issues/13411)) ([120980c](https://github.com/spongebobmoviept-lab/rea/commit/120980cac0bc674584b8480187768cfd70972c08))
+* **artifacts:** recognize standalone formats and route them to their readers ([#14192](https://github.com/spongebobmoviept-lab/rea/issues/14192)) ([6904da4](https://github.com/spongebobmoviept-lab/rea/commit/6904da4927685a864f164badfff02582fd18a9a5))
 * **artifacts:** report supported NES container layouts accurately ([#13499](https://github.com/spongebobmoviept-lab/rea/issues/13499)) ([321387c](https://github.com/spongebobmoviept-lab/rea/commit/321387c4319f5df167e488a827e38f3bed77eb36))
 * **artifacts:** route native images to static readers and name their architecture ([#14189](https://github.com/spongebobmoviept-lab/rea/issues/14189)) ([8ed8195](https://github.com/spongebobmoviept-lab/rea/commit/8ed819573bb3a4c8ef7a373f896c52554dd8acdf))
 * **artifacts:** share the examined-entry allowance across readers ([#13479](https://github.com/spongebobmoviept-lab/rea/issues/13479)) ([9560457](https://github.com/spongebobmoviept-lab/rea/commit/95604571965e9d1aec00a78665b4be64496eb094))
@@ -117,6 +119,7 @@
 * **ci:** track configuration inputs across cached checks ([#14015](https://github.com/spongebobmoviept-lab/rea/issues/14015)) ([4fdacbf](https://github.com/spongebobmoviept-lab/rea/commit/4fdacbf982c1bb409dda50cb80ba3eec74dd259e))
 * **ci:** use retry start times in PR health reporting ([#14085](https://github.com/spongebobmoviept-lab/rea/issues/14085)) ([caf5f4e](https://github.com/spongebobmoviept-lab/rea/commit/caf5f4e38a1ec1a71dacf77130c211d6b0e3229b))
 * **ci:** verify packaged Agent Environment bridges ([#12874](https://github.com/spongebobmoviept-lab/rea/issues/12874)) ([41fc470](https://github.com/spongebobmoviept-lab/rea/commit/41fc470072d441eefc3536a3de4a3ebb7902b5e4))
+* **cli:** accept only the documented kebab-case option spelling ([#14204](https://github.com/spongebobmoviept-lab/rea/issues/14204)) ([c4fa5b4](https://github.com/spongebobmoviept-lab/rea/commit/c4fa5b475c26b6cce0e301154dad928634d84f2b))
 * **cli:** complete inline option values ([#13366](https://github.com/spongebobmoviept-lab/rea/issues/13366)) ([0451a86](https://github.com/spongebobmoviept-lab/rea/commit/0451a8688d55c389c67048fa7764af0c0d5a8ab1))
 * **cli:** preserve doctor routing with empty output values ([#13262](https://github.com/spongebobmoviept-lab/rea/issues/13262)) ([a06e04b](https://github.com/spongebobmoviept-lab/rea/commit/a06e04b4dfcd994a426cc6b6ab77082260b95a3f))
 * **cli:** preserve explicit null output ([#13342](https://github.com/spongebobmoviept-lab/rea/issues/13342)) ([d4f78cb](https://github.com/spongebobmoviept-lab/rea/commit/d4f78cb5922d9fd83222514dda85db8bf5287f1b))
@@ -179,6 +182,7 @@
 * **environment:** release terminal state response readers ([#13830](https://github.com/spongebobmoviept-lab/rea/issues/13830)) ([89ecf87](https://github.com/spongebobmoviept-lab/rea/commit/89ecf87810f2db473c0b3de443604cf350d56d75))
 * **erlang:** require complete positional BEAM reads ([#14045](https://github.com/spongebobmoviept-lab/rea/issues/14045)) ([2e47bc0](https://github.com/spongebobmoviept-lab/rea/commit/2e47bc09f357cf6e5bcc6c93f39e4972bd79192e))
 * **erlang:** retain verified BEAM reports through descriptor finalization ([#14062](https://github.com/spongebobmoviept-lab/rea/issues/14062)) ([2e98c70](https://github.com/spongebobmoviept-lab/rea/commit/2e98c70c911f5062bad2e3045e557f90cf886d54))
+* **errors:** refuse malformed target bytes as a target, not invalid input ([#14195](https://github.com/spongebobmoviept-lab/rea/issues/14195)) ([89c1dd3](https://github.com/spongebobmoviept-lab/rea/commit/89c1dd3c327617275a0792a78a68a043f1a37533))
 * **evidence:** bound omitted validation issue locations ([#13309](https://github.com/spongebobmoviept-lab/rea/issues/13309)) ([4485912](https://github.com/spongebobmoviept-lab/rea/commit/4485912fd83b64834cc88e5af9bcd7febe2baae8))
 * **evidence:** evaluate unchanged artifact members in correlation ([460d771](https://github.com/spongebobmoviept-lab/rea/commit/460d77176e9634a6e052e4993ddd03be1489bec9)), closes [#13211](https://github.com/spongebobmoviept-lab/rea/issues/13211)
 * **evidence:** keep unobserved correlation paths unknown without complete coverage ([94232d0](https://github.com/spongebobmoviept-lab/rea/commit/94232d0d5f1addb2b0a45477bc67bd681e3d9282)), closes [#13211](https://github.com/spongebobmoviept-lab/rea/issues/13211)
@@ -714,6 +718,7 @@
 * **cli:** explain Ghidra annotation lifetime in command help ([f8192bd](https://github.com/spongebobmoviept-lab/rea/commit/f8192bd39d233ccf6e3dd8fd06b1e21082316ddf)), closes [#8242](https://github.com/spongebobmoviept-lab/rea/issues/8242)
 * **cli:** list the desktop_build doctor scope in provider selection ([4bd9327](https://github.com/spongebobmoviept-lab/rea/commit/4bd9327325b75a4632a3a50f0500ae2bfbd00718)), closes [#10251](https://github.com/spongebobmoviept-lab/rea/issues/10251)
 * codify pagination, schema-flatness, DDIA, and flat-ownership guidance in tool-design docs and skills ([#13865](https://github.com/spongebobmoviept-lab/rea/issues/13865)) ([69e96c3](https://github.com/spongebobmoviept-lab/rea/commit/69e96c3564e58be6c7062a7f7fd506a0218916d8))
+* correct, re-verify and prune getting-started, provider and reference pages ([#14202](https://github.com/spongebobmoviept-lab/rea/issues/14202)) ([be47922](https://github.com/spongebobmoviept-lab/rea/commit/be47922331c4df05f4217f0ff9178bc49415db48))
 * **dev:** clarify how to review duplicate ownership ([fb691dc](https://github.com/spongebobmoviept-lab/rea/commit/fb691dc98b7384fa9e6dd93f4a459b50c700400c))
 * **development:** document streaming, reader/queue reuse, and O(limit) view hot-path patterns ([#13778](https://github.com/spongebobmoviept-lab/rea/issues/13778)) ([0f2437c](https://github.com/spongebobmoviept-lab/rea/commit/0f2437cca384d174a4791d1c0b69bfeee027049e))
 * **development:** route first contact by parsed facts and split admission limits from delivery budgets ([#14193](https://github.com/spongebobmoviept-lab/rea/issues/14193)) ([a1d53d3](https://github.com/spongebobmoviept-lab/rea/commit/a1d53d39565fe0976e0c86aeca9130901f4db7c6))
@@ -737,6 +742,7 @@
 * **readme:** link contributor avatars to the contributor directory ([08880c3](https://github.com/spongebobmoviept-lab/rea/commit/08880c3542894c7c0b721a6fe79cd61b9936ff90))
 * **readme:** refresh project badges ([c7bc743](https://github.com/spongebobmoviept-lab/rea/commit/c7bc7436b4c354aabd34723b22dae7e544ee9a5e))
 * **readme:** simplify setup and move target details to the reference ([a914bba](https://github.com/spongebobmoviept-lab/rea/commit/a914bba78df46985618598a8e4ef79145acd3784))
+* **reference:** say that pwntools memory failures carry no producer limit ([#14221](https://github.com/spongebobmoviept-lab/rea/issues/14221)) ([ff2f9d9](https://github.com/spongebobmoviept-lab/rea/commit/ff2f9d98803e3faf988a747c3792b95741562953))
 * remove tracked planning and architecture records ([#12856](https://github.com/spongebobmoviept-lab/rea/issues/12856)) ([a1dec2d](https://github.com/spongebobmoviept-lab/rea/commit/a1dec2d2d502ebb56da8902ccde9bf3dd9dfaf23))
 * **setup:** document Kilo Code registration and its config layers ([#13413](https://github.com/spongebobmoviept-lab/rea/issues/13413)) ([c445f56](https://github.com/spongebobmoviept-lab/rea/commit/c445f56ae39ad13016ef4511e4e95dd9e7adb86e))
 * **skill:** move WASM interface comparison under Offline WASM ([c5c0063](https://github.com/spongebobmoviept-lab/rea/commit/c5c0063d4ca8d27b57bb29588cfffaea04c23fe0)), closes [#8334](https://github.com/spongebobmoviept-lab/rea/issues/8334)
@@ -798,6 +804,7 @@
 * **asar:** consolidate packed listing coverage ([#12945](https://github.com/spongebobmoviept-lab/rea/issues/12945)) ([c355fcb](https://github.com/spongebobmoviept-lab/rea/commit/c355fcb8f7ba8e45adc25a27a8af2eeb28af1452))
 * **asar:** streamline allocation and descriptor fixtures ([#12949](https://github.com/spongebobmoviept-lab/rea/issues/12949)) ([0b0b847](https://github.com/spongebobmoviept-lab/rea/commit/0b0b847afd3362c34b093f3bfbde7d6abc39cead))
 * **asar:** verify packed member close on cancellation ([#12947](https://github.com/spongebobmoviept-lab/rea/issues/12947)) ([2f87f93](https://github.com/spongebobmoviept-lab/rea/commit/2f87f938e0b986146599cc12327a8da39e4c2654))
+* assert structured facts instead of incidental wording ([#14222](https://github.com/spongebobmoviept-lab/rea/issues/14222)) ([c68ddbe](https://github.com/spongebobmoviept-lab/rea/commit/c68ddbec7cea929826e9d04fa7649bab6cf465af))
 * **audit:** consolidate release exposure document routing ([#13347](https://github.com/spongebobmoviept-lab/rea/issues/13347)) ([cdba576](https://github.com/spongebobmoviept-lab/rea/commit/cdba576469ea64b708cdc0d34612050b16b492bb))
 * **audit:** consolidate release exposure evidence checks ([#13341](https://github.com/spongebobmoviept-lab/rea/issues/13341)) ([23af000](https://github.com/spongebobmoviept-lab/rea/commit/23af000299a049350ac63cd41f94892e1c1c9089))
 * **binary:** throw the cause when restoration setup fails ([89fe8dc](https://github.com/spongebobmoviept-lab/rea/commit/89fe8dcf4e704e56187653b8c23fbd3eb5d00a92))
