@@ -7,6 +7,10 @@
 
 ### ⚠ BREAKING CHANGES
 
+* **pe:** import and delay-import walks continue to the null descriptor past a short directory Size instead of stopping with a malformed_entry issue, and inspect-pe-resources reports an unsupported optional-header magic as unsupported_target.
+* **limits:** an inspect_pcap_capture refusal at the snapshot or TShark JSON budget reports details.limit for producer_limits.input_bytes or producer_limits.output_bytes and no longer carries details.refusal fixed_ceiling.
+* **browser:** an MCP inspect_web_page call that omits detail on a capture above 32 KiB now returns the retained summary. Pass detail: "complete" for the previous shape, for example before compare_web_captures.
+* **rizin:** record which tool and version answered execute_rizin_command ([#7487](https://github.com/spongebobmoviept-lab/rea/issues/7487))
 * **ghidra:** RISC-V images with this layout, such as ESP-IDF ESP32-C6, H2 and H21 builds, report flash code at its ELF address (0x42...) instead of .flash.text:0x42..., and their analysis profiles change. RISC-V images with any other section overlap that involves executable code are now refused with the overlapping sections named. These include ESP-IDF v5.5.2 ESP32-C5 and C61 builds, whose second reservation, .ext_ram.dummy, also covers .flash.text. See docs/ghidra-riscv.md.
 * **delivery:** for these seven tools, an omitted detail on a result above 32 KiB now returns the retained summary instead of complete Evidence. Pass detail: "complete" to keep the previous shape.
 * **deps:** MCP callers that need every volume, file and section inline must pass detail: "complete" to inspect_uefi_firmware.
@@ -47,6 +51,7 @@
 * **artifacts:** report declared DDS, GLB, KTX and KTX2 headers and regions ([#14248](https://github.com/spongebobmoviept-lab/rea/issues/14248)) ([78d2593](https://github.com/spongebobmoviept-lab/rea/commit/78d2593a4543592636a49c0cead0ca64dcef78ea))
 * **browser:** accept mitmproxy 12.3.1 for native capture decode ([#8088](https://github.com/spongebobmoviept-lab/rea/issues/8088)) ([4f43d74](https://github.com/spongebobmoviept-lab/rea/commit/4f43d7422f5b4666a12570105ff5e25a6df7ec6c))
 * **browser:** count credential-named members in HAR capture inspection ([#8708](https://github.com/spongebobmoviept-lab/rea/issues/8708)) ([3c7ea1c](https://github.com/spongebobmoviept-lab/rea/commit/3c7ea1ce850c20c067add363ffcddbc1d48f2aac))
+* **browser:** size inspect_web_page delivery and page captures by section ([#14368](https://github.com/spongebobmoviept-lab/rea/issues/14368)) ([67a1e2c](https://github.com/spongebobmoviept-lab/rea/commit/67a1e2c9371131a93fb1eecb00d74bb160c6d215))
 * **cli:** add human-TTY failure rendering with CLI-only issue hint ([#14355](https://github.com/spongebobmoviept-lab/rea/issues/14355)) ([64279ef](https://github.com/spongebobmoviept-lab/rea/commit/64279efb5a01fc768d66033bd69a41a647c3e175))
 * **cli:** add list-procedures to produce function-matching inventories ([#14241](https://github.com/spongebobmoviept-lab/rea/issues/14241)) ([e2c0071](https://github.com/spongebobmoviept-lab/rea/commit/e2c00712fd421fc77f335d7b9f87ce162808a437))
 * **config:** persist provider settings in a user config file ([#3023](https://github.com/spongebobmoviept-lab/rea/issues/3023)) ([8d6552e](https://github.com/spongebobmoviept-lab/rea/commit/8d6552e928704a6477edec3674a17c3ba2f4f4af))
@@ -56,11 +61,13 @@
 * **evidence:** find direct referrers by linked Evidence ID ([#11709](https://github.com/spongebobmoviept-lab/rea/issues/11709)) ([b57671c](https://github.com/spongebobmoviept-lab/rea/commit/b57671cb42ed16687d0b0ea8ff43d3643e045aef))
 * **evidence:** paginate retained evidence discovery summaries ([#9084](https://github.com/spongebobmoviept-lab/rea/issues/9084)) ([a16669a](https://github.com/spongebobmoviept-lab/rea/commit/a16669ab2adf8341b0261e9527bb26c98c1d7b21))
 * **frida:** add optional limit and offset paging to list_frida_processes ([#13854](https://github.com/spongebobmoviept-lab/rea/issues/13854)) ([9ec23ad](https://github.com/spongebobmoviept-lab/rea/commit/9ec23ad03bb6feef0ad208170652858eabcb3e4a))
+* **ghidra:** open M-profile raw images at a separate load base ([#7951](https://github.com/spongebobmoviept-lab/rea/issues/7951)) ([0b51ca0](https://github.com/spongebobmoviept-lab/rea/commit/0b51ca03de173fcf22059b5512647bc1461022df))
 * **ida:** support the official Hex-Rays IDA MCP headlessly ([#4813](https://github.com/spongebobmoviept-lab/rea/issues/4813)) ([6822ebe](https://github.com/spongebobmoviept-lab/rea/commit/6822ebe1f3a4caec007fcd046754d66317d3349f))
 * **javascript:** add semantic_analysis structure-only mode to analyze_javascript_application ([#14117](https://github.com/spongebobmoviept-lab/rea/issues/14117)) ([eccd18a](https://github.com/spongebobmoviept-lab/rea/commit/eccd18a2cc325bb97f66f23a4216dfcacd9e1bca))
 * **javascript:** inventory Expo Router require.context route keys ([#10624](https://github.com/spongebobmoviept-lab/rea/issues/10624)) ([7b6e816](https://github.com/spongebobmoviept-lab/rea/commit/7b6e816b0b61d24d1a3b79106481f29db676ea65))
 * **native:** report the stored RVA of PE exports ([bf8448c](https://github.com/spongebobmoviept-lab/rea/commit/bf8448cdfc90c4c077f03b877cf09ea150509092))
 * **native:** retain Apple bundle executable provenance ([b8995f8](https://github.com/spongebobmoviept-lab/rea/commit/b8995f81489dda3e7f8be61317f366b7fabd97c7))
+* **rizin:** record which tool and version answered execute_rizin_command ([#7487](https://github.com/spongebobmoviept-lab/rea/issues/7487)) ([721b25e](https://github.com/spongebobmoviept-lab/rea/commit/721b25e20db85b19b3a5cb24ea5f65177b6d917b))
 * **setup:** discover project-scoped MCP registrations in doctor and … ([#7283](https://github.com/spongebobmoviept-lab/rea/issues/7283)) ([63c50ec](https://github.com/spongebobmoviept-lab/rea/commit/63c50ecfc0a849d3298c44b1ce06e2e759f1303c))
 * **tools:** add optional limit and offset paging to find_xrefs_to_name ([#13858](https://github.com/spongebobmoviept-lab/rea/issues/13858)) ([1d4fadc](https://github.com/spongebobmoviept-lab/rea/commit/1d4fadceb2720b2db9a2a0674e95385117238d81))
 * **tools:** add optional max_depth and max_nodes bounds to get_call_graph and trace_call_path ([#13828](https://github.com/spongebobmoviept-lab/rea/issues/13828)) ([d0560b1](https://github.com/spongebobmoviept-lab/rea/commit/d0560b1b88c3257b802b80ef4c36719c9734b996))
@@ -282,6 +289,7 @@
 * **javascript:** share widened reference-store propagation ([#12990](https://github.com/spongebobmoviept-lab/rea/issues/12990)) ([fba5e44](https://github.com/spongebobmoviept-lab/rea/commit/fba5e44bf5f393dcd6bd3269d88d7101f1586ff0))
 * **javascript:** track shared ESM HTTP agent mutations ([d500638](https://github.com/spongebobmoviept-lab/rea/commit/d500638d5d4b666cf0b255085ce4d75a29cbc35e))
 * **javascript:** verify Expo context getter ownership ([#13803](https://github.com/spongebobmoviept-lab/rea/issues/13803)) ([8c16d7d](https://github.com/spongebobmoviept-lab/rea/commit/8c16d7d18f71c0057240db4122c5df9a8b907a95))
+* **limits:** let inspect_pcap_capture take producer_limits for its snapshot and TShark output ([#14280](https://github.com/spongebobmoviept-lab/rea/issues/14280)) ([fd09e2b](https://github.com/spongebobmoviept-lab/rea/commit/fd09e2b9a1ca8e6730d3d030ae23d012c5dea6f9))
 * **limits:** make the IL2CPP pointer index adjustable and require owned refusal limits ([#14243](https://github.com/spongebobmoviept-lab/rea/issues/14243)) ([6ab595c](https://github.com/spongebobmoviept-lab/rea/commit/6ab595cfd6fc67f6bfe7313e39f736ed67f036a3))
 * **macho:** correct encryption range VM mapping ([#13918](https://github.com/spongebobmoviept-lab/rea/issues/13918)) ([0fb1d11](https://github.com/spongebobmoviept-lab/rea/commit/0fb1d112f699b5619607f564f95fe52f14b7b061))
 * **macho:** keep header reads inside declared slices ([#13913](https://github.com/spongebobmoviept-lab/rea/issues/13913)) ([1172d7e](https://github.com/spongebobmoviept-lab/rea/commit/1172d7ed7d3fc76e664d6ad79abc8e7fa44b2c97))
@@ -304,6 +312,7 @@
 * **native:** require dyld's __restrict section before reporting a restricted Mach-O ([#13024](https://github.com/spongebobmoviept-lab/rea/issues/13024)) ([7a11884](https://github.com/spongebobmoviept-lab/rea/commit/7a11884c0897062867e62c0c6d1079342ef8d861))
 * **native:** validate SHT_GNU_HASH bounds and fall back to DT_GNU_HASH ([#13713](https://github.com/spongebobmoviept-lab/rea/issues/13713)) ([e6b30f9](https://github.com/spongebobmoviept-lab/rea/commit/e6b30f945ec214e05ca13c36874e155737a6d4cb))
 * **objc:** preserve class import reader failures ([#13892](https://github.com/spongebobmoviept-lab/rea/issues/13892)) ([99c2104](https://github.com/spongebobmoviept-lab/rea/commit/99c2104da9b3e4d179436cbed477c98668a935a3))
+* **pe:** bound static readers by the bytes they read, not file size ([#14262](https://github.com/spongebobmoviept-lab/rea/issues/14262)) ([789ca04](https://github.com/spongebobmoviept-lab/rea/commit/789ca0412579d2a1ae84ad1683dfe8808937908a))
 * **pe:** exclude section padding from RVA metadata reads ([#12755](https://github.com/spongebobmoviept-lab/rea/issues/12755)) ([c5b5d9f](https://github.com/spongebobmoviept-lab/rea/commit/c5b5d9f7ea3f0f32a3ebf0834314ae3888ab4132))
 * **pe:** keep pefile's unrounded raw offset for a sub-page section ([985fa2f](https://github.com/spongebobmoviept-lab/rea/commit/985fa2fac939d0da5de31d59a4df055d90df1cd8))
 * **pe:** preserve TLS section ownership across named ranges ([#13743](https://github.com/spongebobmoviept-lab/rea/issues/13743)) ([9808545](https://github.com/spongebobmoviept-lab/rea/commit/9808545d6f57e3a3d4d0f87773f8111d4531ac6f))
