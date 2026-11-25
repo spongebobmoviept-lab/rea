@@ -2,11 +2,12 @@
 ---
 
 
-## [6.11.0](https://github.com/spongebobmoviept-lab/rea/compare/rea-agents-6.10.1...rea-agents-6.11.0) (2026-11-24)
+## [6.11.0](https://github.com/spongebobmoviept-lab/rea/compare/rea-agents-6.10.1...rea-agents-6.11.0) (2026-11-25)
 
 
 ### ⚠ BREAKING CHANGES
 
+* **errors:** add the TargetFailure model, its projection table and conformance registry ([#14247](https://github.com/spongebobmoviept-lab/rea/issues/14247))
 * **artifacts:** artifactReaderLimitsSchema now requires iso9660 (descriptor_count, directory_depth, record_count, directory_bytes, path_bytes), so saved Evidence records containing effective_limits from prior versions without iso9660 fail parseInventoryPage validation and must be re-inspected.
 * **artifacts:** subject.identity gains a directory kind {kind:"directory",algorithm:"rea-directory-tree",version:1,sha256}. A directory inventory's subject and root sha256 are its tree digest, and a partial walk's subject is {kind:"unknown",reason:"not-observed"}. inspect_artifact no longer requires an open target. Directory symlink occurrences record link_target and compare by it.
 * **native:** procedure_references.procedure may now identify an address outside every procedure, with classification null and an unavailable body. find_xrefs_to_name adds resolved_name and candidates, and resolves bare import names on Ghidra.
@@ -65,6 +66,7 @@
 * **delivery:** size the default delivery of native inventories and traces ([59a7999](https://github.com/spongebobmoviept-lab/rea/commit/59a799931c13c9a8d89e490c20298882497d50d8))
 * **desktop:** recognise native releases and rank application probes first ([#14264](https://github.com/spongebobmoviept-lab/rea/issues/14264)) ([46b73f5](https://github.com/spongebobmoviept-lab/rea/commit/46b73f5b8116ac71333a0c37980f166c13bedd4e))
 * **elf:** inspect exports without section headers ([#9083](https://github.com/spongebobmoviept-lab/rea/issues/9083)) ([7e15884](https://github.com/spongebobmoviept-lab/rea/commit/7e158843b36c7cca8a8614687652d20e0f77e323))
+* **errors:** add the TargetFailure model, its projection table and conformance registry ([#14247](https://github.com/spongebobmoviept-lab/rea/issues/14247)) ([40e9a3f](https://github.com/spongebobmoviept-lab/rea/commit/40e9a3f1a1769f3fbb24ca226aa853f42d78c42e))
 * **evidence:** find direct referrers by linked Evidence ID ([#11709](https://github.com/spongebobmoviept-lab/rea/issues/11709)) ([b57671c](https://github.com/spongebobmoviept-lab/rea/commit/b57671cb42ed16687d0b0ea8ff43d3643e045aef))
 * **evidence:** paginate retained evidence discovery summaries ([#9084](https://github.com/spongebobmoviept-lab/rea/issues/9084)) ([a16669a](https://github.com/spongebobmoviept-lab/rea/commit/a16669ab2adf8341b0261e9527bb26c98c1d7b21))
 * **frida:** add optional limit and offset paging to list_frida_processes ([#13854](https://github.com/spongebobmoviept-lab/rea/issues/13854)) ([9ec23ad](https://github.com/spongebobmoviept-lab/rea/commit/9ec23ad03bb6feef0ad208170652858eabcb3e4a))
@@ -996,6 +998,7 @@
 * **cutter:** isolate verifier platform checks ([#12939](https://github.com/spongebobmoviept-lab/rea/issues/12939)) ([50d6f37](https://github.com/spongebobmoviept-lab/rea/commit/50d6f37393ee74ede18aa6d68b884a914653a2a4))
 * **cutter:** keep session discovery proof at the public boundary ([#12824](https://github.com/spongebobmoviept-lab/rea/issues/12824)) ([43f884b](https://github.com/spongebobmoviept-lab/rea/commit/43f884bbfb0b2e374eb9658c9305bf2589bec17d))
 * **cutter:** remove injected discovery replay ([43f884b](https://github.com/spongebobmoviept-lab/rea/commit/43f884bbfb0b2e374eb9658c9305bf2589bec17d))
+* **cutter:** share empty discovery fixtures ([#14400](https://github.com/spongebobmoviept-lab/rea/issues/14400)) ([fab4e1a](https://github.com/spongebobmoviept-lab/rea/commit/fab4e1ae001d5d67f5eead43b81997a0d1768cf6))
 * **cutter:** use account home for default bridge assertions ([#12728](https://github.com/spongebobmoviept-lab/rea/issues/12728)) ([44e8e72](https://github.com/spongebobmoviept-lab/rea/commit/44e8e72db12a3787b02b8216bb3a1dd69dd668e2))
 * **cutter:** use shared verifier deadlines ([#12943](https://github.com/spongebobmoviept-lab/rea/issues/12943)) ([bb48a7b](https://github.com/spongebobmoviept-lab/rea/commit/bb48a7b3f8af177d6849c1dfd496b76220a2a561))
 * **debugger:** consolidate runtime setting recovery coverage ([#13042](https://github.com/spongebobmoviept-lab/rea/issues/13042)) ([67f8094](https://github.com/spongebobmoviept-lab/rea/commit/67f8094efaa220b354f032d607b56f3126950bf2))
@@ -1009,6 +1012,7 @@
 * **desktop:** verify cancellation before releasing the guest ([#12812](https://github.com/spongebobmoviept-lab/rea/issues/12812)) ([c94f275](https://github.com/spongebobmoviept-lab/rea/commit/c94f275667e8d9402d34bcddb61abe0393302685))
 * **docs:** check doc facts structurally instead of pinning prose ([#14207](https://github.com/spongebobmoviept-lab/rea/issues/14207)) ([6adcf85](https://github.com/spongebobmoviept-lab/rea/commit/6adcf85fc8cf68635fd3416029e89d424c648220))
 * **docs:** isolate README drift cases and remove duplicate checks ([ce52580](https://github.com/spongebobmoviept-lab/rea/commit/ce5258043c47483d2c8db9a3c0b8f369542bed73))
+* **doctor:** reuse scope checks and Ubuntu host fixtures ([#14401](https://github.com/spongebobmoviept-lab/rea/issues/14401)) ([ac732d5](https://github.com/spongebobmoviept-lab/rea/commit/ac732d5b24418ebdb33daddd4592597f809baa1a))
 * **dotnet:** consolidate malformed metadata and table stream proofs ([#13374](https://github.com/spongebobmoviept-lab/rea/issues/13374)) ([0c0130c](https://github.com/spongebobmoviept-lab/rea/commit/0c0130ce509e59869a115477ab38d203bbc780bd))
 * **dotnet:** consolidate managed ExtraData coverage ([#12788](https://github.com/spongebobmoviept-lab/rea/issues/12788)) ([e8105d6](https://github.com/spongebobmoviept-lab/rea/commit/e8105d6be9c5b96a0635f09e0eeef9672f112e8f))
 * **dotnet:** consolidate managed PE and field constant contracts ([#13365](https://github.com/spongebobmoviept-lab/rea/issues/13365)) ([da6f898](https://github.com/spongebobmoviept-lab/rea/commit/da6f89808dcc9c6f528660426a54cff721cfbf03))
