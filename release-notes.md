@@ -7,6 +7,13 @@
 
 ### ⚠ BREAKING CHANGES
 
+* **limits:** apktool and assetutil output refusals report details.limit for producer_limits.output_bytes instead of a fixed_ceiling refusal.
+* **native:** Go and Rust structural refusals and the WebAssembly section refusal report details.limit instead of a fixed_ceiling refusal.
+* **limits:** register producer.output_bytes as the session default for bounded producer output ([#14648](https://github.com/spongebobmoviept-lab/rea/issues/14648))
+* **browser:** an observe_web_execution call that omits detail on an observation above the agent result budget now returns the retained summary. Pass detail: "complete" (--detail complete) for the previous shape.
+* **native:** the PE retained-text, exception-directory entry and resource metadata refusals report details.limit instead of a fixed_ceiling refusal.
+* **native:** export inventory and retained-text refusals report details.limit for max_entries or max_text_bytes instead of a fixed_ceiling refusal, and MAX_NATIVE_EXPORT_ROWS is renamed DEFAULT_NATIVE_EXPORT_ROWS.
+* **native:** a DWARF decompression refusal reports details.limit for max_decompressed_bytes instead of a fixed_ceiling refusal.
 * **limits:** omitted input budgets for inspect_sqlite_database, inspect_go_binary, inspect_rust_binary and inspect_nuget_nupkg now admit larger files. Callers relying on the old default refusal must pass the old value explicitly.
 * **native:** inspect_devicetree's decoded-representation refusal reports reported_limits.boundary "max_decoded_bytes" with details.limit, instead of "decoded_bytes".
 * **native:** inspect_devicetree's decoded-representation refusal reports reported_limits.boundary "max_decoded_bytes" with details.limit, instead of "decoded_bytes".
@@ -69,6 +76,7 @@
 * **analysis-view:** count distinct retained JavaScript fact values ([e19dbcf](https://github.com/spongebobmoviept-lab/rea/commit/e19dbcf857e98f402b61b1ef793dd62d9929426a))
 * **analysis-view:** filter native exports and ELF dependencies by name prefix ([a148da5](https://github.com/spongebobmoviept-lab/rea/commit/a148da56ccfb370e7a638832c2a1290fb208ca63))
 * **analysis-view:** order inventory occurrences by size before paging ([386d294](https://github.com/spongebobmoviept-lab/rea/commit/386d294f90d1ebfc0d6d01374ead49fc5bc637e0))
+* **analysis-view:** page retained observe_web_execution observations ([38536f9](https://github.com/spongebobmoviept-lab/rea/commit/38536f9fdb8a66ff44375b888c8fabe1a4bff3ba))
 * **analysis-view:** page retained UEFI extraction manifests ([5e8388a](https://github.com/spongebobmoviept-lab/rea/commit/5e8388a655e2eae83c31e6e21a611c2fc9910156))
 * **analysis-view:** page retained UEFI firmware maps ([fc4c453](https://github.com/spongebobmoviept-lab/rea/commit/fc4c453683213991d2338b25c6752f24236a3052))
 * **analysis-view:** select inventory occurrences by artifact kind ([e128a69](https://github.com/spongebobmoviept-lab/rea/commit/e128a69c2fd2bd51125eb36d479d7e573d07267b))
@@ -83,6 +91,7 @@
 * **artifacts:** inventory and extract stored and gzip-compressed tar archives ([#14245](https://github.com/spongebobmoviept-lab/rea/issues/14245)) ([225a19a](https://github.com/spongebobmoviept-lab/rea/commit/225a19ae7a39d06d03a8d5df4d9bf44e645a6c54))
 * **artifacts:** report declared DDS, GLB, KTX and KTX2 headers and regions ([#14248](https://github.com/spongebobmoviept-lab/rea/issues/14248)) ([78d2593](https://github.com/spongebobmoviept-lab/rea/commit/78d2593a4543592636a49c0cead0ca64dcef78ea))
 * **browser:** accept mitmproxy 12.3.1 for native capture decode ([#8088](https://github.com/spongebobmoviept-lab/rea/issues/8088)) ([4f43d74](https://github.com/spongebobmoviept-lab/rea/commit/4f43d7422f5b4666a12570105ff5e25a6df7ec6c))
+* **browser:** budget observe_web_execution delivery ([42ce0ea](https://github.com/spongebobmoviept-lab/rea/commit/42ce0ea2310e310d07794955cc254e8ced3446b7))
 * **browser:** count credential-named members in HAR capture inspection ([#8708](https://github.com/spongebobmoviept-lab/rea/issues/8708)) ([3c7ea1c](https://github.com/spongebobmoviept-lab/rea/commit/3c7ea1ce850c20c067add363ffcddbc1d48f2aac))
 * **browser:** size inspect_web_page delivery and page captures by section ([#14368](https://github.com/spongebobmoviept-lab/rea/issues/14368)) ([67a1e2c](https://github.com/spongebobmoviept-lab/rea/commit/67a1e2c9371131a93fb1eecb00d74bb160c6d215))
 * **cli:** add human-TTY failure rendering with CLI-only issue hint ([#14355](https://github.com/spongebobmoviept-lab/rea/issues/14355)) ([64279ef](https://github.com/spongebobmoviept-lab/rea/commit/64279efb5a01fc768d66033bd69a41a647c3e175))
@@ -105,10 +114,15 @@
 * **javascript:** add semantic_analysis structure-only mode to analyze_javascript_application ([#14117](https://github.com/spongebobmoviept-lab/rea/issues/14117)) ([eccd18a](https://github.com/spongebobmoviept-lab/rea/commit/eccd18a2cc325bb97f66f23a4216dfcacd9e1bca))
 * **javascript:** inventory Expo Router require.context route keys ([#10624](https://github.com/spongebobmoviept-lab/rea/issues/10624)) ([7b6e816](https://github.com/spongebobmoviept-lab/rea/commit/7b6e816b0b61d24d1a3b79106481f29db676ea65))
 * **limits:** raise disk-backed admission defaults for large ordinary targets ([#14653](https://github.com/spongebobmoviept-lab/rea/issues/14653)) ([30be941](https://github.com/spongebobmoviept-lab/rea/commit/30be941a5adb36211cf0449fc980292b4cb8a470))
+* **limits:** register producer.output_bytes as the session default for bounded producer output ([#14648](https://github.com/spongebobmoviept-lab/rea/issues/14648)) ([6ae722a](https://github.com/spongebobmoviept-lab/rea/commit/6ae722a660048e90c4cba36052134339250e16d0))
 * **limits:** report the value a per-call limit needs and derive its recovery ([#14625](https://github.com/spongebobmoviept-lab/rea/issues/14625)) ([78cb717](https://github.com/spongebobmoviept-lab/rea/commit/78cb7172a6d38f726fe00acd530a8a8b7c21a737))
 * **mcp:** link retained Evidence from over-budget summaries ([#14603](https://github.com/spongebobmoviept-lab/rea/issues/14603)) ([fa65e51](https://github.com/spongebobmoviept-lab/rea/commit/fa65e51a24dc4c2983840af8d2ec119c28687cf7))
 * **metadata:** give NTFS, Maven report and NuGet budgets typed per-call controls ([#14629](https://github.com/spongebobmoviept-lab/rea/issues/14629)) ([4f66985](https://github.com/spongebobmoviept-lab/rea/commit/4f6698597884d709be8a98ec43f9f5320ae598ce))
+* **native:** give inspect_dwarf_units a per-call max_decompressed_bytes ([#14660](https://github.com/spongebobmoviept-lab/rea/issues/14660)) ([1cc655b](https://github.com/spongebobmoviept-lab/rea/commit/1cc655bbc0c17c7138a6457d069578fe93505d3a))
+* **native:** give inspect_native_exports per-call inventory, text and structure budgets ([#14658](https://github.com/spongebobmoviept-lab/rea/issues/14658)) ([4d3fa5a](https://github.com/spongebobmoviept-lab/rea/commit/4d3fa5a0802ea31c4dc1b2ad559562e63b8dd7a2))
+* **native:** give the Go and Rust readers max_structure_bytes and Rust max_wasm_sections ([#14661](https://github.com/spongebobmoviept-lab/rea/issues/14661)) ([4c9dca6](https://github.com/spongebobmoviept-lab/rea/commit/4c9dca63a0e8bc08030a703565f26e1df49a2c94))
 * **native:** give the native structural decoding allowance a per-call max_structure_bytes ([#14626](https://github.com/spongebobmoviept-lab/rea/issues/14626)) ([e540cbd](https://github.com/spongebobmoviept-lab/rea/commit/e540cbdafd8170701b07b4735f8a5da40e47e10e))
+* **native:** give the PE readers per-call text, entry and metadata budgets ([#14659](https://github.com/spongebobmoviept-lab/rea/issues/14659)) ([0aca049](https://github.com/spongebobmoviept-lab/rea/commit/0aca049128687828bddc32e8c4c0a39d7544c1ff))
 * **native:** report the stored RVA of PE exports ([bf8448c](https://github.com/spongebobmoviept-lab/rea/commit/bf8448cdfc90c4c077f03b877cf09ea150509092))
 * **native:** retain Apple bundle executable provenance ([b8995f8](https://github.com/spongebobmoviept-lab/rea/commit/b8995f81489dda3e7f8be61317f366b7fabd97c7))
 * **pe:** inspect x64 exception-directory function ranges ([#14254](https://github.com/spongebobmoviept-lab/rea/issues/14254)) ([a85859e](https://github.com/spongebobmoviept-lab/rea/commit/a85859e14790795f6d13000b173cb32c82c49813))
@@ -359,6 +373,7 @@
 * **javascript:** share widened reference-store propagation ([#12990](https://github.com/spongebobmoviept-lab/rea/issues/12990)) ([fba5e44](https://github.com/spongebobmoviept-lab/rea/commit/fba5e44bf5f393dcd6bd3269d88d7101f1586ff0))
 * **javascript:** track shared ESM HTTP agent mutations ([d500638](https://github.com/spongebobmoviept-lab/rea/commit/d500638d5d4b666cf0b255085ce4d75a29cbc35e))
 * **javascript:** verify Expo context getter ownership ([#13803](https://github.com/spongebobmoviept-lab/rea/issues/13803)) ([8c16d7d](https://github.com/spongebobmoviept-lab/rea/commit/8c16d7d18f71c0057240db4122c5df9a8b907a95))
+* **limits:** let apktool and assetutil take producer_limits.output_bytes and type Android and process capture refusals ([#14624](https://github.com/spongebobmoviept-lab/rea/issues/14624)) ([0eb19a3](https://github.com/spongebobmoviept-lab/rea/commit/0eb19a395ec42ed40b575663dc8a8b2defce0643))
 * **limits:** let inspect_pcap_capture take producer_limits for its snapshot and TShark output ([#14280](https://github.com/spongebobmoviept-lab/rea/issues/14280)) ([fd09e2b](https://github.com/spongebobmoviept-lab/rea/commit/fd09e2b9a1ca8e6730d3d030ae23d012c5dea6f9))
 * **limits:** let inspect_sqlite_database take producer_limits.input_bytes and type SQLite, Kuna and web-bundle refusals ([#14627](https://github.com/spongebobmoviept-lab/rea/issues/14627)) ([a5c71e8](https://github.com/spongebobmoviept-lab/rea/commit/a5c71e8c88e75b1c8906a47996dbe4b360bb65a0))
 * **limits:** make the IL2CPP pointer index adjustable and require owned refusal limits ([#14243](https://github.com/spongebobmoviept-lab/rea/issues/14243)) ([6ab595c](https://github.com/spongebobmoviept-lab/rea/commit/6ab595cfd6fc67f6bfe7313e39f736ed67f036a3))
@@ -1000,6 +1015,7 @@
 
 * **analysis-view:** qualify javascript-fact-groups readback to scalar values ([1dc1c20](https://github.com/spongebobmoviept-lab/rea/commit/1dc1c20cd614d38a8bfe8ef23d0cea4e391fc561))
 * **artifacts:** explain the per-file verification cost of extraction ([#12745](https://github.com/spongebobmoviept-lab/rea/issues/12745)) ([6878c17](https://github.com/spongebobmoviept-lab/rea/commit/6878c17a833e6a595d4f80e47e98c256d60ca9c0))
+* **browser:** describe paging retained execution observations ([440edb5](https://github.com/spongebobmoviept-lab/rea/commit/440edb5ac050b6b746a8c24cd91bed2ec079fbdd))
 * **ci:** correct default main push coverage ([#14535](https://github.com/spongebobmoviept-lab/rea/issues/14535)) ([1ff864b](https://github.com/spongebobmoviept-lab/rea/commit/1ff864bd21d9df6c6f48c0adde570acac905ca62))
 * **cli:** explain Ghidra annotation lifetime in command help ([f8192bd](https://github.com/spongebobmoviept-lab/rea/commit/f8192bd39d233ccf6e3dd8fd06b1e21082316ddf)), refs [#8242](https://github.com/spongebobmoviept-lab/rea/issues/8242)
 * **cli:** list the desktop_build doctor scope in provider selection ([4bd9327](https://github.com/spongebobmoviept-lab/rea/commit/4bd9327325b75a4632a3a50f0500ae2bfbd00718)), refs [#10251](https://github.com/spongebobmoviept-lab/rea/issues/10251)
