@@ -7,6 +7,7 @@
 
 ### ⚠ BREAKING CHANGES
 
+* **limits:** Rust dependency-parser refusals report details.limit for the binding parameter instead of a fixed_ceiling allowance.
 * **limits:** apktool and assetutil output refusals report details.limit for producer_limits.output_bytes instead of a fixed_ceiling refusal.
 * **native:** Go and Rust structural refusals and the WebAssembly section refusal report details.limit instead of a fixed_ceiling refusal.
 * **limits:** register producer.output_bytes as the session default for bounded producer output ([#14648](https://github.com/spongebobmoviept-lab/rea/issues/14648))
@@ -373,6 +374,8 @@
 * **javascript:** share widened reference-store propagation ([#12990](https://github.com/spongebobmoviept-lab/rea/issues/12990)) ([fba5e44](https://github.com/spongebobmoviept-lab/rea/commit/fba5e44bf5f393dcd6bd3269d88d7101f1586ff0))
 * **javascript:** track shared ESM HTTP agent mutations ([d500638](https://github.com/spongebobmoviept-lab/rea/commit/d500638d5d4b666cf0b255085ce4d75a29cbc35e))
 * **javascript:** verify Expo context getter ownership ([#13803](https://github.com/spongebobmoviept-lab/rea/issues/13803)) ([8c16d7d](https://github.com/spongebobmoviept-lab/rea/commit/8c16d7d18f71c0057240db4122c5df9a8b907a95))
+* **limits:** apply producer.output_bytes within each producer's maximum ([#14668](https://github.com/spongebobmoviept-lab/rea/issues/14668)) ([05e5c91](https://github.com/spongebobmoviept-lab/rea/commit/05e5c915263b766dfcdc03319723f2ca40d9b420))
+* **limits:** budget Rust dependency parser ceilings per call ([#14666](https://github.com/spongebobmoviept-lab/rea/issues/14666)) ([1557159](https://github.com/spongebobmoviept-lab/rea/commit/155715942e6d8f549bb240529b887e0f86457d2b))
 * **limits:** let apktool and assetutil take producer_limits.output_bytes and type Android and process capture refusals ([#14624](https://github.com/spongebobmoviept-lab/rea/issues/14624)) ([0eb19a3](https://github.com/spongebobmoviept-lab/rea/commit/0eb19a395ec42ed40b575663dc8a8b2defce0643))
 * **limits:** let inspect_pcap_capture take producer_limits for its snapshot and TShark output ([#14280](https://github.com/spongebobmoviept-lab/rea/issues/14280)) ([fd09e2b](https://github.com/spongebobmoviept-lab/rea/commit/fd09e2b9a1ca8e6730d3d030ae23d012c5dea6f9))
 * **limits:** let inspect_sqlite_database take producer_limits.input_bytes and type SQLite, Kuna and web-bundle refusals ([#14627](https://github.com/spongebobmoviept-lab/rea/issues/14627)) ([a5c71e8](https://github.com/spongebobmoviept-lab/rea/commit/a5c71e8c88e75b1c8906a47996dbe4b360bb65a0))
@@ -903,6 +906,7 @@
 * **kuna:** extract KunaSessionEvidence from KunaSessionClient ([#13879](https://github.com/spongebobmoviept-lab/rea/issues/13879)) ([12c50f1](https://github.com/spongebobmoviept-lab/rea/commit/12c50f1309b7ab75a5c70075a7c5078ac888e5af))
 * **kuna:** extract KunaSingleFunctionCache from KunaSessionClient ([#13863](https://github.com/spongebobmoviept-lab/rea/issues/13863)) ([135c136](https://github.com/spongebobmoviept-lab/rea/commit/135c136701c54a830264ac1a24aa2e37185faa3d)), refs [#13862](https://github.com/spongebobmoviept-lab/rea/issues/13862)
 * **limits:** derive help from resolved per-call defaults ([#14642](https://github.com/spongebobmoviept-lab/rea/issues/14642)) ([0e7db4c](https://github.com/spongebobmoviept-lab/rea/commit/0e7db4c0527ad5fc4a8b75fc03389129df52ef1c))
+* **limits:** share typed budget projections ([#14673](https://github.com/spongebobmoviept-lab/rea/issues/14673)) ([d112acc](https://github.com/spongebobmoviept-lab/rea/commit/d112acc2c65c45440cd6e7803f832d0151a01dc0))
 * **lint:** share counted findings reporting ([#14558](https://github.com/spongebobmoviept-lab/rea/issues/14558)) ([2f5dc7b](https://github.com/spongebobmoviept-lab/rea/commit/2f5dc7b27c08a06843a65a4ce7c4c525e8442c51))
 * **macho:** read LC_BUILD_VERSION fields through BinaryReader ([a0d2357](https://github.com/spongebobmoviept-lab/rea/commit/a0d2357230bdce24510436ee405d263fceb47870)), refs [#11865](https://github.com/spongebobmoviept-lab/rea/issues/11865)
 * **macho:** use binary facts for native diagnostic admission ([#13929](https://github.com/spongebobmoviept-lab/rea/issues/13929)) ([7ce3e5d](https://github.com/spongebobmoviept-lab/rea/commit/7ce3e5d208fe213882de9427835b993a9a36945c))
@@ -1008,6 +1012,7 @@
 * **web:** reuse the shared map list appender ([#14531](https://github.com/spongebobmoviept-lab/rea/issues/14531)) ([8da1e56](https://github.com/spongebobmoviept-lab/rea/commit/8da1e562775eced153123b32cdace52c8030ef19))
 * **windows:** reuse the verified package argument encoder ([#14591](https://github.com/spongebobmoviept-lab/rea/issues/14591)) ([aad3c9c](https://github.com/spongebobmoviept-lab/rea/commit/aad3c9c45aa855e3c33fde4561a6e27f272cd695))
 * **workers:** share bounded JSON line writes ([#14585](https://github.com/spongebobmoviept-lab/rea/issues/14585)) ([1dfd0e5](https://github.com/spongebobmoviept-lab/rea/commit/1dfd0e5fb4774c9f064808533aeb2579fa163e55))
+* **xml:** share direct child element traversal ([#14669](https://github.com/spongebobmoviept-lab/rea/issues/14669)) ([e7cb42a](https://github.com/spongebobmoviept-lab/rea/commit/e7cb42a1d70123a015717f33ca0a0d4d9df24646))
 * **xml:** share DOM element traversal helpers in xmlDocument ([#13799](https://github.com/spongebobmoviept-lab/rea/issues/13799)) ([4b648f2](https://github.com/spongebobmoviept-lab/rea/commit/4b648f23fd061417a7b0b57e560683e907f83020))
 
 
@@ -1157,6 +1162,7 @@
 * **ci:** require planner directories in classifier checkouts ([#14553](https://github.com/spongebobmoviept-lab/rea/issues/14553)) ([0acafde](https://github.com/spongebobmoviept-lab/rea/commit/0acafdeafa5880c8e8a385ef0e5b737887a4cecf))
 * **ci:** reuse workflow inventory and verify cache authority ([#13525](https://github.com/spongebobmoviept-lab/rea/issues/13525)) ([eb1d540](https://github.com/spongebobmoviept-lab/rea/commit/eb1d54007576e0443c7200f8da4143ed38025699))
 * **ci:** verify selected shard and provider report refusals ([21051b9](https://github.com/spongebobmoviept-lab/rea/commit/21051b9d06f82d9da0a932d328cae8db87644f77))
+* **cli:** check the Go input budget recovery flag ([#14672](https://github.com/spongebobmoviept-lab/rea/issues/14672)) ([bcaf605](https://github.com/spongebobmoviept-lab/rea/commit/bcaf6056a86b231b774fdada5a8766dcbabbbb2e))
 * **cli:** consolidate Amp launcher registration coverage ([#12940](https://github.com/spongebobmoviept-lab/rea/issues/12940)) ([a31b80a](https://github.com/spongebobmoviept-lab/rea/commit/a31b80a4128502bcffda98d88e764db0a3544dc3))
 * **cli:** consolidate automatic client setup journeys ([#12807](https://github.com/spongebobmoviept-lab/rea/issues/12807)) ([f718e17](https://github.com/spongebobmoviept-lab/rea/commit/f718e17caaa8fa73d6a8705833e811a3be85b994))
 * **cli:** consolidate completed source evidence finalization checks ([688d129](https://github.com/spongebobmoviept-lab/rea/commit/688d129aef5eaf8155d2d1401d86c900effb6f33))
@@ -1372,6 +1378,7 @@
 * **json:** verify structured CLI file diagnostics ([#13051](https://github.com/spongebobmoviept-lab/rea/issues/13051)) ([243b9a3](https://github.com/spongebobmoviept-lab/rea/commit/243b9a37f678d27169786cab2f74861958400261))
 * **kuna:** exercise contradictory rows and coordinate shared cancellation ([#12802](https://github.com/spongebobmoviept-lab/rea/issues/12802)) ([766fb9e](https://github.com/spongebobmoviept-lab/rea/commit/766fb9e78e4b1f169f210239aef1c5fdbe535988))
 * **ledger:** share the packaged process manifest fixture ([#14526](https://github.com/spongebobmoviept-lab/rea/issues/14526)) ([cb477ff](https://github.com/spongebobmoviept-lab/rea/commit/cb477ff0e7d1eccdfecbdf1faceee3a46c09eb84))
+* **limits:** assert structured apktool and Go limit fields ([#14667](https://github.com/spongebobmoviept-lab/rea/issues/14667)) ([6f39bae](https://github.com/spongebobmoviept-lab/rea/commit/6f39bae043a5cc78902cfd58d6e5cd140bac9c28))
 * **lint:** share Vitest rule tester setup ([#14552](https://github.com/spongebobmoviept-lab/rea/issues/14552)) ([1db5c70](https://github.com/spongebobmoviept-lab/rea/commit/1db5c707523e225c5327ddbc6f5e75333fa86e5b))
 * **lldb:** consolidate bridge journal and FIFO checks ([#12808](https://github.com/spongebobmoviept-lab/rea/issues/12808)) ([7f5a39c](https://github.com/spongebobmoviept-lab/rea/commit/7f5a39c0c10c49e637cdf13b9dd8fabd7fe296b7))
 * **macho:** consolidate classic and modern dylib encoding proofs ([#13952](https://github.com/spongebobmoviept-lab/rea/issues/13952)) ([d9ba8db](https://github.com/spongebobmoviept-lab/rea/commit/d9ba8db6e1ea4f96c9a7d400d3d9f8c1d6d9874e))
@@ -1415,6 +1422,7 @@
 * **mcp:** share address context capacity setup ([#14542](https://github.com/spongebobmoviept-lab/rea/issues/14542)) ([d11eba6](https://github.com/spongebobmoviept-lab/rea/commit/d11eba6295c764b10a72341d9fa29178bf7b2b7f))
 * **mcp:** share caller-owned in-memory handshakes ([#14424](https://github.com/spongebobmoviept-lab/rea/issues/14424)) ([efeac85](https://github.com/spongebobmoviept-lab/rea/commit/efeac85e0f2338b91d35c32ae2a67b75d96604ea))
 * **mcp:** share isolated file inspection sessions ([#14426](https://github.com/spongebobmoviept-lab/rea/issues/14426)) ([d0c51d1](https://github.com/spongebobmoviept-lab/rea/commit/d0c51d1fa063c09d345a279b732d6b7c32623baa))
+* **mcp:** share the listed-tool evidence caller ([#14676](https://github.com/spongebobmoviept-lab/rea/issues/14676)) ([20428db](https://github.com/spongebobmoviept-lab/rea/commit/20428dbc397eac27925278316a1ee9e70a122716))
 * **mcp:** share the successful tool assertion ([#14576](https://github.com/spongebobmoviept-lab/rea/issues/14576)) ([3bb225c](https://github.com/spongebobmoviept-lab/rea/commit/3bb225c564249330b6286187bffaccd12f5b1f10))
 * **mcp:** strengthen portable pattern witnesses ([#13324](https://github.com/spongebobmoviept-lab/rea/issues/13324)) ([d08c523](https://github.com/spongebobmoviept-lab/rea/commit/d08c52384ac1e7dde8a5c1f0a4a320a83f082268))
 * **mitmproxy:** consolidate transport evidence checks ([#12935](https://github.com/spongebobmoviept-lab/rea/issues/12935)) ([f61c38c](https://github.com/spongebobmoviept-lab/rea/commit/f61c38c8208f33c2b0a7fd906b89d505cfd5a917))
