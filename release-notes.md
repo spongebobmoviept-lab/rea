@@ -7,6 +7,8 @@
 
 ### ⚠ BREAKING CHANGES
 
+* **limits:** omitted input budgets for inspect_sqlite_database, inspect_go_binary, inspect_rust_binary and inspect_nuget_nupkg now admit larger files. Callers relying on the old default refusal must pass the old value explicitly.
+* **native:** inspect_devicetree's decoded-representation refusal reports reported_limits.boundary "max_decoded_bytes" with details.limit, instead of "decoded_bytes".
 * **native:** inspect_devicetree's decoded-representation refusal reports reported_limits.boundary "max_decoded_bytes" with details.limit, instead of "decoded_bytes".
 * **limits:** the SQLite snapshot refusal reports details.limit for producer_limits.input_bytes, and the SQLite column and reply refusals carry a fixed_ceiling refusal in place of their authored remediation.
 * **limits:** per-call parameter refusals gain `details.refusal`, and their `remediation.action` wording changes to the generated form.
@@ -74,6 +76,7 @@
 * **analysis-view:** select retained JavaScript facts by property value ([25e93a8](https://github.com/spongebobmoviept-lab/rea/commit/25e93a8139abf3ad398d0366d84c53c75fcd0d82))
 * **android:** add optional limit and offset paging to search_android_classes ([#13846](https://github.com/spongebobmoviept-lab/rea/issues/13846)) ([f47dbd9](https://github.com/spongebobmoviept-lab/rea/commit/f47dbd9351ac8624c409d4e37ea630c1cc35edd9))
 * **android:** pin jadx-headless-mcp 0.8.0 ([3ca89d8](https://github.com/spongebobmoviept-lab/rea/commit/3ca89d8272b3d8e49580ed261753ad6780df2839))
+* **artifacts:** back archive member counts with the artifact.member_count setting ([#14650](https://github.com/spongebobmoviept-lab/rea/issues/14650)) ([3129747](https://github.com/spongebobmoviept-lab/rea/commit/31297470ef829a404dc38c2acf327272e222c404))
 * **artifacts:** give Deno, wxapkg and tar readers artifact_limits controls ([#14620](https://github.com/spongebobmoviept-lab/rea/issues/14620)) ([3dae567](https://github.com/spongebobmoviept-lab/rea/commit/3dae567185ac08126d40ea38435d5cbe9aa64afe))
 * **artifacts:** inspect and compare directories by a content-addressed root digest ([#14270](https://github.com/spongebobmoviept-lab/rea/issues/14270)) ([56cf155](https://github.com/spongebobmoviept-lab/rea/commit/56cf15566ee1fee1cb0d3573bf0e23b1a682e635))
 * **artifacts:** inventory and extract ISO 9660 disc images offline ([#13290](https://github.com/spongebobmoviept-lab/rea/issues/13290)) ([e896f60](https://github.com/spongebobmoviept-lab/rea/commit/e896f60540f03e2c1fe0f916412bddd656c1f296))
@@ -101,6 +104,7 @@
 * **ida:** support the official Hex-Rays IDA MCP headlessly ([#4813](https://github.com/spongebobmoviept-lab/rea/issues/4813)) ([6822ebe](https://github.com/spongebobmoviept-lab/rea/commit/6822ebe1f3a4caec007fcd046754d66317d3349f))
 * **javascript:** add semantic_analysis structure-only mode to analyze_javascript_application ([#14117](https://github.com/spongebobmoviept-lab/rea/issues/14117)) ([eccd18a](https://github.com/spongebobmoviept-lab/rea/commit/eccd18a2cc325bb97f66f23a4216dfcacd9e1bca))
 * **javascript:** inventory Expo Router require.context route keys ([#10624](https://github.com/spongebobmoviept-lab/rea/issues/10624)) ([7b6e816](https://github.com/spongebobmoviept-lab/rea/commit/7b6e816b0b61d24d1a3b79106481f29db676ea65))
+* **limits:** raise disk-backed admission defaults for large ordinary targets ([#14653](https://github.com/spongebobmoviept-lab/rea/issues/14653)) ([30be941](https://github.com/spongebobmoviept-lab/rea/commit/30be941a5adb36211cf0449fc980292b4cb8a470))
 * **limits:** report the value a per-call limit needs and derive its recovery ([#14625](https://github.com/spongebobmoviept-lab/rea/issues/14625)) ([78cb717](https://github.com/spongebobmoviept-lab/rea/commit/78cb7172a6d38f726fe00acd530a8a8b7c21a737))
 * **mcp:** link retained Evidence from over-budget summaries ([#14603](https://github.com/spongebobmoviept-lab/rea/issues/14603)) ([fa65e51](https://github.com/spongebobmoviept-lab/rea/commit/fa65e51a24dc4c2983840af8d2ec119c28687cf7))
 * **metadata:** give NTFS, Maven report and NuGet budgets typed per-call controls ([#14629](https://github.com/spongebobmoviept-lab/rea/issues/14629)) ([4f66985](https://github.com/spongebobmoviept-lab/rea/commit/4f6698597884d709be8a98ec43f9f5320ae598ce))
@@ -385,6 +389,7 @@
 * **native:** preserve bundle provenance in partial reports ([9ffaca5](https://github.com/spongebobmoviept-lab/rea/commit/9ffaca54477d33c0f41f7042688b8e11f08d25b0))
 * **native:** refresh bundle provenance on reopen ([e35780d](https://github.com/spongebobmoviept-lab/rea/commit/e35780d042a9428c0a619ec42cf11794f5d7525c))
 * **native:** report details.limit for native reader per-call budgets ([#14622](https://github.com/spongebobmoviept-lab/rea/issues/14622)) ([50d13f9](https://github.com/spongebobmoviept-lab/rea/commit/50d13f9f08dd4f026f190b2ee27c885f95b6e0b5))
+* **native:** report details.limit for remaining native reader budgets and make BEAM table rows adjustable ([#14631](https://github.com/spongebobmoviept-lab/rea/issues/14631)) ([1badb6a](https://github.com/spongebobmoviept-lab/rea/commit/1badb6a8ae9d5a9696bc13091fa32485a0392183))
 * **native:** require dyld's __restrict section before reporting a restricted Mach-O ([#13024](https://github.com/spongebobmoviept-lab/rea/issues/13024)) ([7a11884](https://github.com/spongebobmoviept-lab/rea/commit/7a11884c0897062867e62c0c6d1079342ef8d861))
 * **native:** resolve name and import selectors through one owner ([#14250](https://github.com/spongebobmoviept-lab/rea/issues/14250)) ([cab39c6](https://github.com/spongebobmoviept-lab/rea/commit/cab39c640a50726d7766f202046a403ba8e72fff))
 * **native:** validate SHT_GNU_HASH bounds and fall back to DT_GNU_HASH ([#13713](https://github.com/spongebobmoviept-lab/rea/issues/13713)) ([e6b30f9](https://github.com/spongebobmoviept-lab/rea/commit/e6b30f945ec214e05ca13c36874e155737a6d4cb))
@@ -530,7 +535,9 @@
 * **ci:** narrow cache retention checkouts ([#14402](https://github.com/spongebobmoviept-lab/rea/issues/14402)) ([8e4c1c5](https://github.com/spongebobmoviept-lab/rea/commit/8e4c1c5f8d7e38a68f180738d8335f1eacb10c18))
 * **ci:** narrow pull request classifier checkouts to traced inputs ([#14376](https://github.com/spongebobmoviept-lab/rea/issues/14376)) ([5ef6cd8](https://github.com/spongebobmoviept-lab/rea/commit/5ef6cd89b5b8cc192683c2e97762bb4c4422fb21))
 * **ci:** omit development tools from failure reporting ([#14332](https://github.com/spongebobmoviept-lab/rea/issues/14332)) ([30fe9d9](https://github.com/spongebobmoviept-lab/rea/commit/30fe9d9f424447926ca0b8fb3006ddd6f95f279b))
+* **ci:** omit unused PR associations from timing queries ([#14636](https://github.com/spongebobmoviept-lab/rea/issues/14636)) ([43117a8](https://github.com/spongebobmoviept-lab/rea/commit/43117a8ae074be6aaddf0f06ea16f562caad4d25))
 * **ci:** query static diagnostics by artifact name ([#14476](https://github.com/spongebobmoviept-lab/rea/issues/14476)) ([02c4209](https://github.com/spongebobmoviept-lab/rea/commit/02c420939d63a5c983e98815c518dc5d59a379bb))
+* **ci:** resolve small pinned test batches directly ([#14638](https://github.com/spongebobmoviept-lab/rea/issues/14638)) ([fb1b4c0](https://github.com/spongebobmoviept-lab/rea/commit/fb1b4c0fbb4a7bfcc0112fe68d59782c610b9f61))
 * **ci:** resolve test snapshot blobs in one tree walk ([#14334](https://github.com/spongebobmoviept-lab/rea/issues/14334)) ([73c1689](https://github.com/spongebobmoviept-lab/rea/commit/73c1689aefeabd29d235f8d4341d71f1d3316544))
 * **ci:** reuse collected job lists for failure reports ([#14537](https://github.com/spongebobmoviept-lab/rea/issues/14537)) ([f148353](https://github.com/spongebobmoviept-lab/rea/commit/f148353ff1737619b8bfa4f4a72430339ecb7d6f))
 * **ci:** reuse installed website rendering packages ([#14337](https://github.com/spongebobmoviept-lab/rea/issues/14337)) ([1e1db9e](https://github.com/spongebobmoviept-lab/rea/commit/1e1db9e342ad13d26c27f34af8a2d7a5648387c9))
@@ -979,6 +986,7 @@
 * **views:** reuse invalid-view results and row selectors ([#14314](https://github.com/spongebobmoviept-lab/rea/issues/14314)) ([5dafc31](https://github.com/spongebobmoviept-lab/rea/commit/5dafc31d23f8f6f13a57b9b374411f412917d199))
 * **views:** reuse JSON record and request-line projections ([#14582](https://github.com/spongebobmoviept-lab/rea/issues/14582)) ([3d46331](https://github.com/spongebobmoviept-lab/rea/commit/3d4633176f15f3bd8072751af788bf31c7f2e0d8))
 * **views:** share count projections across analysis summaries ([#14600](https://github.com/spongebobmoviept-lab/rea/issues/14600)) ([c8f42a8](https://github.com/spongebobmoviept-lab/rea/commit/c8f42a872d39046a1dd3ae3e431642671b3b9357))
+* **views:** share default page request fields ([#14633](https://github.com/spongebobmoviept-lab/rea/issues/14633)) ([d639828](https://github.com/spongebobmoviept-lab/rea/commit/d63982890e70c55b09704249cde0327537e610f0))
 * **views:** share fixed page budget errors ([#14479](https://github.com/spongebobmoviept-lab/rea/issues/14479)) ([a2fd2d7](https://github.com/spongebobmoviept-lab/rea/commit/a2fd2d7d3045951ee684b6612294495d9c4f7435))
 * **views:** share invalid parent subject errors ([#14505](https://github.com/spongebobmoviept-lab/rea/issues/14505)) ([59a0ed3](https://github.com/spongebobmoviept-lab/rea/commit/59a0ed33fb5dad9b6bcce3e7f318350d88fbc78c))
 * **web:** remove the superseded single-query module matcher ([#14319](https://github.com/spongebobmoviept-lab/rea/issues/14319)) ([ab96130](https://github.com/spongebobmoviept-lab/rea/commit/ab96130f2277fa8a8571fb4bb4f210b6902acd5b))
@@ -1193,6 +1201,7 @@
 * **dotnet:** consolidate managed ExtraData coverage ([#12788](https://github.com/spongebobmoviept-lab/rea/issues/12788)) ([e8105d6](https://github.com/spongebobmoviept-lab/rea/commit/e8105d6be9c5b96a0635f09e0eeef9672f112e8f))
 * **dotnet:** consolidate managed PE and field constant contracts ([#13365](https://github.com/spongebobmoviept-lab/rea/issues/13365)) ([da6f898](https://github.com/spongebobmoviept-lab/rea/commit/da6f89808dcc9c6f528660426a54cff721cfbf03))
 * **dotnet:** prove scoped member ownership within the caller budget ([#13369](https://github.com/spongebobmoviept-lab/rea/issues/13369)) ([2e8bdfd](https://github.com/spongebobmoviept-lab/rea/commit/2e8bdfd808b3de68cbd283b3f4f5510ee728a288))
+* **dotnet:** stop expecting required_value for the lower-bound path-depth refusal ([d21ba43](https://github.com/spongebobmoviept-lab/rea/commit/d21ba43581cd64531cd43a56b691141b02918e63))
 * **dotnet:** use smaller fixtures for managed byte budgets ([#12793](https://github.com/spongebobmoviept-lab/rea/issues/12793)) ([337fd43](https://github.com/spongebobmoviept-lab/rea/commit/337fd43a0f91aa63c9697fd5dc912f7807454ba3))
 * drop detail requests the budget seed made redundant ([#14615](https://github.com/spongebobmoviept-lab/rea/issues/14615)) ([88fd8a9](https://github.com/spongebobmoviept-lab/rea/commit/88fd8a9df083568a7cb4a65012f1b9813c5b82b1))
 * **electron:** consolidate action and projection coverage ([#12959](https://github.com/spongebobmoviept-lab/rea/issues/12959)) ([32e5f5b](https://github.com/spongebobmoviept-lab/rea/commit/32e5f5bc1c26281656d6d2a17e14308c8eba05ce))
