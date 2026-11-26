@@ -7,6 +7,8 @@
 
 ### ⚠ BREAKING CHANGES
 
+* **dwarf:** Oversized individual PE COFF long section names in inspect_dwarf_units now project an adjustable_budget refusal (boundary max_structure_bytes with details.limit) instead of fixed_ceiling (pe-section-name-bytes).
+* **native:** Oversized Android APS2 packed relocation tables in inspect_native_initializers now project a memory/adjustable_budget refusal (boundary max_structure_bytes with details.limit) instead of capacity/fixed_ceiling (native-index-capacity).
 * **android:** the inspect_android_package summary no longer lists component declarations. Page them with view {kind: "android", facet: "components"}, or pass detail: "complete".
 * **android:** the inspect_android_class summary, delivered for detail summary or above the agent result budget, no longer lists methods, fields, inner classes or mapping symbols. Page them with the android-class view, or pass detail: "complete".
 * **android:** a trace_android_references call that omits detail on a trace above the agent result budget now returns the retained summary. Pass detail: "complete" (--detail complete) for the previous shape.
@@ -121,6 +123,7 @@
 * **errors:** add the TargetFailure model, its projection table and conformance registry ([#14247](https://github.com/spongebobmoviept-lab/rea/issues/14247)) ([40e9a3f](https://github.com/spongebobmoviept-lab/rea/commit/40e9a3f1a1769f3fbb24ca226aa853f42d78c42e))
 * **evidence:** find direct referrers by linked Evidence ID ([#11709](https://github.com/spongebobmoviept-lab/rea/issues/11709)) ([b57671c](https://github.com/spongebobmoviept-lab/rea/commit/b57671cb42ed16687d0b0ea8ff43d3643e045aef))
 * **evidence:** paginate retained evidence discovery summaries ([#9084](https://github.com/spongebobmoviept-lab/rea/issues/9084)) ([a16669a](https://github.com/spongebobmoviept-lab/rea/commit/a16669ab2adf8341b0261e9527bb26c98c1d7b21))
+* **firmware:** inspect uClinux bFLT flat executables offline ([#14663](https://github.com/spongebobmoviept-lab/rea/issues/14663)) ([04cb70c](https://github.com/spongebobmoviept-lab/rea/commit/04cb70c1a39270e8a1fd94a69382db01a6c7c159))
 * **flutter:** give Flutter APK admission per-call apk_limits ([#14623](https://github.com/spongebobmoviept-lab/rea/issues/14623)) ([49e2eca](https://github.com/spongebobmoviept-lab/rea/commit/49e2eca4f971bc154badfae47ac80c7edcf97018))
 * **frida:** add optional limit and offset paging to list_frida_processes ([#13854](https://github.com/spongebobmoviept-lab/rea/issues/13854)) ([9ec23ad](https://github.com/spongebobmoviept-lab/rea/commit/9ec23ad03bb6feef0ad208170652858eabcb3e4a))
 * **ghidra:** admit RISC-V ilp32f ELF with a derived calling convention ([#8401](https://github.com/spongebobmoviept-lab/rea/issues/8401)) ([d8aadcc](https://github.com/spongebobmoviept-lab/rea/commit/d8aadcc69bc65412e1e1545e25f23256f6ab5d8b))
@@ -141,6 +144,7 @@
 * **native:** report the stored RVA of PE exports ([bf8448c](https://github.com/spongebobmoviept-lab/rea/commit/bf8448cdfc90c4c077f03b877cf09ea150509092))
 * **native:** retain Apple bundle executable provenance ([b8995f8](https://github.com/spongebobmoviept-lab/rea/commit/b8995f81489dda3e7f8be61317f366b7fabd97c7))
 * **pe:** inspect x64 exception-directory function ranges ([#14254](https://github.com/spongebobmoviept-lab/rea/issues/14254)) ([a85859e](https://github.com/spongebobmoviept-lab/rea/commit/a85859e14790795f6d13000b173cb32c82c49813))
+* **providers:** retain native selection provenance in Evidence ([#9668](https://github.com/spongebobmoviept-lab/rea/issues/9668)) ([2bb086c](https://github.com/spongebobmoviept-lab/rea/commit/2bb086c87a54692561fa1f55596c56d9ba49bb50))
 * **rizin:** record which tool and version answered execute_rizin_command ([#7487](https://github.com/spongebobmoviept-lab/rea/issues/7487)) ([721b25e](https://github.com/spongebobmoviept-lab/rea/commit/721b25e20db85b19b3a5cb24ea5f65177b6d917b))
 * **setup:** discover project-scoped MCP registrations in doctor and … ([#7283](https://github.com/spongebobmoviept-lab/rea/issues/7283)) ([63c50ec](https://github.com/spongebobmoviept-lab/rea/commit/63c50ecfc0a849d3298c44b1ce06e2e759f1303c))
 * **tools:** add optional limit and offset paging to find_xrefs_to_name ([#13858](https://github.com/spongebobmoviept-lab/rea/issues/13858)) ([1d4fadc](https://github.com/spongebobmoviept-lab/rea/commit/1d4fadceb2720b2db9a2a0674e95385117238d81))
@@ -166,6 +170,7 @@
 * **android:** allow filtering references by the unnamed package ([#14752](https://github.com/spongebobmoviept-lab/rea/issues/14752)) ([752f576](https://github.com/spongebobmoviept-lab/rea/commit/752f5769e20998c427aa5dc4d28f8961259d5ff7))
 * **android:** let the bridge advertise its own tool schemas ([2b6ede2](https://github.com/spongebobmoviept-lab/rea/commit/2b6ede2d0c0c82ea466c61a6694df3353c998637))
 * **apk:** disclose v1 scan scope without duplicate names ([#13572](https://github.com/spongebobmoviept-lab/rea/issues/13572)) ([110b990](https://github.com/spongebobmoviept-lab/rea/commit/110b990c687bdb498de0134dce8b49547983273a))
+* **apktool:** restore package identity from decoded metadata ([#14767](https://github.com/spongebobmoviept-lab/rea/issues/14767)) ([5b2936c](https://github.com/spongebobmoviept-lab/rea/commit/5b2936c4e81b2835443b44235319b1de1f255997))
 * **apple-application:** trust declared coverage for empty disk images ([#13678](https://github.com/spongebobmoviept-lab/rea/issues/13678)) ([01c0e5a](https://github.com/spongebobmoviept-lab/rea/commit/01c0e5a870ce1bf684fc1ced8d1cfa74d404e48c))
 * **apple:** decode keyed archives that name another archiver ([11896a6](https://github.com/spongebobmoviept-lab/rea/commit/11896a6eb1864f4f45e4ab756bdfea93427b4eb9))
 * **apple:** decode the ivar WORD_ALIGN sentinel as 8-byte alignment ([3dcd6b6](https://github.com/spongebobmoviept-lab/rea/commit/3dcd6b62e813e1d7808ee4d0554130b5aa207538))
@@ -218,6 +223,7 @@
 * **browser:** retire detached WebMCP frame descendants ([#13233](https://github.com/spongebobmoviept-lab/rea/issues/13233)) ([190395e](https://github.com/spongebobmoviept-lab/rea/commit/190395eade8c1164189b0e1ac4fb724f73e3bad0))
 * **browser:** return completed scenario capture when cleanup is unconfirmed ([#6381](https://github.com/spongebobmoviept-lab/rea/issues/6381)) ([aa78851](https://github.com/spongebobmoviept-lab/rea/commit/aa78851b8565b6724efe8a68c134ba22bc8678e4))
 * **browser:** separate the decoder CPU budget from an inherited ceiling ([947fa8f](https://github.com/spongebobmoviept-lab/rea/commit/947fa8f14d6c3688f29a440c6d6468e812897ab8))
+* **browser:** settle Frida, Playwright, CDP, and Electron cleanup races ([#14786](https://github.com/spongebobmoviept-lab/rea/issues/14786)) ([d2940c8](https://github.com/spongebobmoviept-lab/rea/commit/d2940c8b355da02571d873b43a6c72e62c76447d))
 * **browser:** share the capture resource-constraint constructor ([d6a5b32](https://github.com/spongebobmoviept-lab/rea/commit/d6a5b32ed0a1dd368eaeaca0d91ca30765a75581))
 * **browser:** split mixed CRLF and LF headers in SAZ HTTP decoding ([#13691](https://github.com/spongebobmoviept-lab/rea/issues/13691)) ([87503ad](https://github.com/spongebobmoviept-lab/rea/commit/87503ad3bd9436bf06723e473156ac4cfa017244))
 * **build:** keep Windows import symbols independent of the build path ([#12753](https://github.com/spongebobmoviept-lab/rea/issues/12753)) ([f85fae6](https://github.com/spongebobmoviept-lab/rea/commit/f85fae63e149a8164e17949f65f7884fd043a4b5))
@@ -299,6 +305,7 @@
 * **doctor:** report startup timeouts independently of launcher discovery ([#13420](https://github.com/spongebobmoviept-lab/rea/issues/13420)) ([255a585](https://github.com/spongebobmoviept-lab/rea/commit/255a585c0a06975d0855f169f5e80663b642658d))
 * **domain:** keep worker, SQLite, and sealing invariants owned ([#14770](https://github.com/spongebobmoviept-lab/rea/issues/14770)) ([9e3a2bb](https://github.com/spongebobmoviept-lab/rea/commit/9e3a2bbc09872eba06fc4bd09b0547762d385e06))
 * **domain:** make partial count switches exhaustive for typed lint ([#14048](https://github.com/spongebobmoviept-lab/rea/issues/14048)) ([4298507](https://github.com/spongebobmoviept-lab/rea/commit/42985076ac43814d3cf60a8b97687240980304d0))
+* **dwarf:** bound PE COFF section-name decoding with max_structure_bytes ([#14787](https://github.com/spongebobmoviept-lab/rea/issues/14787)) ([d97b796](https://github.com/spongebobmoviept-lab/rea/commit/d97b79607677d15a1588e358c2b2e887bf6fb793))
 * **dwarf:** reject PE long section names when PointerToSymbolTable is zero ([#13889](https://github.com/spongebobmoviept-lab/rea/issues/13889)) ([a46bc22](https://github.com/spongebobmoviept-lab/rea/commit/a46bc22117928c04e2aefee04d629597b3393378))
 * **electron:** preserve inspection frame identity and diagnostics ([#13232](https://github.com/spongebobmoviept-lab/rea/issues/13232)) ([04d399d](https://github.com/spongebobmoviept-lab/rea/commit/04d399d67539fa9fbf07a2ce6d93b058808c7101))
 * **electron:** preserve waits and cancellation through renderer shutdown ([#12972](https://github.com/spongebobmoviept-lab/rea/issues/12972)) ([2533a8b](https://github.com/spongebobmoviept-lab/rea/commit/2533a8b32bf2d8e4c052f6ea5c7e616a93660a9f))
@@ -450,6 +457,7 @@
 * **native-exports:** verify the declared PE directory size ([#13661](https://github.com/spongebobmoviept-lab/rea/issues/13661)) ([ef3eb1e](https://github.com/spongebobmoviept-lab/rea/commit/ef3eb1e46e37836fe91984ec15a8a1d0a352fe5c))
 * **native:** admit every recognized dyld_info refusal when it exits 0 ([2d8309d](https://github.com/spongebobmoviept-lab/rea/commit/2d8309dfe73d4283853f381e6245da6fc16b65f1))
 * **native:** admit the missing-UUID dyld_info refusal when it exits 0 ([0e8f9d0](https://github.com/spongebobmoviept-lab/rea/commit/0e8f9d05864028da3ef5d0099463d63daca96f01))
+* **native:** bound Android packed relocations with max_structure_bytes ([#14788](https://github.com/spongebobmoviept-lab/rea/issues/14788)) ([47875ba](https://github.com/spongebobmoviept-lab/rea/commit/47875ba073c5c6049e5cce67ff72aeb5a8f876b5))
 * **native:** decode Objective-C categories that Swift lists in __objc_catlist2 ([#14025](https://github.com/spongebobmoviept-lab/rea/issues/14025)) ([94c1c6a](https://github.com/spongebobmoviept-lab/rea/commit/94c1c6aec0b65fc34c6e0516a7330ac24f38a11f))
 * **native:** label XML plists that file calls data as xml ([#12910](https://github.com/spongebobmoviept-lab/rea/issues/12910)) ([f03cce9](https://github.com/spongebobmoviept-lab/rea/commit/f03cce9c01d184ffade34dcb36fd05c0c0350a5e))
 * **native:** preserve Apple tool diagnostics across macOS versions ([a9d1031](https://github.com/spongebobmoviept-lab/rea/commit/a9d103167484234027415cf7816f4bd8335bf8a7))
@@ -475,8 +483,11 @@
 * **process:** retain proven file differences with partial coverage ([#13364](https://github.com/spongebobmoviept-lab/rea/issues/13364)) ([ec29a6d](https://github.com/spongebobmoviept-lab/rea/commit/ec29a6deae22ba82c5a88db092fbe65bd03b8bd4))
 * **process:** retain stdout collection failures through cleanup ([#13725](https://github.com/spongebobmoviept-lab/rea/issues/13725)) ([835ed06](https://github.com/spongebobmoviept-lab/rea/commit/835ed060dd9783d42eb815f33a83f6b3654b60ea))
 * **process:** retain synchronous command launch failures ([#13350](https://github.com/spongebobmoviept-lab/rea/issues/13350)) ([3a36311](https://github.com/spongebobmoviept-lab/rea/commit/3a3631100480109a7d2ef8b9ac8ff1f58df5904e))
+* **process:** settle worker, scope, and capture retries against close ([#14779](https://github.com/spongebobmoviept-lab/rea/issues/14779)) ([548fc2c](https://github.com/spongebobmoviept-lab/rea/commit/548fc2c811ee9f91310f2903ecba1eaf82b81b5f))
 * **process:** verify nested worker exit after parent cleanup ([#13242](https://github.com/spongebobmoviept-lab/rea/issues/13242)) ([75a75a1](https://github.com/spongebobmoviept-lab/rea/commit/75a75a1bd14eeec233650623e8b839bdf26b793d))
+* **providers:** bind client cleanup state to the exact client ([#14777](https://github.com/spongebobmoviept-lab/rea/issues/14777)) ([d77d6b1](https://github.com/spongebobmoviept-lab/rea/commit/d77d6b158b266eb671b0a5ad44439951efd3fead))
 * **providers:** resolve a PATH-only JDK for Windows Ghidra ([#14654](https://github.com/spongebobmoviept-lab/rea/issues/14654)) ([d27e728](https://github.com/spongebobmoviept-lab/rea/commit/d27e7284c715b6dfaa65fbefda4297bab0f26154))
+* **providers:** settle debugger and engine close races ([#14783](https://github.com/spongebobmoviept-lab/rea/issues/14783)) ([55c7eaa](https://github.com/spongebobmoviept-lab/rea/commit/55c7eaa0631b072330f522ab64fa7f7abec49101))
 * **pwntools:** release each PLT emulator so CET binaries keep their PLT map ([#13213](https://github.com/spongebobmoviept-lab/rea/issues/13213)) ([6357f77](https://github.com/spongebobmoviept-lab/rea/commit/6357f775a01f623b96603cf6237951a5c57a0a93))
 * **pwntools:** report a per-call input ceiling as its producer_limits parameter ([#14208](https://github.com/spongebobmoviept-lab/rea/issues/14208)) ([fc795dd](https://github.com/spongebobmoviept-lab/rea/commit/fc795dd260cb28799f4a247ba61a31e9d7aab4cb))
 * **pyinstaller:** distinguish declared-size overruns from limits ([#13648](https://github.com/spongebobmoviept-lab/rea/issues/13648)) ([ae3a225](https://github.com/spongebobmoviept-lab/rea/commit/ae3a225f79c1dfd672ef728c104d2d26cd7cbddc))
@@ -492,6 +503,7 @@
 * **rizin:** report the required inferior terminal field ([#13019](https://github.com/spongebobmoviept-lab/rea/issues/13019)) ([d84652e](https://github.com/spongebobmoviept-lab/rea/commit/d84652e55b43ad7c494efe67d8324b35d4a05695))
 * **rust:** admit valid reports at the configured byte limit ([#13570](https://github.com/spongebobmoviept-lab/rea/issues/13570)) ([0b1dcb4](https://github.com/spongebobmoviept-lab/rea/commit/0b1dcb413d8c1a7f64f3bebbf664c4f2f419718f))
 * **rust:** retain verified reports through descriptor finalization ([#14034](https://github.com/spongebobmoviept-lab/rea/issues/14034)) ([dba1c01](https://github.com/spongebobmoviept-lab/rea/commit/dba1c014ef22988a0a2aae97c130cf09c3dcc2b6))
+* **server:** reject duplicate in-flight MCP request IDs ([#14776](https://github.com/spongebobmoviept-lab/rea/issues/14776)) ([2edef1e](https://github.com/spongebobmoviept-lab/rea/commit/2edef1e2ccd0a150a6b8c75b2b8109a150d95274))
 * **session:** settle snapshot, shutdown, and cleanup-retry races ([#14757](https://github.com/spongebobmoviept-lab/rea/issues/14757)) ([aad2967](https://github.com/spongebobmoviept-lab/rea/commit/aad296795ce37e8e56337af7ec49317d4791bb04))
 * **setup:** accept hyphenated client names and suggest the closest one ([ed5c3dd](https://github.com/spongebobmoviept-lab/rea/commit/ed5c3dd10d937eb5e6bb8c41afa44eb6b0af2052))
 * **setup:** attribute malformed environment keys to their source ([#13522](https://github.com/spongebobmoviept-lab/rea/issues/13522)) ([4657cdd](https://github.com/spongebobmoviept-lab/rea/commit/4657cdd2196eaec8bc2915fd347798d094e6cf6d))
@@ -564,6 +576,7 @@
 * **website:** use the blue REA wordmark for site icons ([2c4776d](https://github.com/spongebobmoviept-lab/rea/commit/2c4776d9aa9c1167da96f75a27645a23ef3a348e))
 * **website:** verify markdown fragments from parsed headings ([#13265](https://github.com/spongebobmoviept-lab/rea/issues/13265)) ([88d1d9b](https://github.com/spongebobmoviept-lab/rea/commit/88d1d9b8b5245ce25165f5da3a5eea19740f4886))
 * **windows-shortcuts:** preserve unread target uncertainty ([#13653](https://github.com/spongebobmoviept-lab/rea/issues/13653)) ([8018344](https://github.com/spongebobmoviept-lab/rea/commit/8018344145b2d6f77a2379f015c81205312cd542))
+* **windows:** accept a private DACL when the user is SYSTEM ([#14769](https://github.com/spongebobmoviept-lab/rea/issues/14769)) ([62a4bee](https://github.com/spongebobmoviept-lab/rea/commit/62a4bee42cabefe8979d82229c67e266c79e784d))
 * **windows:** recover from a corrupt Node header cache ([#14259](https://github.com/spongebobmoviept-lab/rea/issues/14259)) ([a19b3db](https://github.com/spongebobmoviept-lab/rea/commit/a19b3dbaab323be37bb8e20bde833f064d3957d7))
 * **zip:** account apksigner alignment padding before the APK Signing Block ([#14232](https://github.com/spongebobmoviept-lab/rea/issues/14232)) ([6d408c0](https://github.com/spongebobmoviept-lab/rea/commit/6d408c048006c54f7e4ca371e78caee3f0d6c43a))
 
