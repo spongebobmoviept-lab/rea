@@ -7,6 +7,8 @@
 
 ### ⚠ BREAKING CHANGES
 
+* **gpu:** inspect_gpu_code_objects adds optional per-call budget parameters and reports details.limit with details.refusal.kind "adjustable_budget" instead of "fixed_ceiling" on top-level object, work, report, metadata, structure, and parser budget refusals.
+* **macho:** select arm64e.x1 slices of universal Mach-O files by exact subtype ([#14881](https://github.com/spongebobmoviept-lab/rea/issues/14881))
 * **elf:** an inspect_elf_unwind_ranges call that omits limit returns at most 64 ranges. Page with next_offset, or pass limit.
 * **android:** a search_android_classes call that omits limit returns at most 256 matches. Page with next_offset, or pass a larger limit.
 * **artifacts:** an extract_artifact call that omits detail on an extraction above the agent result budget now returns the retained summary. Pass detail: "complete" (--detail complete) for the previous shape.
@@ -141,8 +143,10 @@
 * **flutter:** give Flutter APK admission per-call apk_limits ([#14623](https://github.com/spongebobmoviept-lab/rea/issues/14623)) ([49e2eca](https://github.com/spongebobmoviept-lab/rea/commit/49e2eca4f971bc154badfae47ac80c7edcf97018))
 * **frida:** add optional limit and offset paging to list_frida_processes ([#13854](https://github.com/spongebobmoviept-lab/rea/issues/13854)) ([9ec23ad](https://github.com/spongebobmoviept-lab/rea/commit/9ec23ad03bb6feef0ad208170652858eabcb3e4a))
 * **ghidra:** admit RISC-V ilp32f ELF with a derived calling convention ([#8401](https://github.com/spongebobmoviept-lab/rea/issues/8401)) ([d8aadcc](https://github.com/spongebobmoviept-lab/rea/commit/d8aadcc69bc65412e1e1545e25f23256f6ab5d8b))
+* **ghidra:** define function-pointer members and typedefs ([#14889](https://github.com/spongebobmoviept-lab/rea/issues/14889)) ([8ff311b](https://github.com/spongebobmoviept-lab/rea/commit/8ff311b4ca0c67bfe45d811aecb6a68483a649af)), refs [#14887](https://github.com/spongebobmoviept-lab/rea/issues/14887)
 * **ghidra:** open M-profile raw images at a separate load base ([#7951](https://github.com/spongebobmoviept-lab/rea/issues/7951)) ([0b51ca0](https://github.com/spongebobmoviept-lab/rea/commit/0b51ca03de173fcf22059b5512647bc1461022df))
 * **ghidra:** set function signatures and define the types they use ([#14859](https://github.com/spongebobmoviept-lab/rea/issues/14859)) ([3a8a717](https://github.com/spongebobmoviept-lab/rea/commit/3a8a717b02edcd41b9dfbf64e82e5f7a761dfd8e))
+* **gpu:** add per-call object, work, report, metadata, structure, and parser budgets to inspect_gpu_code_objects ([#14882](https://github.com/spongebobmoviept-lab/rea/issues/14882)) ([2e59f08](https://github.com/spongebobmoviept-lab/rea/commit/2e59f08992271b10bedfe92b1d39fdfa521d2d21))
 * **ida:** support the official Hex-Rays IDA MCP headlessly ([#4813](https://github.com/spongebobmoviept-lab/rea/issues/4813)) ([6822ebe](https://github.com/spongebobmoviept-lab/rea/commit/6822ebe1f3a4caec007fcd046754d66317d3349f))
 * **javascript:** add semantic_analysis structure-only mode to analyze_javascript_application ([#14117](https://github.com/spongebobmoviept-lab/rea/issues/14117)) ([eccd18a](https://github.com/spongebobmoviept-lab/rea/commit/eccd18a2cc325bb97f66f23a4216dfcacd9e1bca))
 * **javascript:** inventory Expo Router require.context route keys ([#10624](https://github.com/spongebobmoviept-lab/rea/issues/10624)) ([7b6e816](https://github.com/spongebobmoviept-lab/rea/commit/7b6e816b0b61d24d1a3b79106481f29db676ea65))
@@ -494,6 +498,7 @@
 * **macho:** preserve retained magic from valid FAT ranges ([#13910](https://github.com/spongebobmoviept-lab/rea/issues/13910)) ([9dba673](https://github.com/spongebobmoviept-lab/rea/commit/9dba67368d01092f723bc074416eefcbe7546293))
 * **macho:** report a FAT header or table cut off by the file's end as truncated ([#14233](https://github.com/spongebobmoviept-lab/rea/issues/14233)) ([187793b](https://github.com/spongebobmoviept-lab/rea/commit/187793ba6158b23efe81160ac8ae6334a700bf35))
 * **macho:** report Mach-O read failures as target failures and delete MachoReadIssue ([#14416](https://github.com/spongebobmoviept-lab/rea/issues/14416)) ([5b79ae5](https://github.com/spongebobmoviept-lab/rea/commit/5b79ae5d62be355c5f955fe43c42a8e15b891a64))
+* **macho:** select arm64e.x1 slices of universal Mach-O files by exact subtype ([#14881](https://github.com/spongebobmoviept-lab/rea/issues/14881)) ([92b082b](https://github.com/spongebobmoviept-lab/rea/commit/92b082bcaf3e224fd0d03d7279728516fcbd45e7))
 * **managed:** isolate invalid string loads from member coverage ([#13588](https://github.com/spongebobmoviept-lab/rea/issues/13588)) ([4d507e8](https://github.com/spongebobmoviept-lab/rea/commit/4d507e861282e8ffa5f0e2e09fc523e40a5dd6e7))
 * **maven:** preserve property value spelling ([#13442](https://github.com/spongebobmoviept-lab/rea/issues/13442)) ([b43084c](https://github.com/spongebobmoviept-lab/rea/commit/b43084c7fd892524bce20982719ef08df3310687))
 * **maven:** read Maven 4.1.0 model POMs ([#14089](https://github.com/spongebobmoviept-lab/rea/issues/14089)) ([0c59c2e](https://github.com/spongebobmoviept-lab/rea/commit/0c59c2ed4e46ff52c69cb9f216c069e7b703f658))
@@ -1003,6 +1008,7 @@
 * **config:** unify decimal-integer env schemas onto positiveDecimalIntegerSchema ([#14587](https://github.com/spongebobmoviept-lab/rea/issues/14587)) ([289c5b1](https://github.com/spongebobmoviept-lab/rea/commit/289c5b13d937f4048d546fe98306e76cf48550a2))
 * **desktop:** project captured drafts through the guest schema ([#14338](https://github.com/spongebobmoviept-lab/rea/issues/14338)) ([57ae5dc](https://github.com/spongebobmoviept-lab/rea/commit/57ae5dcbc4f9ed131e536e6fd5655bcd90165be6))
 * **desktop:** read OpenPGP packet lengths through BinaryReader ([006581b](https://github.com/spongebobmoviept-lab/rea/commit/006581b838fe64cd2a1b5b22d508c525e92bdf2d)), refs [#11865](https://github.com/spongebobmoviept-lab/rea/issues/11865)
+* **desktop:** share XML parent pointers in task drafts ([#14905](https://github.com/spongebobmoviept-lab/rea/issues/14905)) ([670e705](https://github.com/spongebobmoviept-lab/rea/commit/670e70587a51ffd74f2d1f142f8774cbdfed4073))
 * **desktop:** validate task pointer syntax at its shared owner ([7b856fa](https://github.com/spongebobmoviept-lab/rea/commit/7b856fa5a14d4a361d445c1efd4b1f9037994259))
 * **discovery:** share regular-file and execute-permission checks ([#14749](https://github.com/spongebobmoviept-lab/rea/issues/14749)) ([a21beb4](https://github.com/spongebobmoviept-lab/rea/commit/a21beb4a0b6dc53f1887ae1b63f8f31acb45646a))
 * **doctor:** share client registration checks ([#14529](https://github.com/spongebobmoviept-lab/rea/issues/14529)) ([ff2f1c2](https://github.com/spongebobmoviept-lab/rea/commit/ff2f1c2f72a5cbe696086d64a28d450dcd7dc4b5))
@@ -1179,6 +1185,7 @@
 * **views:** reuse invalid-view results and row selectors ([#14314](https://github.com/spongebobmoviept-lab/rea/issues/14314)) ([5dafc31](https://github.com/spongebobmoviept-lab/rea/commit/5dafc31d23f8f6f13a57b9b374411f412917d199))
 * **views:** reuse JSON record and request-line projections ([#14582](https://github.com/spongebobmoviept-lab/rea/issues/14582)) ([3d46331](https://github.com/spongebobmoviept-lab/rea/commit/3d4633176f15f3bd8072751af788bf31c7f2e0d8))
 * **views:** reuse optional filters in report projections ([#14877](https://github.com/spongebobmoviept-lab/rea/issues/14877)) ([09a5b9c](https://github.com/spongebobmoviept-lab/rea/commit/09a5b9cef9393a8bd34ce096ed402fb72baf12e0))
+* **views:** share bounded parent and report limitations ([#14902](https://github.com/spongebobmoviept-lab/rea/issues/14902)) ([2874a6e](https://github.com/spongebobmoviept-lab/rea/commit/2874a6e21f7eb17dedc34bf6e614a5be96bcd591))
 * **views:** share count projections across analysis summaries ([#14600](https://github.com/spongebobmoviept-lab/rea/issues/14600)) ([c8f42a8](https://github.com/spongebobmoviept-lab/rea/commit/c8f42a872d39046a1dd3ae3e431642671b3b9357))
 * **views:** share default page request fields ([#14633](https://github.com/spongebobmoviept-lab/rea/issues/14633)) ([d639828](https://github.com/spongebobmoviept-lab/rea/commit/d63982890e70c55b09704249cde0327537e610f0))
 * **views:** share fixed page budget errors ([#14479](https://github.com/spongebobmoviept-lab/rea/issues/14479)) ([a2fd2d7](https://github.com/spongebobmoviept-lab/rea/commit/a2fd2d7d3045951ee684b6612294495d9c4f7435))
