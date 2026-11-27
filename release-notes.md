@@ -540,6 +540,7 @@
 * **native:** admit the missing-UUID dyld_info refusal when it exits 0 ([0e8f9d0](https://github.com/spongebobmoviept-lab/rea/commit/0e8f9d05864028da3ef5d0099463d63daca96f01))
 * **native:** bound Android packed relocations with max_structure_bytes ([#14788](https://github.com/spongebobmoviept-lab/rea/issues/14788)) ([47875ba](https://github.com/spongebobmoviept-lab/rea/commit/47875ba073c5c6049e5cce67ff72aeb5a8f876b5))
 * **native:** decode Objective-C categories that Swift lists in __objc_catlist2 ([#14025](https://github.com/spongebobmoviept-lab/rea/issues/14025)) ([94c1c6a](https://github.com/spongebobmoviept-lab/rea/commit/94c1c6aec0b65fc34c6e0516a7330ac24f38a11f))
+* **native:** do not count an object file's LINKEDIT tables as misplaced ([#14933](https://github.com/spongebobmoviept-lab/rea/issues/14933)) ([1adba0f](https://github.com/spongebobmoviept-lab/rea/commit/1adba0f4172fb037caeb0285866c9a8f1bed5b7c))
 * **native:** label XML plists that file calls data as xml ([#12910](https://github.com/spongebobmoviept-lab/rea/issues/12910)) ([f03cce9](https://github.com/spongebobmoviept-lab/rea/commit/f03cce9c01d184ffade34dcb36fd05c0c0350a5e))
 * **native:** preserve Apple tool diagnostics across macOS versions ([a9d1031](https://github.com/spongebobmoviept-lab/rea/commit/a9d103167484234027415cf7816f4bd8335bf8a7))
 * **native:** preserve bundle provenance in partial reports ([9ffaca5](https://github.com/spongebobmoviept-lab/rea/commit/9ffaca54477d33c0f41f7042688b8e11f08d25b0))
@@ -676,6 +677,7 @@
 * **windows:** accept a private DACL when the user is SYSTEM ([#14769](https://github.com/spongebobmoviept-lab/rea/issues/14769)) ([62a4bee](https://github.com/spongebobmoviept-lab/rea/commit/62a4bee42cabefe8979d82229c67e266c79e784d))
 * **windows:** keep N-API failures inside the callback ([#13193](https://github.com/spongebobmoviept-lab/rea/issues/13193)) ([5c9d0aa](https://github.com/spongebobmoviept-lab/rea/commit/5c9d0aa0b31e56bc9c3798945b185ab428239d63))
 * **windows:** recover from a corrupt Node header cache ([#14259](https://github.com/spongebobmoviept-lab/rea/issues/14259)) ([a19b3db](https://github.com/spongebobmoviept-lab/rea/commit/a19b3dbaab323be37bb8e20bde833f064d3957d7))
+* **yara:** refuse rule files with include directives before yara starts ([#14937](https://github.com/spongebobmoviept-lab/rea/issues/14937)) ([72c0f5c](https://github.com/spongebobmoviept-lab/rea/commit/72c0f5caf2b3c19144c6bc8c50a7361a76f2c103))
 * **zip:** account apksigner alignment padding before the APK Signing Block ([#14232](https://github.com/spongebobmoviept-lab/rea/issues/14232)) ([6d408c0](https://github.com/spongebobmoviept-lab/rea/commit/6d408c048006c54f7e4ca371e78caee3f0d6c43a))
 
 
