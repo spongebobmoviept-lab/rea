@@ -116,6 +116,7 @@
 * **artifacts:** inventory and extract stored and gzip-compressed tar archives ([#14245](https://github.com/spongebobmoviept-lab/rea/issues/14245)) ([225a19a](https://github.com/spongebobmoviept-lab/rea/commit/225a19ae7a39d06d03a8d5df4d9bf44e645a6c54))
 * **artifacts:** inventory auditd logs offline ([#12062](https://github.com/spongebobmoviept-lab/rea/issues/12062)) ([395a6df](https://github.com/spongebobmoviept-lab/rea/commit/395a6df911e68c80c0368b8d9384921790f6f7e2))
 * **artifacts:** inventory macOS flat installer packages offline ([#11377](https://github.com/spongebobmoviept-lab/rea/issues/11377)) ([dbbe334](https://github.com/spongebobmoviept-lab/rea/commit/dbbe334ec1995f42506dc8d0b651914a55399941))
+* **artifacts:** inventory Nintendo 64 ROM images and normalize byte order offline ([#14911](https://github.com/spongebobmoviept-lab/rea/issues/14911)) ([17b53ee](https://github.com/spongebobmoviept-lab/rea/commit/17b53ee004beb47ec5170c7c336dcb012b4dddd8))
 * **artifacts:** inventory Nintendo DS ROM binaries, overlays and file tables offline ([#14664](https://github.com/spongebobmoviept-lab/rea/issues/14664)) ([51b3671](https://github.com/spongebobmoviept-lab/rea/commit/51b3671b08714435cc6cc2188ab495db0b70d515))
 * **artifacts:** inventory Nintendo Switch NSO and NRO executables offline ([#14655](https://github.com/spongebobmoviept-lab/rea/issues/14655)) ([3970afe](https://github.com/spongebobmoviept-lab/rea/commit/3970afecc6fc3a952e10ec0db4cc21fa6cb7a71d))
 * **artifacts:** inventory OCI image layouts offline ([#12470](https://github.com/spongebobmoviept-lab/rea/issues/12470)) ([6a6e7b0](https://github.com/spongebobmoviept-lab/rea/commit/6a6e7b0bbf9d233c8e99e9a2314f28ba07f88199))
@@ -181,6 +182,7 @@
 * **web:** report value-free header names in the api-surface view ([#9504](https://github.com/spongebobmoviept-lab/rea/issues/9504)) ([fd9cbef](https://github.com/spongebobmoviept-lab/rea/commit/fd9cbeff743cc5a685917daafc937060ee45d7a5))
 * **website:** publish page-specific previews with the original REA blue ([1dd25d8](https://github.com/spongebobmoviept-lab/rea/commit/1dd25d87c7ba440b6256c644a556901eac1b3bbb))
 * **website:** recognize contributors in a shared commit-ranked directory ([ba31a11](https://github.com/spongebobmoviept-lab/rea/commit/ba31a111809e727891c238d1ca5ff9d62f751f0b))
+* **yara:** scan an admitted artifact with caller-supplied YARA rules ([#14688](https://github.com/spongebobmoviept-lab/rea/issues/14688)) ([bbd1540](https://github.com/spongebobmoviept-lab/rea/commit/bbd1540d10bf431138cd4e588c80d6ed5634d865))
 
 
 ### Bug Fixes
@@ -329,6 +331,7 @@
 * **deb:** preserve Unicode separators in md5sums filenames ([#14854](https://github.com/spongebobmoviept-lab/rea/issues/14854)) ([0a15311](https://github.com/spongebobmoviept-lab/rea/commit/0a1531145c4eb9e2504f6dafb11937e49b64df8a))
 * **decompile:** keep the functions directory identity on mounts that renumber after chmod ([#14324](https://github.com/spongebobmoviept-lab/rea/issues/14324)) ([217f498](https://github.com/spongebobmoviept-lab/rea/commit/217f498945f656cef207118d241f68a80de51d6c))
 * **delivery:** summarize by size only where the summary can be paged ([89919c8](https://github.com/spongebobmoviept-lab/rea/commit/89919c836d690e62b178880fd0c65e0303a33f3f))
+* **deps:** verify Brainpool publisher signatures with OpenPGP.js 6.3.3 ([#14914](https://github.com/spongebobmoviept-lab/rea/issues/14914)) ([6cebca7](https://github.com/spongebobmoviept-lab/rea/commit/6cebca7b07dc644e2e6e55772d3ab14250a9ac70))
 * **desktop:** anchor draft text checks through reflow ([#13708](https://github.com/spongebobmoviept-lab/rea/issues/13708)) ([7add65d](https://github.com/spongebobmoviept-lab/rea/commit/7add65ddec97017d7a7d7ba83057aeb9eb529e4d))
 * **desktop:** avoid suggesting edits from incomparable views ([#13596](https://github.com/spongebobmoviept-lab/rea/issues/13596)) ([7673ab0](https://github.com/spongebobmoviept-lab/rea/commit/7673ab03a6cb26f045adcffe803801ee71102cb1))
 * **desktop:** bound positioned note guards ([#13711](https://github.com/spongebobmoviept-lab/rea/issues/13711)) ([b988006](https://github.com/spongebobmoviept-lab/rea/commit/b9880064fd36f26672fefc755bd28030dc6a6d29))
@@ -523,6 +526,7 @@
 * **mcp:** share catalog tool search to suggest advertised tools on unknown tool calls ([#14305](https://github.com/spongebobmoviept-lab/rea/issues/14305)) ([16c972b](https://github.com/spongebobmoviept-lab/rea/commit/16c972bb91637dfabda11c77ef9246e6dbed5694))
 * **model:** name and size Q4_0_4_4 GGUF tensors ([#14532](https://github.com/spongebobmoviept-lab/rea/issues/14532)) ([ed9e664](https://github.com/spongebobmoviept-lab/rea/commit/ed9e664c2a046737ffae7e17aa23e41b867bf8e7))
 * **model:** recognize F8_E4M3 GGUF tensors from ggml v0.29.0 ([afc040c](https://github.com/spongebobmoviept-lab/rea/commit/afc040ccebb9af1f8b9eb6c5dbbdbc322a58ded2))
+* **mutation:** unblock the daily mutation sweep ([#14748](https://github.com/spongebobmoviept-lab/rea/issues/14748)) ([3273cbd](https://github.com/spongebobmoviept-lab/rea/commit/3273cbd1e27a73084a368b332c9101d02b0288e8))
 * name the violated rule in nested input refusals ([#14766](https://github.com/spongebobmoviept-lab/rea/issues/14766)) ([b3e769d](https://github.com/spongebobmoviept-lab/rea/commit/b3e769d9716783580f02095d2cbe7cf3c61039b9))
 * **native-exports:** preserve uncertainty in incomplete ELF version lookups ([#13666](https://github.com/spongebobmoviept-lab/rea/issues/13666)) ([02d5e6e](https://github.com/spongebobmoviept-lab/rea/commit/02d5e6e3f83727f4234303bf6fadbc3509d1aedd))
 * **native-exports:** verify the declared PE directory size ([#13661](https://github.com/spongebobmoviept-lab/rea/issues/13661)) ([ef3eb1e](https://github.com/spongebobmoviept-lab/rea/commit/ef3eb1e46e37836fe91984ec15a8a1d0a352fe5c))
@@ -622,6 +626,7 @@
 * **tests:** give CI workflow fixtures a hermetic GitHub context ([26cb5b5](https://github.com/spongebobmoviept-lab/rea/commit/26cb5b53ceeb1b3288c430ba1b222c2537457740))
 * **tests:** narrow markdown-it attributes to strings in doc link checks ([#14217](https://github.com/spongebobmoviept-lab/rea/issues/14217)) ([e39b56f](https://github.com/spongebobmoviept-lab/rea/commit/e39b56fc5de5a8791bdf8fa85b8366de213804a9))
 * **uefi:** attribute a refused output directory to output_directory ([c01c168](https://github.com/spongebobmoviept-lab/rea/commit/c01c16833635c30375f61fe0fba1f28ddffb685f))
+* **uefi:** decode LZMA sections through one shared LZMA1 owner ([#14918](https://github.com/spongebobmoviept-lab/rea/issues/14918)) ([943a1f3](https://github.com/spongebobmoviept-lab/rea/commit/943a1f329ece8a1ff4f398a9b33bc0a1fe7a7a28))
 * **uefi:** preserve verified source identity through descriptor finalization ([#14073](https://github.com/spongebobmoviept-lab/rea/issues/14073)) ([ce277e3](https://github.com/spongebobmoviept-lab/rea/commit/ce277e3974f565f8edb46c88465b293c170fd582))
 * **uefi:** verify image identity before publishing inventory ([#13624](https://github.com/spongebobmoviept-lab/rea/issues/13624)) ([ae02c73](https://github.com/spongebobmoviept-lab/rea/commit/ae02c73adc8d2ad33eecb4cd57fc235fa9788dc1))
 * **uninstall:** keep emptied DSH inserts from applying overrides ([#13036](https://github.com/spongebobmoviept-lab/rea/issues/13036)) ([76da8fd](https://github.com/spongebobmoviept-lab/rea/commit/76da8fd8baa9ffe61be1d772a3cc1d0ac65dbf8b))
@@ -1758,6 +1763,7 @@
 * **setup:** consolidate TOML client preservation checks ([#13294](https://github.com/spongebobmoviept-lab/rea/issues/13294)) ([825afe0](https://github.com/spongebobmoviept-lab/rea/commit/825afe019c9e35b9e4a44ae0efef338435df752d))
 * **setup:** cover client name resolution and typo suggestions ([fe1f851](https://github.com/spongebobmoviept-lab/rea/commit/fe1f85105705b272282e96042c93e588c20f1c42))
 * **setup:** exercise the MSIX registration regression in Windows CI ([#13189](https://github.com/spongebobmoviept-lab/rea/issues/13189)) ([c806ba8](https://github.com/spongebobmoviept-lab/rea/commit/c806ba8ed79ea6e8e0e7e14700fb17893da2fd49))
+* **setup:** reject tampered packages with both signing subkeys ([#14925](https://github.com/spongebobmoviept-lab/rea/issues/14925)) ([1111a46](https://github.com/spongebobmoviept-lab/rea/commit/1111a4642ad7805e0c8679d4f19fb70cbfa2b716))
 * **setup:** run the MSIX registration regression in Windows CI ([c806ba8](https://github.com/spongebobmoviept-lab/rea/commit/c806ba8ed79ea6e8e0e7e14700fb17893da2fd49))
 * **snapshot:** consolidate Ghidra replay and import coverage ([#12915](https://github.com/spongebobmoviept-lab/rea/issues/12915)) ([4269f79](https://github.com/spongebobmoviept-lab/rea/commit/4269f796782cfc4cd17cb4050371417960f6b70f))
 * **snapshots:** consolidate non-object file admission checks ([#13047](https://github.com/spongebobmoviept-lab/rea/issues/13047)) ([eb84f90](https://github.com/spongebobmoviept-lab/rea/commit/eb84f90417d23cd73a9b2f097b80c3737cad8268))
