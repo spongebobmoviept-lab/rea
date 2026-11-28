@@ -7,6 +7,7 @@
 
 ### ⚠ BREAKING CHANGES
 
+* **javascript:** a decode_android_resources call that omits detail on a decode above the agent result budget now returns the retained summary. Pass detail: "complete" (--detail complete) for the previous shape.
 * **gpu:** inspect_gpu_code_objects adds optional per-call budget parameters and reports details.limit with details.refusal.kind "adjustable_budget" instead of "fixed_ceiling" on top-level object, work, report, metadata, structure, and parser budget refusals.
 * **macho:** select arm64e.x1 slices of universal Mach-O files by exact subtype ([#14881](https://github.com/spongebobmoviept-lab/rea/issues/14881))
 * **elf:** an inspect_elf_unwind_ranges call that omits limit returns at most 64 ranges. Page with next_offset, or pass limit.
@@ -278,6 +279,7 @@
 * **browser:** settle Frida, Playwright, CDP, and Electron cleanup races ([#14786](https://github.com/spongebobmoviept-lab/rea/issues/14786)) ([d2940c8](https://github.com/spongebobmoviept-lab/rea/commit/d2940c8b355da02571d873b43a6c72e62c76447d))
 * **browser:** share the capture resource-constraint constructor ([d6a5b32](https://github.com/spongebobmoviept-lab/rea/commit/d6a5b32ed0a1dd368eaeaca0d91ca30765a75581))
 * **browser:** split mixed CRLF and LF headers in SAZ HTTP decoding ([#13691](https://github.com/spongebobmoviept-lab/rea/issues/13691)) ([87503ad](https://github.com/spongebobmoviept-lab/rea/commit/87503ad3bd9436bf06723e473156ac4cfa017244))
+* **browser:** use Android/Termux temp directory, artifactsDir, and --disable-dev-shm-usage ([264e169](https://github.com/spongebobmoviept-lab/rea/commit/264e169f74632b37581d50d135f083f7412ffda9)), refs [#14745](https://github.com/spongebobmoviept-lab/rea/issues/14745)
 * **build:** keep Windows import symbols independent of the build path ([#12753](https://github.com/spongebobmoviept-lab/rea/issues/12753)) ([f85fae6](https://github.com/spongebobmoviept-lab/rea/commit/f85fae63e149a8164e17949f65f7884fd043a4b5))
 * **bun:** keep budget refusals out of layout selection ([#12763](https://github.com/spongebobmoviept-lab/rea/issues/12763)) ([ae72c30](https://github.com/spongebobmoviept-lab/rea/commit/ae72c30e2c4b37b1ab24028d474e8e40502feb46))
 * **call-path:** bound inline shortest-path enumeration ([#4984](https://github.com/spongebobmoviept-lab/rea/issues/4984)) ([e99d0b2](https://github.com/spongebobmoviept-lab/rea/commit/e99d0b2d86431c3b20b662c3d706fb5c932079a5))
@@ -388,6 +390,7 @@
 * **elf:** clear the ARM Thumb bit before naming unwind ranges ([#9692](https://github.com/spongebobmoviept-lab/rea/issues/9692)) ([ce3506e](https://github.com/spongebobmoviept-lab/rea/commit/ce3506e298e1a42d111a08613821ce8868f411cd))
 * **elf:** do not count SPARC register declarations as imports ([d955cd0](https://github.com/spongebobmoviept-lab/rea/commit/d955cd0d60558a3f884b057e9aa6653b7652134d))
 * **elf:** establish direct initializer slot mappings ([#13452](https://github.com/spongebobmoviept-lab/rea/issues/13452)) ([bb81b0a](https://github.com/spongebobmoviept-lab/rea/commit/bb81b0a88dbb95dce6e86e737e35889e74d5deb0))
+* **elf:** leave the unwind GOT base unknown when DT_PLTGOT is not established ([2761248](https://github.com/spongebobmoviept-lab/rea/commit/27612481f00f2d63db48d5e41acc9ebe1c2f5cb4)), refs [#12446](https://github.com/spongebobmoviept-lab/rea/issues/12446)
 * **elf:** mark missing tables unreadable when dynamic counts are nonzero ([#14291](https://github.com/spongebobmoviept-lab/rea/issues/14291)) ([3624a9c](https://github.com/spongebobmoviept-lab/rea/commit/3624a9c1ab4f60843d786f95cb2e4871198329af))
 * **elf:** name the auxv types current Linux kernels write ([#13569](https://github.com/spongebobmoviept-lab/rea/issues/13569)) ([0aecef3](https://github.com/spongebobmoviept-lab/rea/commit/0aecef3726c216d931d7b085725a50f099eb9e58))
 * **elf:** preserve kernel config framing and location provenance ([#14021](https://github.com/spongebobmoviept-lab/rea/issues/14021)) ([fabe0da](https://github.com/spongebobmoviept-lab/rea/commit/fabe0da74b5f2c3807b5e01be88bff476ea74a38))
@@ -496,8 +499,10 @@
 * **javascript:** account for active nullish pattern defaults ([c1943f1](https://github.com/spongebobmoviept-lab/rea/commit/c1943f196cde8d232029e184648bf0a1356b685a))
 * **javascript:** answer an over-budget member-mutation query by escaping whole objects ([#14153](https://github.com/spongebobmoviept-lab/rea/issues/14153)) ([c4916a6](https://github.com/spongebobmoviept-lab/rea/commit/c4916a6ff779c1ef39f998bf49b0e11840bd8889))
 * **javascript:** drop a stream acquisition whose options Node refuses ([#9262](https://github.com/spongebobmoviept-lab/rea/issues/9262)) ([afa3482](https://github.com/spongebobmoviept-lab/rea/commit/afa34825a81496b6de427ca11ffb9b4781902855))
+* **javascript:** escape values stored into an object that escapes ([#14273](https://github.com/spongebobmoviept-lab/rea/issues/14273)) ([26741b0](https://github.com/spongebobmoviept-lab/rea/commit/26741b03bebb6e7d4624ea2265835bca02e7c780))
 * **javascript:** include the underscore in the http token class ([62c4c25](https://github.com/spongebobmoviept-lab/rea/commit/62c4c25d19b67363784b58961072cd12c509de52))
 * **javascript:** keep Electron options visible past conditional literal spreads ([#9510](https://github.com/spongebobmoviept-lab/rea/issues/9510)) ([abdf383](https://github.com/spongebobmoviept-lab/rea/commit/abdf383939bd4190c9a06dd6576f3d698718d842))
+* **javascript:** name minified receiverless import calls by their final callee ([#9095](https://github.com/spongebobmoviept-lab/rea/issues/9095)) ([f8a12eb](https://github.com/spongebobmoviept-lab/rea/commit/f8a12eba17e95d0897c4438f629d7bd30b3380cc))
 * **javascript:** omit requests rejected by the default agent protocol ([f54cc2f](https://github.com/spongebobmoviept-lab/rea/commit/f54cc2f3acf5e73b1007aafe8db69bc4b0ca29c3))
 * **javascript:** preserve abrupt destructuring boundaries ([#13433](https://github.com/spongebobmoviept-lab/rea/issues/13433)) ([365bbd9](https://github.com/spongebobmoviept-lab/rea/commit/365bbd9008ddde7b4ff6c0ba3b239e24309a7a64))
 * **javascript:** preserve CommonJS exports through TypeScript wrappers ([#4784](https://github.com/spongebobmoviept-lab/rea/issues/4784)) ([a2b1986](https://github.com/spongebobmoviept-lab/rea/commit/a2b1986b2a1ba7e1b64ab8752c6da4f590ac64c1))
@@ -524,6 +529,7 @@
 * **limits:** let inspect_sqlite_database take producer_limits.input_bytes and type SQLite, Kuna and web-bundle refusals ([#14627](https://github.com/spongebobmoviept-lab/rea/issues/14627)) ([a5c71e8](https://github.com/spongebobmoviept-lab/rea/commit/a5c71e8c88e75b1c8906a47996dbe4b360bb65a0))
 * **limits:** make the IL2CPP pointer index adjustable and require owned refusal limits ([#14243](https://github.com/spongebobmoviept-lab/rea/issues/14243)) ([6ab595c](https://github.com/spongebobmoviept-lab/rea/commit/6ab595cfd6fc67f6bfe7313e39f736ed67f036a3))
 * **limits:** omit required_value when PE/native read budgets know only a lower bound ([#14645](https://github.com/spongebobmoviept-lab/rea/issues/14645)) ([49187f1](https://github.com/spongebobmoviept-lab/rea/commit/49187f1ab39288182447537558c41a90f1976c3b))
+* **limits:** report details.limit for KernelModuleProvider refusals ([#14306](https://github.com/spongebobmoviept-lab/rea/issues/14306)) ([2c07552](https://github.com/spongebobmoviept-lab/rea/commit/2c07552b643bddc7c58c3ff0b4a58893e6c05548))
 * **limits:** report packet and signal producer budgets as details.limit and page discovery at its record budget ([#14621](https://github.com/spongebobmoviept-lab/rea/issues/14621)) ([33e4e07](https://github.com/spongebobmoviept-lab/rea/commit/33e4e07dd05f6968d106c6671ca9b38033b10f11))
 * **macho:** correct encryption range VM mapping ([#13918](https://github.com/spongebobmoviept-lab/rea/issues/13918)) ([0fb1d11](https://github.com/spongebobmoviept-lab/rea/commit/0fb1d112f699b5619607f564f95fe52f14b7b061))
 * **macho:** document what a null build platform means ([#14128](https://github.com/spongebobmoviept-lab/rea/issues/14128)) ([7fe260d](https://github.com/spongebobmoviept-lab/rea/commit/7fe260de1d145de5d9984dd4cc60485cbda723a9))
@@ -533,6 +539,7 @@
 * **macho:** report a FAT header or table cut off by the file's end as truncated ([#14233](https://github.com/spongebobmoviept-lab/rea/issues/14233)) ([187793b](https://github.com/spongebobmoviept-lab/rea/commit/187793ba6158b23efe81160ac8ae6334a700bf35))
 * **macho:** report Mach-O read failures as target failures and delete MachoReadIssue ([#14416](https://github.com/spongebobmoviept-lab/rea/issues/14416)) ([5b79ae5](https://github.com/spongebobmoviept-lab/rea/commit/5b79ae5d62be355c5f955fe43c42a8e15b891a64))
 * **macho:** select arm64e.x1 slices of universal Mach-O files by exact subtype ([#14881](https://github.com/spongebobmoviept-lab/rea/issues/14881)) ([92b082b](https://github.com/spongebobmoviept-lab/rea/commit/92b082bcaf3e224fd0d03d7279728516fcbd45e7))
+* **macho:** validate encryption mapping segment and section bounds against the slice ([#14287](https://github.com/spongebobmoviept-lab/rea/issues/14287)) ([0b7388e](https://github.com/spongebobmoviept-lab/rea/commit/0b7388ebe1f54375896eb5897c643406bd1653b2))
 * **managed:** isolate invalid string loads from member coverage ([#13588](https://github.com/spongebobmoviept-lab/rea/issues/13588)) ([4d507e8](https://github.com/spongebobmoviept-lab/rea/commit/4d507e861282e8ffa5f0e2e09fc523e40a5dd6e7))
 * **maven:** preserve property value spelling ([#13442](https://github.com/spongebobmoviept-lab/rea/issues/13442)) ([b43084c](https://github.com/spongebobmoviept-lab/rea/commit/b43084c7fd892524bce20982719ef08df3310687))
 * **maven:** read Maven 4.1.0 model POMs ([#14089](https://github.com/spongebobmoviept-lab/rea/issues/14089)) ([0c59c2e](https://github.com/spongebobmoviept-lab/rea/commit/0c59c2ed4e46ff52c69cb9f216c069e7b703f658))
@@ -1278,6 +1285,7 @@
 * **development:** route first contact by parsed facts and split admission limits from delivery budgets ([#14193](https://github.com/spongebobmoviept-lab/rea/issues/14193)) ([a1d53d3](https://github.com/spongebobmoviept-lab/rea/commit/a1d53d39565fe0976e0c86aeca9130901f4db7c6))
 * document per-call pagination, call-graph bounds, and streaming NuGet inspection ([#13851](https://github.com/spongebobmoviept-lab/rea/issues/13851)) ([46d41e4](https://github.com/spongebobmoviept-lab/rea/commit/46d41e4b79302539222dc6eeac9e8c36466491a4)), refs [#13850](https://github.com/spongebobmoviept-lab/rea/issues/13850)
 * **elf:** give the 64-range default unwind page ([54a186d](https://github.com/spongebobmoviept-lab/rea/commit/54a186da88d9759a582d1498383277fd1ed1c9c7))
+* **elf:** state when the dynamic table establishes the unwind GOT base ([e15d64e](https://github.com/spongebobmoviept-lab/rea/commit/e15d64ec0faa3b59c41a9d53972e274eacf4c6ae))
 * **firmware:** describe UEFI extraction summaries and owners ([4db1058](https://github.com/spongebobmoviept-lab/rea/commit/4db10585f0b52921bf3caa2540aebc149aeb4689))
 * **firmware:** describe UEFI summaries and views ([89fc51b](https://github.com/spongebobmoviept-lab/rea/commit/89fc51ba975e630743f2718d7cac3d4d817cc22c))
 * **ghidra:** link the native build steps for Linux arm64 ([dc10161](https://github.com/spongebobmoviept-lab/rea/commit/dc10161a9e0663c005fffb038e697306ca224482)), refs [#7018](https://github.com/spongebobmoviept-lab/rea/issues/7018)
@@ -1395,6 +1403,7 @@
 * **browser:** consolidate source-map and deadline contracts ([#13220](https://github.com/spongebobmoviept-lab/rea/issues/13220)) ([7b3fb89](https://github.com/spongebobmoviept-lab/rea/commit/7b3fb897c0868c198b7c92b1a413c0535240ea8d))
 * **browser:** consolidate source-map coordinates and wire deadlines ([#13235](https://github.com/spongebobmoviept-lab/rea/issues/13235)) ([1f3703f](https://github.com/spongebobmoviept-lab/rea/commit/1f3703f6f1ffe7626bb33c0ffaf5a7b6f6c216f4))
 * **browser:** consolidate worker framing and cleanup checks ([#12885](https://github.com/spongebobmoviept-lab/rea/issues/12885)) ([87940b1](https://github.com/spongebobmoviept-lab/rea/commit/87940b192c486551c194fb06b5bf468854d5404e))
+* **browser:** cover Android late-handshake cleanup retry ([4acc720](https://github.com/spongebobmoviept-lab/rea/commit/4acc720ac3687d800b981071f3e41c5545fe1d8c))
 * **browser:** reuse page and Evidence inspection fixtures ([#14581](https://github.com/spongebobmoviept-lab/rea/issues/14581)) ([18aec2e](https://github.com/spongebobmoviept-lab/rea/commit/18aec2e7630763676332fa0d323ea56fd96610ee))
 * **browser:** share validated inspection comparisons ([#14567](https://github.com/spongebobmoviept-lab/rea/issues/14567)) ([41bdf03](https://github.com/spongebobmoviept-lab/rea/commit/41bdf03a98b477be669a43731bb94984a5a420aa))
 * **browser:** sharpen HAR malformed input and producer guard checks ([#12805](https://github.com/spongebobmoviept-lab/rea/issues/12805)) ([9ab18ba](https://github.com/spongebobmoviept-lab/rea/commit/9ab18ba1dae99f690add39190ef964ba8be3232e))
@@ -1507,6 +1516,7 @@
 * **elf:** assert retained reports during descriptor finalization ([3cb9042](https://github.com/spongebobmoviept-lab/rea/commit/3cb904282f16cb6fdf509ba84203f89eefa015cc))
 * **elf:** consolidate debug-link candidate coverage ([#12851](https://github.com/spongebobmoviept-lab/rea/issues/12851)) ([3dacda3](https://github.com/spongebobmoviept-lab/rea/commit/3dacda36f200cb0dbdfde85f3f5589566e718552))
 * **elf:** join the paused dependency parser on failure ([40200ae](https://github.com/spongebobmoviept-lab/rea/commit/40200aea6f2cab98f142a2c0144e25d806e5153f))
+* **elf:** write caller-chosen dynamic rows in unwind fixtures ([a9180c0](https://github.com/spongebobmoviept-lab/rea/commit/a9180c0dfe3090ec1bdc55991e8697b8bcd72e99))
 * **environment:** check replay accounting with real retention budgets ([#13405](https://github.com/spongebobmoviept-lab/rea/issues/13405)) ([1461e52](https://github.com/spongebobmoviept-lab/rea/commit/1461e52f2bd12627d9809599d10b7be8006fac70))
 * **environment:** consolidate learned route matching checks ([#12809](https://github.com/spongebobmoviept-lab/rea/issues/12809)) ([9bca53f](https://github.com/spongebobmoviept-lab/rea/commit/9bca53f96ec9701c3afe49c9eb8a88f01d1150c3))
 * **environment:** consolidate manifest template proof ([#13859](https://github.com/spongebobmoviept-lab/rea/issues/13859)) ([b707c40](https://github.com/spongebobmoviept-lab/rea/commit/b707c405d8b8449bf770303f14194290f82f4098))
