@@ -7,6 +7,7 @@
 
 ### ⚠ BREAKING CHANGES
 
+* **firmware:** report partial devicetree coverage when a property was not decoded ([#14966](https://github.com/spongebobmoviept-lab/rea/issues/14966))
 * **javascript:** a decode_android_resources call that omits detail on a decode above the agent result budget now returns the retained summary. Pass detail: "complete" (--detail complete) for the previous shape.
 * **gpu:** inspect_gpu_code_objects adds optional per-call budget parameters and reports details.limit with details.refusal.kind "adjustable_budget" instead of "fixed_ceiling" on top-level object, work, report, metadata, structure, and parser budget refusals.
 * **macho:** select arm64e.x1 slices of universal Mach-O files by exact subtype ([#14881](https://github.com/spongebobmoviept-lab/rea/issues/14881))
@@ -288,6 +289,7 @@
 * **capture:** retain credential checks across MIME conflicts ([#13209](https://github.com/spongebobmoviept-lab/rea/issues/13209)) ([6152c02](https://github.com/spongebobmoviept-lab/rea/commit/6152c02f3f384723f6fac2470b380b682e1c6387))
 * **capture:** surface unsupported decoder requirements ([#13203](https://github.com/spongebobmoviept-lab/rea/issues/13203)) ([088bc68](https://github.com/spongebobmoviept-lab/rea/commit/088bc68b1cbddb11b7432e7541ba66f47409abf2))
 * **ci/tests:** bound untyped oxlint threads and fail fast on terminal POSIX poll errors ([#13447](https://github.com/spongebobmoviept-lab/rea/issues/13447)) ([07df0f1](https://github.com/spongebobmoviept-lab/rea/commit/07df0f1c04779a54f0a2b84233a3e3b9638fca4d))
+* **ci:** accept a skipped selection the macOS lane runs ([2dcdacc](https://github.com/spongebobmoviept-lab/rea/commit/2dcdacce922ddafd85d0b2a9e78dbfa3ad8fa8ad)), refs [#14596](https://github.com/spongebobmoviept-lab/rea/issues/14596)
 * **ci:** bind timing evidence to its workflow attempt ([#14080](https://github.com/spongebobmoviept-lab/rea/issues/14080)) ([bc19c8d](https://github.com/spongebobmoviept-lab/rea/commit/bc19c8d21fbe26be280db55faae92bac2c12c20e))
 * **ci:** bound browser runtime fixture source readiness ([#14364](https://github.com/spongebobmoviept-lab/rea/issues/14364)) ([a9e34a4](https://github.com/spongebobmoviept-lab/rea/commit/a9e34a4aaef89138d7b89da7f9d1965bafe16365))
 * **ci:** bound packet capture prerequisite acquisition ([#14716](https://github.com/spongebobmoviept-lab/rea/issues/14716)) ([1a09a8e](https://github.com/spongebobmoviept-lab/rea/commit/1a09a8ef469ae6fa05eb81078221e9b1896729ee))
@@ -316,6 +318,7 @@
 * **ci:** run type-aware lint on changed files in fast PRs ([#14068](https://github.com/spongebobmoviept-lab/rea/issues/14068)) ([313f2f8](https://github.com/spongebobmoviept-lab/rea/commit/313f2f8372e3d9d6944197ebe4aa6ea48034a532))
 * **ci:** search older successful timing runs within budget ([#14363](https://github.com/spongebobmoviept-lab/rea/issues/14363)) ([185700f](https://github.com/spongebobmoviept-lab/rea/commit/185700f49650b77b37f68711bd96f6c2c905146f))
 * **ci:** select coverage guards for modified test registrations ([#12860](https://github.com/spongebobmoviept-lab/rea/issues/12860)) ([75fe508](https://github.com/spongebobmoviept-lab/rea/commit/75fe508eb45982447521be4d5849ccadf3ab8401))
+* **ci:** select the macOS lane when every selected test may be gated to it ([48cef46](https://github.com/spongebobmoviept-lab/rea/commit/48cef4662f8c344aea1afabf20d88a1581b2d937))
 * **ci:** shard exact test specifications before execution ([#14499](https://github.com/spongebobmoviept-lab/rea/issues/14499)) ([0069fee](https://github.com/spongebobmoviept-lab/rea/commit/0069feeccf7f06534d6abd8e960dc49526fe73b0))
 * **ci:** trace test dependencies through static template imports ([#14079](https://github.com/spongebobmoviept-lab/rea/issues/14079)) ([9e24673](https://github.com/spongebobmoviept-lab/rea/commit/9e24673620e08e939980b910db7936bda1532c92))
 * **ci:** track configuration inputs across cached checks ([#14015](https://github.com/spongebobmoviept-lab/rea/issues/14015)) ([4fdacbf](https://github.com/spongebobmoviept-lab/rea/commit/4fdacbf982c1bb409dda50cb80ba3eec74dd259e))
@@ -439,6 +442,8 @@
 * **firmware:** honor the final Android OTA timestamp record ([#13373](https://github.com/spongebobmoviept-lab/rea/issues/13373)) ([e84668c](https://github.com/spongebobmoviept-lab/rea/commit/e84668c76be4df40963dbd83f84803ec812f64c5))
 * **firmware:** mark ESP flash coverage unknown when bootloader region is omitted ([#14285](https://github.com/spongebobmoviept-lab/rea/issues/14285)) ([00939f9](https://github.com/spongebobmoviept-lab/rea/commit/00939f9bd2d0596deab4824ec9107eabf6592ab7))
 * **firmware:** report malformed linux,phandle and leave references unresolved ([#13734](https://github.com/spongebobmoviept-lab/rea/issues/13734)) ([b0216a0](https://github.com/spongebobmoviept-lab/rea/commit/b0216a0a7ae1c56a5a6d01dc08ca820b5ebdceb3))
+* **firmware:** report partial devicetree coverage when a property was not decoded ([#14966](https://github.com/spongebobmoviept-lab/rea/issues/14966)) ([689de9d](https://github.com/spongebobmoviept-lab/rea/commit/689de9deed6e97acdd84d1f1aa4fbfa51fc794a6))
+* **firmware:** summarize RISC-V vectors by decoded jumps ([#15014](https://github.com/spongebobmoviept-lab/rea/issues/15014)) ([3fad592](https://github.com/spongebobmoviept-lab/rea/commit/3fad5920b9227a489b3796f373536385d4fd3bf0))
 * **fit:** report unknown coverage when an image field was not decoded ([#14986](https://github.com/spongebobmoviept-lab/rea/issues/14986)) ([40459f1](https://github.com/spongebobmoviept-lab/rea/commit/40459f16c33b41108f171025710e0775d6596b3a))
 * **flutter:** distinguish Dart snapshot exports from local symbols ([#13576](https://github.com/spongebobmoviept-lab/rea/issues/13576)) ([3c74128](https://github.com/spongebobmoviept-lab/rea/commit/3c741283530bb400531540f96b85134d6a7bd029))
 * **flutter:** preserve build IDs beside invalid note extents ([#13577](https://github.com/spongebobmoviept-lab/rea/issues/13577)) ([7d6c771](https://github.com/spongebobmoviept-lab/rea/commit/7d6c77106260b086717ef98e695c31257539b0e4))
@@ -454,6 +459,7 @@
 * **ghidra:** let sessions share a checkpointed target ([#14856](https://github.com/spongebobmoviept-lab/rea/issues/14856)) ([dc12e57](https://github.com/spongebobmoviept-lab/rea/commit/dc12e5768b57ae8b78dec5c3eb453929b255cf7f))
 * **ghidra:** link the published installation guide from decompiler remediation ([62ec695](https://github.com/spongebobmoviept-lab/rea/commit/62ec69530319a17552f52dbfb7bdf3c4575ac85b)), refs [#7018](https://github.com/spongebobmoviept-lab/rea/issues/7018)
 * **ghidra:** load ESP-IDF flash code in Ghidra's default address space ([#8464](https://github.com/spongebobmoviept-lab/rea/issues/8464)) ([5e56bd0](https://github.com/spongebobmoviept-lab/rea/commit/5e56bd0a2311d92afe7ab8be1cb143f5b467c369))
+* **ghidra:** name contract operations and fields in selector and type-edit recovery ([b6163bf](https://github.com/spongebobmoviept-lab/rea/commit/b6163bfbc0a2074548afafd48c1c2eaed254502c))
 * **ghidra:** name invalid installed language definition files ([#13401](https://github.com/spongebobmoviept-lab/rea/issues/13401)) ([1d85f68](https://github.com/spongebobmoviept-lab/rea/commit/1d85f680f9aeee634ff3da8cd20c9209c6275b9e))
 * **ghidra:** name the code seed recovery for addresses outside the listing ([#10682](https://github.com/spongebobmoviept-lab/rea/issues/10682)) ([33ecda0](https://github.com/spongebobmoviept-lab/rea/commit/33ecda025f0f21ebe7abd73e6ebd5c43a21a5822))
 * **ghidra:** pass inspected JDK to the Windows verifier ([#10752](https://github.com/spongebobmoviept-lab/rea/issues/10752)) ([0053ad5](https://github.com/spongebobmoviept-lab/rea/commit/0053ad589cb282d9a027d0a22211a6bc1a2652cb))
@@ -487,6 +493,7 @@
 * **hopper:** refuse downloads redirected to another origin ([#6700](https://github.com/spongebobmoviept-lab/rea/issues/6700)) ([8575dfe](https://github.com/spongebobmoviept-lab/rea/commit/8575dfe370c585d198392063dd71c040380537aa))
 * **hopper:** report the stalled export function and shell recovery ([#14855](https://github.com/spongebobmoviept-lab/rea/issues/14855)) ([cc888f5](https://github.com/spongebobmoviept-lab/rea/commit/cc888f5f7d7a1210be0b2ff36486d84593b3546b))
 * **ida:** extend verifier admission check deadline to 90s ([d7ba8ad](https://github.com/spongebobmoviept-lab/rea/commit/d7ba8adbc3b8dc009549d6405873e68c8934c814))
+* **ida:** name contract operations in procedure lookup recovery ([402474b](https://github.com/spongebobmoviept-lab/rea/commit/402474b08289783fff09e5a290c3844bf4789f26))
 * **ida:** report an idb_open rejection with its upstream reason ([0cf7483](https://github.com/spongebobmoviept-lab/rea/commit/0cf7483322e0499cec72cc3df06d761871a75929)), refs [#13286](https://github.com/spongebobmoviept-lab/rea/issues/13286)
 * **ida:** report the supervisor's open deadline as provider_timeout ([ddf2cd9](https://github.com/spongebobmoviept-lab/rea/commit/ddf2cd9102ddcc6da901aa37f752223de61b289d)), refs [#13286](https://github.com/spongebobmoviept-lab/rea/issues/13286)
 * **interface-builder:** preserve budget-omitted destination evidence ([#13674](https://github.com/spongebobmoviept-lab/rea/issues/13674)) ([e1be55d](https://github.com/spongebobmoviept-lab/rea/commit/e1be55dcaff944a06ca6eccdca9090f74a246cbb))
@@ -1425,6 +1432,7 @@
 * **ci:** consolidate project deadline policy checks ([#12777](https://github.com/spongebobmoviept-lab/rea/issues/12777)) ([ec533c6](https://github.com/spongebobmoviept-lab/rea/commit/ec533c6e648aa63fd0f0d10e985abbaa497a8df7))
 * **ci:** consolidate project discovery and isolation checks ([#12842](https://github.com/spongebobmoviept-lab/rea/issues/12842)) ([21795b1](https://github.com/spongebobmoviept-lab/rea/commit/21795b199d1bc94f3ee17688e45403e689cbc966))
 * **ci:** consolidate required lane gate coverage ([#13515](https://github.com/spongebobmoviept-lab/rea/issues/13515)) ([77c5e6b](https://github.com/spongebobmoviept-lab/rea/commit/77c5e6bf82bf4bceb4a4cffcd2e4b517d3ffb51a))
+* **ci:** keep the separator regression in the Windows-only lane guard ([21cfc80](https://github.com/spongebobmoviept-lab/rea/commit/21cfc809bc9465b4c39d0f14874bdbbd58159f44))
 * **ci:** make test selection and provider report refusals observable ([#12782](https://github.com/spongebobmoviept-lab/rea/issues/12782)) ([21051b9](https://github.com/spongebobmoviept-lab/rea/commit/21051b9d06f82d9da0a932d328cae8db87644f77))
 * **ci:** require a positive binary-layout download deadline ([#14755](https://github.com/spongebobmoviept-lab/rea/issues/14755)) ([72b77b2](https://github.com/spongebobmoviept-lab/rea/commit/72b77b2f8e429aa24c2b475a0d54f4de222b1337))
 * **ci:** require planner directories in classifier checkouts ([#14553](https://github.com/spongebobmoviept-lab/rea/issues/14553)) ([0acafde](https://github.com/spongebobmoviept-lab/rea/commit/0acafdeafa5880c8e8a385ef0e5b737887a4cecf))
@@ -1985,6 +1993,7 @@
 * shallow-checkout the classifier for qualification runs ([#14312](https://github.com/spongebobmoviept-lab/rea/issues/14312)) ([b73cc58](https://github.com/spongebobmoviept-lab/rea/commit/b73cc58925f09c08dca88cbbe1e04d7182cf7643))
 * validate workflow anchors with actionlint 1.7.12 ([#14298](https://github.com/spongebobmoviept-lab/rea/issues/14298)) ([f919526](https://github.com/spongebobmoviept-lab/rea/commit/f9195263d0ae23df996d28f4a7bf848067d936fa))
 * wait for static checks before broad PR test shards ([#14299](https://github.com/spongebobmoviept-lab/rea/issues/14299)) ([b8dd2c4](https://github.com/spongebobmoviept-lab/rea/commit/b8dd2c47d46419b0d82d03c1de2f261b7ffe3f73))
+* **windows:** run the caller path separator regression in the Windows lane ([#4988](https://github.com/spongebobmoviept-lab/rea/issues/4988)) ([21cfc80](https://github.com/spongebobmoviept-lab/rea/commit/21cfc809bc9465b4c39d0f14874bdbbd58159f44))
 
 ---
 This PR was generated with [Release Please](https://github.com/googleapis/release-please). See [documentation](https://github.com/googleapis/release-please#release-please).
