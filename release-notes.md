@@ -2,7 +2,7 @@
 ---
 
 
-## [6.11.0](https://github.com/spongebobmoviept-lab/rea/compare/rea-agents-6.10.1...rea-agents-6.11.0) (2026-11-27)
+## [6.11.0](https://github.com/spongebobmoviept-lab/rea/compare/rea-agents-6.10.1...rea-agents-6.11.0) (2026-11-28)
 
 
 ### ⚠ BREAKING CHANGES
@@ -1011,6 +1011,7 @@
 * **artifacts:** reuse the positional reader for iNES prefixes ([#13481](https://github.com/spongebobmoviept-lab/rea/issues/13481)) ([b6ffec4](https://github.com/spongebobmoviept-lab/rea/commit/b6ffec43adeec2d7b57ef49b894425e8b0d36d0a))
 * **artifacts:** share cached prefix reader and ELF/MZ magic ([#13663](https://github.com/spongebobmoviept-lab/rea/issues/13663)) ([baed75f](https://github.com/spongebobmoviept-lab/rea/commit/baed75fc2b3a723144d46fdfb206b50bd03c6698))
 * **artifacts:** share member stream capacity and shutdown ([#14442](https://github.com/spongebobmoviept-lab/rea/issues/14442)) ([6eeae97](https://github.com/spongebobmoviept-lab/rea/commit/6eeae97eb3ebe16ea48c4537542d972620218c65))
+* **artifacts:** share positional region entries ([#14947](https://github.com/spongebobmoviept-lab/rea/issues/14947)) ([f0c31de](https://github.com/spongebobmoviept-lab/rea/commit/f0c31de19d3b0c6582ff318ed8c6778a1dd2c78d))
 * **asar:** remove obsolete empty-member handle cleanup ([#14446](https://github.com/spongebobmoviept-lab/rea/issues/14446)) ([087b623](https://github.com/spongebobmoviept-lab/rea/commit/087b6237be540bf925795fd2222b5d217f1e6f7f))
 * **binary:** remove the unused mapped string scan ([#14448](https://github.com/spongebobmoviept-lab/rea/issues/14448)) ([05058c2](https://github.com/spongebobmoviept-lab/rea/commit/05058c2d8f7ffb9f6ef460d1dd78f5258267fba1))
 * **binary:** share byte-view reader caches ([#14440](https://github.com/spongebobmoviept-lab/rea/issues/14440)) ([654320a](https://github.com/spongebobmoviept-lab/rea/commit/654320a8af3bae76901e7dc824ff4c26fdcecc7a))
@@ -1134,6 +1135,7 @@
 * **nuget,apk:** adopt ByteSource and drop the NuGet in-memory parse branch ([a324181](https://github.com/spongebobmoviept-lab/rea/commit/a324181cccd428618f1bb839121789720fb1395d))
 * **nuget:** select declared manifest occurrences in one pass ([#13402](https://github.com/spongebobmoviept-lab/rea/issues/13402)) ([4bb5c87](https://github.com/spongebobmoviept-lab/rea/commit/4bb5c87d2b1a06abcdf26ccf68dfd2551aebd9bd))
 * **packages:** share bounded ZIP member reads ([#14849](https://github.com/spongebobmoviept-lab/rea/issues/14849)) ([52c0009](https://github.com/spongebobmoviept-lab/rea/commit/52c0009f93c949268a4170eff7129c172f733c82))
+* **packages:** share ZIP failure translation ([#14943](https://github.com/spongebobmoviept-lab/rea/issues/14943)) ([c4bc2f7](https://github.com/spongebobmoviept-lab/rea/commit/c4bc2f7fcb73882f638b9d9a31fd49156bd902f6))
 * **parsers:** share typed failure handling for Android and ISO images ([#14719](https://github.com/spongebobmoviept-lab/rea/issues/14719)) ([1f262f5](https://github.com/spongebobmoviept-lab/rea/commit/1f262f5d1356c3ce94fb0e9c99302fdb60d3349c))
 * **pcap:** remove the unused one-pass TShark parser ([#14444](https://github.com/spongebobmoviept-lab/rea/issues/14444)) ([a337d66](https://github.com/spongebobmoviept-lab/rea/commit/a337d6684193739bb9ffee00ff6f21f56844915d))
 * **pe:** decode certificate BMP and UTF-32 strings through BinaryReader ([6543a3c](https://github.com/spongebobmoviept-lab/rea/commit/6543a3c1a182aeeb797c3e9e27a3ec887e71d00f)), refs [#11865](https://github.com/spongebobmoviept-lab/rea/issues/11865)
@@ -1221,9 +1223,11 @@
 * **views:** share bounded parent and report limitations ([#14902](https://github.com/spongebobmoviept-lab/rea/issues/14902)) ([2874a6e](https://github.com/spongebobmoviept-lab/rea/commit/2874a6e21f7eb17dedc34bf6e614a5be96bcd591))
 * **views:** share count projections across analysis summaries ([#14600](https://github.com/spongebobmoviept-lab/rea/issues/14600)) ([c8f42a8](https://github.com/spongebobmoviept-lab/rea/commit/c8f42a872d39046a1dd3ae3e431642671b3b9357))
 * **views:** share default page request fields ([#14633](https://github.com/spongebobmoviept-lab/rea/issues/14633)) ([d639828](https://github.com/spongebobmoviept-lab/rea/commit/d63982890e70c55b09704249cde0327537e610f0))
+* **views:** share field-specific input errors ([#14942](https://github.com/spongebobmoviept-lab/rea/issues/14942)) ([0f7a029](https://github.com/spongebobmoviept-lab/rea/commit/0f7a0293c2e6f8f33cb5bbe1bb51b3ecb9f84da0))
 * **views:** share fixed page budget errors ([#14479](https://github.com/spongebobmoviept-lab/rea/issues/14479)) ([a2fd2d7](https://github.com/spongebobmoviept-lab/rea/commit/a2fd2d7d3045951ee684b6612294495d9c4f7435))
 * **views:** share invalid parent subject errors ([#14505](https://github.com/spongebobmoviept-lab/rea/issues/14505)) ([59a0ed3](https://github.com/spongebobmoviept-lab/rea/commit/59a0ed33fb5dad9b6bcce3e7f318350d88fbc78c))
 * **views:** share optional filter set construction ([#14850](https://github.com/spongebobmoviept-lab/rea/issues/14850)) ([3fc508d](https://github.com/spongebobmoviept-lab/rea/commit/3fc508ddcc42d39aa837d10709f0383176ee3d8f))
+* **views:** share selected page items and coverage ([#14946](https://github.com/spongebobmoviept-lab/rea/issues/14946)) ([5a9d032](https://github.com/spongebobmoviept-lab/rea/commit/5a9d032c95a631813f09f1da6d5a5c43836a51ab))
 * **vsix:** share manifest extension list parsing ([#14876](https://github.com/spongebobmoviept-lab/rea/issues/14876)) ([16af28c](https://github.com/spongebobmoviept-lab/rea/commit/16af28c09e7d242a52ef1509c12f96cbabb032ea))
 * **web:** remove the superseded single-query module matcher ([#14319](https://github.com/spongebobmoviept-lab/rea/issues/14319)) ([ab96130](https://github.com/spongebobmoviept-lab/rea/commit/ab96130f2277fa8a8571fb4bb4f210b6902acd5b))
 * **web:** reuse the shared map list appender ([#14531](https://github.com/spongebobmoviept-lab/rea/issues/14531)) ([8da1e56](https://github.com/spongebobmoviept-lab/rea/commit/8da1e562775eced153123b32cdace52c8030ef19))
